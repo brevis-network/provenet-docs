@@ -1,0 +1,1083 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-cc69e1fb.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-56612340.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-3c20cc00.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a2c5dde0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Brevis ProverNet is a decentralized marketplace where any application can access zero-knowledge proving capacity and any prover can compete to serve it.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="system-overview"><a class="header" href="#system-overview">System Overview</a></h1>
+<p>The Brevis Prover Network is a decentralized infrastructure that enables smart contracts to offload complex, data-heavy computations to an off-chain network without sacrificing security.</p>
+<p>By utilizing Zero-Knowledge (ZK) proofs, the network allows a smart contract to verify that a piece of off-chain work was performed correctly. This architecture allows the blockchain to act as an enforcement and settlement layer for expensive computations—such as analyzing historical states or complex data transitions—that would otherwise be impossible to perform on-chain.</p>
+<hr>
+<h3 id="the-network-architecture"><a class="header" href="#the-network-architecture">The Network Architecture</a></h3>
+<p>The network functions through a continuous, trustless loop between <strong>on-chain enforcement</strong> and <strong>off-chain execution</strong>.  The off-chain provers perform the heavy computation, while the on-chain contracts ensure that the rules of the protocol are followed and that only mathematically correct results are accepted.</p>
+<h4 id="1-on-chain-enforcement-the-rules--verdict"><a class="header" href="#1-on-chain-enforcement-the-rules--verdict">1. On-Chain Enforcement (The Rules &amp; Verdict)</a></h4>
+<p>The smart contract suite serves as the final source of truth for the network’s state and rules:</p>
+<ul>
+<li><strong>Economic Alignment &amp; Accountability</strong>: The <code>StakingController</code> manages prover identity and ensures every participant is a committed stakeholder with “skin in the game”. This framework aligns prover incentives by enabling them to earn rewards and yields proportional to their stake and performance.</li>
+<li><strong>The Marketplace</strong>: The <code>BrevisMarket</code> acts as a trustless escrow and auction house, defining how work is assigned and payments are distributed to ensure a fair and competitive environment for all participants.</li>
+<li><strong>Cryptographic Verification</strong>: The <code>PicoVerifier</code> (Brevis ZK-VM) provides the final cryptographic verdict. It programmatically enforces that any result submitted by a prover matches the requested computation before any rewards are released, guaranteeing the integrity of the work performed.</li>
+</ul>
+<h4 id="2-off-chain-execution-the-work"><a class="header" href="#2-off-chain-execution-the-work">2. Off-Chain Execution (The Work)</a></h4>
+<p>The off-chain Prover Nodes are the active participants that power the network:</p>
+<ul>
+<li><strong>Market Monitoring</strong>: Provers continuously monitor the <code>BrevisMarket</code> for new <code>ProofRequests</code> that match their hardware capabilities and risk profile.</li>
+<li><strong>Competitive Bidding</strong>: Prover nodes run automated logic to participate in reverse auctions, bidding the most competitive fees based on local operational costs.</li>
+<li><strong>ZK Proof Generation</strong>: Once a prover wins an auction, they execute the requested computation and generate a ZK proof using a combination of highly optimized, efficient ZK-VM software and high-performance hardware.</li>
+<li><strong>Proof Submission</strong>: The completed proof is submitted to the blockchain to trigger the on-chain verification and settlement process.</li>
+</ul>
+<hr>
+<h3 id="core-network-roles"><a class="header" href="#core-network-roles">Core Network Roles</a></h3>
+<ul>
+<li><strong>Requesters</strong>: Smart contracts or users that need trustless, verifiable computation.</li>
+<li><strong>Provers</strong>: Off-chain operators running the Brevis node software and high-performance ZK-generation hardware.</li>
+<li><strong>Stakers</strong>: BREV token holders who provide economic security (collateral) for provers in exchange for a share of the generated fees.</li>
+</ul>
+<hr>
+<h3 id="proof-lifecycle"><a class="header" href="#proof-lifecycle">Proof Lifecycle</a></h3>
+<p>The lifecycle of a single request follows a strict path to ensure reliability:</p>
+<ol>
+<li><strong>Request</strong>: A user or dApp submits a <code>ProofRequest</code> and escrows a maximum fee on-chain.</li>
+<li><strong>Auction</strong>: Off-chain provers compete in a sealed-bid reverse auction to win the task at the most competitive price.</li>
+<li><strong>Work</strong>: The assigned prover generates the ZK proof off-chain using the optimized Brevis zkVM.</li>
+<li><strong>Verification</strong>: The proof is submitted to the blockchain and verified by the <code>PicoVerifier</code>.</li>
+<li><strong>Settlement</strong>: Upon successful verification, the fee is automatically distributed to the prover and their stakers.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="staking--economic-security"><a class="header" href="#staking--economic-security">Staking &amp; Economic Security</a></h1>
+<p>The Staking &amp; Economic Security layer is the foundation for the network’s operational reliability and incentive alignment. While Zero-Knowledge proofs provide the mathematical guarantee of correctness, this layer provides the economic framework that ensures the prover marketplace remains active, responsive, and highly available.</p>
+<h4 id="the-role-of-capital-in-the-protocol"><a class="header" href="#the-role-of-capital-in-the-protocol">The Role of Capital in the Protocol</a></h4>
+<p>Staking in the Brevis Prover Network is designed to align the interests of all participants. By requiring provers to maintain a stake, the protocol ensures that every actor is a committed stakeholder with a long-term interest in the network’s health and reputation.</p>
+<ul>
+<li><strong>Operational Reliability</strong>: Staking ensures that provers meet a high standard of performance, fostering a predictable and dependable marketplace for requesters.</li>
+<li><strong>Dynamic Eligibility</strong>: A prover’s capacity to bid on and win work is linked to their available stake, ensuring the network remains balanced and that every assignment is backed by sufficient collateral.</li>
+</ul>
+<h4 id="advanced-vault-architecture"><a class="header" href="#advanced-vault-architecture">Advanced Vault Architecture</a></h4>
+<p>To ensure maximum safety and efficiency, the network utilizes an <strong>Isolated Vault Architecture</strong> based on the <strong>ERC-4626</strong> standard.</p>
+<ul>
+<li><strong>Risk Containment</strong>: Every prover operates through a dedicated, isolated vault, ensuring that performance events are contained individually and protecting the broader network’s liquidity.</li>
+<li><strong>DeFi Composability</strong>: By following the ERC-4626 standard, vault shares are transferable ERC-20 tokens that can be easily integrated with the broader DeFi ecosystem.</li>
+<li><strong>Seamless Compounding</strong>: Rewards are added directly into the vaults, increasing the asset-to-share ratio and allowing for automated reward compounding without the need for manual claims by stakers.</li>
+</ul>
+<h4 id="economic-opportunity"><a class="header" href="#economic-opportunity">Economic Opportunity</a></h4>
+<p>The security layer is designed to reward participation through multiple diversified yield streams:</p>
+<ul>
+<li><strong>Marketplace Fees</strong>: Successfully fulfilling proof requests generates fees that flow back into the staking system, increasing the value of vault shares.</li>
+<li><strong>Foundation Rewards</strong>: In addition to marketplace fees, the protocol distributes foundation-funded rewards to provers based on their ZK-verified activities and total stake (vault assets).</li>
+<li><strong>Shared Success</strong>: Both provers and stakers benefit from these combined revenue streams, creating a collaborative environment for scaling decentralized ZK-computation.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="staking"><a class="header" href="#staking">Staking</a></h1>
+<p>The Staking system provides the economic framework for prover participation. By requiring provers to lock collateral, the protocol ensures a highly active and responsive marketplace where every actor has a measurable commitment to the network’s operational success.</p>
+<hr>
+<h3 id="prover-lifecycle"><a class="header" href="#prover-lifecycle">Prover Lifecycle</a></h3>
+<p>The <code>StakingController</code> manages the journey of an operator through a defined set of states and requirements to ensure all active participants remain economically aligned with the protocol.</p>
+<h4 id="prover-states"><a class="header" href="#prover-states">Prover States</a></h4>
+<ul>
+<li><strong>Null</strong>: The initial state for any operator before registration or vault initialization.</li>
+<li><strong>Active</strong>: The prover is fully operational and eligible to bid on and fulfill proof requests in the marketplace.</li>
+<li><strong>Deactivated</strong>: A cooldown or exit state. The prover can no longer take on new work but remains in the system to fulfill or mature existing unstake requests.</li>
+<li><strong>Jailed</strong>: An administrative penalty state. Jailed provers are ineligible for new work until they are reactivated by an authorized administrator.</li>
+</ul>
+<h4 id="registration--initialization"><a class="header" href="#registration--initialization">Registration &amp; Initialization</a></h4>
+<p>Operators enter the network by calling <code>initializeProver</code>. This function triggers two simultaneous actions:</p>
+<ol>
+<li><strong>Vault Deployment</strong>: The deterministic deployment of a dedicated ProverVault (ERC-4626) specifically for that operator.</li>
+<li><strong>Initial Deposit</strong>: An initial stake that satisfies the minimum self-stake requirement, moving the operator directly from the Null state to the Active state.</li>
+</ol>
+<h4 id="self-stake-requirement"><a class="header" href="#self-stake-requirement">Self-Stake Requirement</a></h4>
+<p>To maintain an Active status, provers must adhere to strict collateral rules:</p>
+<ul>
+<li><strong>Mandatory Collateral</strong>: Provers must maintain a specific amount of their own assets (<code>minSelfStake</code>) within their vault at all times.</li>
+<li><strong>Non-Transferable Shares</strong>: The portion of vault shares representing the minimum self-stake is locked and cannot be transferred while the prover is active.</li>
+<li><strong>Automatic Enforcement</strong>: If a prover’s self-stake falls below the required threshold, the system transitions them to the Deactivated state to ensure all active work is properly collateralized.</li>
+</ul>
+<hr>
+<h3 id="the-staking-process"><a class="header" href="#the-staking-process">The Staking Process</a></h3>
+<p>Asset management within the network is handled through a streamlined process for both provers and their stakers utilizing isolated vaults.</p>
+<ul>
+<li><strong>Direct Staking</strong>: Users can stake with any active prover by depositing BREV tokens into the <code>StakingController</code>. The controller manages the deposit into the isolated vault and issues vault shares to the user.</li>
+<li><strong>Compounding Yield</strong>: Rewards from the marketplace or foundation are added directly to the vault assets. This increases the value of all shares automatically, allowing for seamless compounding without manual claims.</li>
+</ul>
+<hr>
+<h3 id="two-phase-unstaking-process"><a class="header" href="#two-phase-unstaking-process">Two-Phase Unstaking Process</a></h3>
+<p>To ensure provers cannot bypass commitments to pending work, all withdrawals follow a mandatory two-phase process:</p>
+<ol>
+<li><strong>Phase 1: Request (<code>requestUnstake</code>)</strong>: A user initiates an unstake by specifying the number of vault shares to redeem. The shares are burned, and the equivalent asset value enters a mandatory Unstake Delay period.</li>
+<li><strong>Phase 2: Completion (<code>completeUnstake</code>)</strong>: After the delay period has passed, the user calls <code>completeUnstake</code> to transfer the BREV tokens from the vault directly to their wallet.</li>
+</ol>
+<blockquote>
+<p>Note: Assets in the “Pending” phase remain part of the prover’s economic accountability until the second phase is completed, ensuring provers remain responsive to assignments even during their exit period.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="reward-distribution"><a class="header" href="#reward-distribution">Reward Distribution</a></h1>
+<p>The Brevis Prover Network utilizes a decoupled architecture where the <code>StakingController</code> serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines—such as the marketplace and foundation incentive programs—to seamlessly integrate with the staking system.</p>
+<hr>
+<h3 id="the-reward-mechanism"><a class="header" href="#the-reward-mechanism">The Reward Mechanism</a></h3>
+<p>When a reward enters the <code>StakingController</code> from an external source, it is automatically processed through a standardized logic that balances prover compensation with staker yield.</p>
+<h4 id="1-prover-commission"><a class="header" href="#1-prover-commission">1. Prover Commission</a></h4>
+<p>Every prover can define <strong>Commission Rates</strong> (in basis points) that determine the percentage of a reward they retain to cover operational and hardware costs.</p>
+<p>The system provides granular flexibility through a tiered commission structure:</p>
+<ul>
+<li><strong>Default Commission Rate</strong>: Provers set a global fallback rate that applies to any reward source that does not have a specific override.</li>
+<li><strong>Per-Source Overrides</strong>: Provers can customize their margin for different Reward Sources. For example, a prover may set a higher commission for <code>BrevisMarket</code> tasks to cover intensive GPU costs, while maintaining a lower rate for foundation rewards to maximize the yield passed to their stakers and remain competitive.</li>
+</ul>
+<h4 id="2-automated-staking-yield"><a class="header" href="#2-automated-staking-yield">2. Automated Staking Yield</a></h4>
+<p>The portion of the reward remaining after the prover’s commission is “donated” directly into the prover’s isolated <strong>ERC-4626 Vault</strong>.</p>
+<ul>
+<li><strong>Share Price Appreciation</strong>: These assets increase the total value of the vault without minting new shares, causing the price per share to rise for all participants.</li>
+<li><strong>Seamless Compounding</strong>: This mechanism ensures that stakers receive an automated, compounding yield on their assets without the need for manual claims or restaking actions.</li>
+</ul>
+<hr>
+<h3 id="flexible-reward-sources"><a class="header" href="#flexible-reward-sources">Flexible Reward Sources</a></h3>
+<p>Because the <code>StakingController</code> is decoupled from the reward logic, the network can support a wide variety of incentive streams.</p>
+<h4 id="proving-fees-brevismarket"><a class="header" href="#proving-fees-brevismarket">Proving Fees (<code>BrevisMarket</code>)</a></h4>
+<p>Requesters pay Proving Fees in BREV token to have their specific computational tasks fulfilled. When a request is completed, the <code>BrevisMarket</code> contract processes the payment and forwards it to the <code>StakingController</code> to be distributed according to the winning prover’s specific commission settings.</p>
+<h4 id="foundation-rewards"><a class="header" href="#foundation-rewards">Foundation Rewards</a></h4>
+<p>To bootstrap network liquidity and support long-term growth, the protocol distributes foundation-funded rewards through a <strong>Continuous Protocol Incentivization</strong> model.</p>
+<ul>
+<li><strong>ZK-Verified Activities</strong>: These rewards are distributed based on mathematical proofs of a prover’s participation. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.</li>
+<li><strong>Stake-Based Allocation</strong>: Rewards also take into account a prover’s total stake (vault assets), ensuring that the distribution fairly considers the economic commitment provided to the network by the prover and their stakers.</li>
+<li><strong>Transparent Distribution</strong>: By verifying activity off-chain and settling rewards on-chain, the foundation ensures a transparent and fair distribution that rewards the most reliable participants.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="the-proof-marketplace"><a class="header" href="#the-proof-marketplace">The Proof Marketplace</a></h1>
+<p>The <strong>BrevisMarket</strong> is the decentralized coordination engine of the network. It acts as a trustless, on-chain marketplace that matches computational demand from applications with the high-performance supply of independent provers.</p>
+<p>By facilitating open competition, the marketplace ensures that requesters receive the most competitive pricing and lowest latency, while provers are rewarded for their hardware efficiency and software optimizations.</p>
+<hr>
+<h3 id="core-marketplace-principles"><a class="header" href="#core-marketplace-principles">Core Marketplace Principles</a></h3>
+<p>The marketplace is designed to ensure the network remains open, secure, and reliable through three fundamental properties:</p>
+<ul>
+<li><strong>Permissionless Matching</strong>: Any application can submit a proof request, and any registered prover can bid on available work. There are no centralized gatekeepers; matching is determined purely by the protocol’s mathematical auction rules.</li>
+<li><strong>Trustless Execution</strong>: The marketplace does not “trust” a prover to be honest. Instead, it relies on the <code>PicoVerifier</code> to programmatically verify every proof result before any fees are released from escrow.</li>
+<li><strong>Economic Accountability</strong>: The marketplace is deeply integrated with the <code>StakingController</code>. Provers must maintain a sufficient stake to participate, ensuring they have “skin in the game” to fulfill their assignments on time and with high integrity.</li>
+</ul>
+<hr>
+<h3 id="proof-request-lifecycle"><a class="header" href="#proof-request-lifecycle">Proof Request Lifecycle</a></h3>
+<p>While the smart contract tracks the technical status of a request, the actual lifecycle involves both on-chain transitions and off-chain coordination.</p>
+<h4 id="conceptual-stages-vs-on-chain-status"><a class="header" href="#conceptual-stages-vs-on-chain-status">Conceptual Stages vs. On-Chain Status</a></h4>
+<table data-header-hidden="">
+<thead>
+<tr><th width="165.84765625"></th><th width="160.55078125"></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Conceptual Stage</strong></td><td><strong>On-Chain Status</strong> </td><td><strong>What is Happening?</strong></td></tr>
+<tr><td>Submission</td><td><code>Pending</code></td><td>The requester escrows the fee and the request is broadcast to the network.</td></tr>
+<tr><td>Auction</td><td><code>Pending</code></td><td>Provers submit and reveal sealed bids. The request remains <code>Pending</code> on-chain during this phase.</td></tr>
+<tr><td>Assigned</td><td><code>Pending</code></td><td>The auction window closes. A winner is identified and begins generating the ZK proof.</td></tr>
+<tr><td>Fulfilled</td><td><code>Fulfilled</code></td><td>The prover submits the proof. The contract confirms it and distributes fees instantly.</td></tr>
+<tr><td>Refunded</td><td><code>Refunded</code></td><td>If a request is not fulfilled by the deadline, the requester can trigger a refund of their fees.</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h3 id="key-marketplace-components"><a class="header" href="#key-marketplace-components">Key Marketplace Components</a></h3>
+<ul>
+<li><a href="#request-auction">Request Auction</a>: The competitive bidding process where provers compete for jobs. It is designed to encourage provers to bid their actual costs while ensuring requesters pay a fair market rate.</li>
+<li><a href="#request-fulfillment">Request Fulfillment</a>: The process of generating ZK proofs, submitting them for on-chain verification, and the subsequent automatic distribution of fees or refunds.</li>
+<li><a href="#overcommit-protection">Overcommit Protection</a>: A reliability safeguard that limits how much work a prover can take on at once based on their available stake, preventing the network from becoming over-leveraged.</li>
+<li><a href="#submitter-management">Submitter Management</a>: The operational framework that allows provers to authorize specific node addresses to submit work, separating high-security staking keys from day-to-day operational keys.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="request-auction"><a class="header" href="#request-auction">Request Auction</a></h1>
+<p>The Request Auction represents the first half of the proof lifecycle. It is the phase where computational demand meets supply, transforming a user’s <code>ProofRequest</code> into a formal assignment for a specific prover. This process is governed by the <code>BrevisMarket</code> contract to ensure that every job is matched with a capable and economically committed operator.</p>
+<hr>
+<h3 id="the-proof-request"><a class="header" href="#the-proof-request">The Proof Request</a></h3>
+<p>A <code>ProofRequest</code> is a set of cryptographic and economic constraints that define how the proof must be generated. When a requester submits a job, they specify the following parameters:</p>
+<ul>
+<li><strong>Max Fee</strong>: The maximum amount (in BREV tokens) the requester is willing to pay. This amount is escrowed on-chain upon submission.</li>
+<li><strong>Deadline</strong>: The strict time limit by which the proof must be submitted to the on-chain verifier.</li>
+<li><strong>Minimum Stake</strong>: The minimum collateral a prover must hold in their vault to be eligible to bid. This ensures the prover has sufficient “skin in the game” relative to the task’s value.</li>
+<li><strong>Proof Specification</strong>: The technical requirements for the ZK proof, including the target circuit verification key and the data to be verified.</li>
+</ul>
+<hr>
+<h3 id="prover-eligibility"><a class="header" href="#prover-eligibility">Prover Eligibility</a></h3>
+<p>Not every prover can bid on every request. The marketplace automatically filters participants based on their real-time status:</p>
+<ol>
+<li><strong>Active Status</strong>: Only provers in the Active state (those meeting the global Minimum Self-Stake) can participate in auctions.</li>
+<li><strong>Collateral Sufficiency</strong>: A prover must have enough available stake in their ProverVault to meet the request’s <code>minStake</code>. The <a href="#overcommit-protection">Overcommit Protection</a> mechanism governs the extent to which a prover can take on additional concurrent workload relative to their total stake.</li>
+<li><strong>Reliability &amp; Performance</strong>: To meet the deadline, provers must maintain high hardware performance and service reliability. Significant downtime or hardware lag can prevent a prover from fulfilling an assignment, putting their stake at risk.</li>
+</ol>
+<hr>
+<h3 id="the-bidding-mechanism"><a class="header" href="#the-bidding-mechanism">The Bidding Mechanism</a></h3>
+<p>The auction uses a <strong>Commit-Reveal</strong> version of a <strong>Sealed-Bid Reverse Second-Price</strong> model. This ensures a fair and competitive environment while preventing front-running.</p>
+<h4 id="phase-1-commitment-the-bid-hash"><a class="header" href="#phase-1-commitment-the-bid-hash">Phase 1: Commitment (The Bid Hash)</a></h4>
+<p>During the bidding window, provers submit a Bid Hash to the blockchain.</p>
+<ul>
+<li><strong>Confidentiality</strong>: While the hash is public, the actual bid amount remains hidden. This prevents competitors from seeing and strategically undercutting bids by a few wei.</li>
+<li><strong>Integrity</strong>: Once a hash is submitted, the prover cannot change their bid amount later.</li>
+</ul>
+<h4 id="phase-2-reveal-price-discovery"><a class="header" href="#phase-2-reveal-price-discovery">Phase 2: Reveal (Price Discovery)</a></h4>
+<p>After the bidding window closes, the Reveal Phase begins. Bidders submit the preimage (the actual bid amount and secret) that matches their previously submitted hash.</p>
+<ul>
+<li><strong>Tracking the Winner</strong>: The on-chain contract tracks the lowest revealed bid in real-time. Once the reveal phase ends, the winner becomes immutable on-chain.</li>
+<li><strong>The Second-Price Rule</strong>: To encourage truthful bidding, the winner is paid the <strong>second-lowest bid</strong> (capped by the requester’s <code>maxFee</code>). This ensures provers bid their true operational costs while receiving a fair market premium.</li>
+</ul>
+<hr>
+<h3 id="assignment"><a class="header" href="#assignment">Assignment</a></h3>
+<p>Once the reveal phase is complete and the winner is finalized on-chain, the request is considered <strong>Assigned</strong>.</p>
+<p>The winner’s required stake is now logically committed to this request. The prover then enters the execution phase to generate the ZK proof, marking the start of <a href="#request-fulfillment">Request Fulfillment</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="request-fulfillment"><a class="header" href="#request-fulfillment">Request Fulfillment</a></h1>
+<p>Request Fulfillment is the final stage of the proof lifecycle. This phase transitions the proof from off-chain computation to on-chain verification, concluding with the automated settlement of fees and the handling of any service failures.</p>
+<hr>
+<h3 id="proof-generation--submission"><a class="header" href="#proof-generation--submission">Proof Generation &amp; Submission</a></h3>
+<p>Once a request is assigned, the winning prover must deliver a valid cryptographic proof before the specified Deadline.</p>
+<ul>
+<li><strong>Off-Chain Execution</strong>: The prover runs the computation and generates a ZK proof using the Brevis ZK-VM. Success in this phase depends on both high-performance hardware and service reliability to ensure the proof is ready within the required timeframe.</li>
+<li><strong>On-Chain Submission</strong>: The prover submits the completed proof to the <code>BrevisMarket</code> contract, which calls the PicoVerifier to programmatically verify the proof’s validity. If the proof is correct, the request status is updated to Fulfilled.</li>
+</ul>
+<hr>
+<h3 id="fee-distribution"><a class="header" href="#fee-distribution">Fee Distribution</a></h3>
+<p>When a request is successfully fulfilled, the protocol handles the distribution of the escrowed fees atomically. This ensures immediate compensation for the work performed.</p>
+<p>The fee is distributed according to the following hierarchy:</p>
+<ol>
+<li><strong>Protocol Fee</strong>: The <code>BrevisMarket</code> contract takes a small cut as a protocol fee, which is sent to the network treasury.</li>
+<li><strong>Prover Commission</strong>: From the remaining amount, the prover’s commission (based on their default or source-specific rate) is deducted and sent directly to their designated wallet.</li>
+<li><strong>Staking Yield</strong>: The final portion is deposited into the operator’s ProverVault. This increases the value of the vault’s underlying assets, causing an immediate share price appreciation that serves as compounding yield for all stakers.</li>
+</ol>
+<hr>
+<h3 id="failure-handling"><a class="header" href="#failure-handling">Failure Handling</a></h3>
+<p>The marketplace provides automated logic to protect requesters and penalize unreliable behavior when a proof is not delivered.</p>
+<h4 id="refund"><a class="header" href="#refund">Refund</a></h4>
+<p>If a request is not fulfilled, the requester can reclaim their escrowed <code>maxFee</code> by triggering a refund. This is available if the auction ended without any prover participation, or if the assigned prover failed to submit a verified proof before the deadline.</p>
+<h4 id="slashing"><a class="header" href="#slashing">Slashing</a></h4>
+<p>Reliability is enforced through economic accountability. If an assigned prover fails to fulfill their commitment by the deadline, they may be penalized based on the <code>minStake</code> of the request and the configured <code>slashBps</code>. All slashed funds are transferred from the prover’s vault directly to the protocol treasury, ensuring that provers only bid on tasks they are capable of completing.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="overcommit-protection"><a class="header" href="#overcommit-protection">Overcommit Protection</a></h1>
+<p>The Overcommit Protection mechanism is a core reliability safeguard that balances <strong>capital efficiency</strong> with <strong>network security</strong>. It defines the maximum concurrent workload a prover can handle relative to their total stake, ensuring the network remains stable and responsive.</p>
+<hr>
+<h3 id="the-concept-of-overcommitment"><a class="header" href="#the-concept-of-overcommitment">The Concept of Overcommitment</a></h3>
+<p>In a strict 1:1 collateral model, a prover would be limited to taking on tasks where the total <code>minStake</code> requirements exactly match their locked assets. However, requiring 100% collateral for every concurrent task can be capital-inefficient for reliable, professional operators.</p>
+<p>Overcommitment allows the network to scale its throughput by permitting provers to manage a larger volume of “Active” tasks than their raw stake would normally allow. This ensures that the network’s computational capacity is not artificially capped by the speed of token liquidity.</p>
+<hr>
+<h3 id="capacity-management"><a class="header" href="#capacity-management">Capacity Management</a></h3>
+<p>The marketplace tracks the Assigned Stake of every prover. A prover’s ability to bid on a new request is determined by the following eligibility rule:</p>
+<pre><code>Required Stake = Request.minStake + (AssignedStake * overcommitBps / 10,000)
+</code></pre>
+<ul>
+<li><strong>Assigned Stake</strong>: The sum of the <code>minStake</code> requirements for all requests currently assigned to a prover that have not yet reached a final state (Fulfilled or Refunded).</li>
+<li><strong>The Overcommit Parameter</strong> (<code>overcommitBps</code>): A protocol-wide variable that determines how much “weight” is given to existing assignments when calculating a prover’s required collateral for a new job.</li>
+<li><strong>Capacity Release</strong>: As soon as a request is completed, the associated <code>minStake</code> is removed from the prover’s Assigned Stake tally, immediately restoring their capacity to bid.</li>
+</ul>
+<hr>
+<h3 id="throughput-vs-safety"><a class="header" href="#throughput-vs-safety">Throughput vs. Safety</a></h3>
+<p>The <code>overcommitBps</code> value is a vital lever for tuning the network’s economic health. Its value represents a direct trade-off between the total volume of proofs the network can handle and the level of collateral backing those proofs.</p>
+<ul>
+<li><strong>Higher <code>overcommitBps</code> (Safety-Focused)</strong>: By increasing this value, the protocol makes existing assignments “consume” more of the prover’s stake. This leads to higher collateralization per task and reduces systemic risk if a single prover fails, but it requires more total capital to maintain high network throughput.</li>
+<li><strong>Lower <code>overcommitBps</code> (Throughput-Focused)</strong>: A lower value reduces the “weight” of existing assignments, allowing a prover to take on a significantly higher volume of proofs with the same amount of total stake. This maximizes capital efficiency for provers but means a larger portion of the network’s active work is shared against the same pool of collateral.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="submitter-management"><a class="header" href="#submitter-management">Submitter Management</a></h1>
+<p>Submitter Management provides the operational security framework for provers. It allows operators to separate their high-value staking assets from the “hot” keys used for automated, high-frequency network interactions.</p>
+<hr>
+<h3 id="operational-security"><a class="header" href="#operational-security">Operational Security</a></h3>
+<p>By using authorized <strong>Submitter Addresses</strong>, provers can keep their primary <strong>Staking Key</strong> in cold storage. This “hot-cold” architecture provides two main benefits:</p>
+<ul>
+<li><strong>Risk Mitigation</strong>: If a worker node is compromised, the attacker only gains access to an operational key. They cannot withdraw or steal the underlying stake held in the ProverVault.</li>
+<li><strong>Infrastructure Scaling</strong>: A single prover entity can authorize multiple worker nodes across different regions to submit proofs, enhancing redundancy without exposing their primary identity.</li>
+</ul>
+<hr>
+<h3 id="submitter-registration"><a class="header" href="#submitter-registration">Submitter Registration</a></h3>
+<p>To ensure a secure link between an operator and their worker nodes, the <code>BrevisMarket</code> requires a <strong>two-step handshake</strong> to register a submitter:</p>
+<ol>
+<li><strong>Submitter Consent</strong>: The Submitter Address (the worker node) must first call <code>setSubmitterConsent</code> on the marketplace contract. This signals that the address is willing to be managed by a specific prover.</li>
+<li><strong>Prover Registration</strong>: The Staking Key then calls <code>registerSubmitter</code> to finalize the link.</li>
+</ol>
+<p>This mutual agreement ensures that no address can be mistakenly or maliciously linked to a prover’s identity without consent from both parties. Once registered, the worker node is authorized to bid on auctions and submit proofs on behalf of the prover.</p>
+<p>The Staking Key maintains the power to call <code>unregisterSubmitter</code> at any time to immediately revoke a worker node’s authority, allowing for rapid key rotation or infrastructure updates.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="proof-generation--verification"><a class="header" href="#proof-generation--verification">Proof Generation &amp; Verification</a></h1>
+<p>This section details the internal architecture and operational workflow of a single prover’s off-chain node, exploring how the <strong>Bidder</strong> and <strong>Proving Service</strong> components interact with the <strong>Pico zkVM</strong> to generate and verify trustless proofs on-chain.</p>
+<hr>
+<h3 id="pico-the-high-performance-zkvm"><a class="header" href="#pico-the-high-performance-zkvm">Pico: The High-Performance zkVM</a></h3>
+<p>The Brevis network utilizes Pico, an open-source, high-performance zero-knowledge virtual machine (zkVM). Pico serves as the execution engine for the network, providing several key technical advantages:</p>
+<ul>
+<li><strong>Modularity</strong>: Composed of independent, interchangeable components that allow for tailored proof systems.</li>
+<li><strong>Flexibility</strong>: Supports various proving backends and custom pipelines to fine-tune proof generation.</li>
+<li><strong>Extensibility</strong>: Allows seamless integration of app-specific circuits and acceleration modules (coprocessors).</li>
+<li><strong>Performance</strong>: Engineered for industry-leading proof generation speeds on standard hardware through optimized workflows and specialized circuits.</li>
+</ul>
+<p>For detailed technical specifications and implementation guides, refer to the <a href="https://pico-docs.brevis.network/">Official Pico Documentation</a>.</p>
+<hr>
+<h3 id="off-chain-prover-architecture"><a class="header" href="#off-chain-prover-architecture">Off-Chain Prover Architecture</a></h3>
+<p>A Brevis prover node consists of two specialized service layers that communicate via a private RPC interface.</p>
+<h4 id="1-the-proving-service"><a class="header" href="#1-the-proving-service">1. The Proving Service</a></h4>
+<p>The Proving Service is the foundational execution engine. It acts as a generic Pico Prover instance that manages the raw computational resources of the node.</p>
+<ul>
+<li><strong>RPC Interface</strong>: It exposes a private API to the Bidder for task management. This includes a <code>Cost Estimation</code> interface which returns the expected computation cost in machine cycles or returns an error if the request is invalid (unprovable).</li>
+<li><strong>Execution</strong>: It receives proving tasks, executes the RISC-V bytecode, and generates the final ZK proof and public values digest.</li>
+</ul>
+<h4 id="2-the-bidder"><a class="header" href="#2-the-bidder">2. The Bidder</a></h4>
+<p>The Bidder serves as the operational manager, handling the economic and marketplace logic. Its workflow follows a strict sequence:</p>
+<ol>
+<li><strong>Monitor</strong>: It constantly scans the <code>BrevisMarket</code> contract for new proof requests that align with the prover’s stake and eligibility.</li>
+<li><strong>Dry Run</strong>: Before bidding, the Bidder performs a “dry run” by calling the Proving Service’s Cost Estimation interface. This confirms the request is technically valid and provides the cycle count needed to decide if/how to participate in the bid.</li>
+<li><strong>Task Management &amp; Submission</strong>: Once an auction is won, the Bidder sends the official proving task to the Proving Service, queries the status until the proof is generated, and subsequently facilitates the on-chain submission.</li>
+</ol>
+<hr>
+<h3 id="verification-workflow"><a class="header" href="#verification-workflow">Verification Workflow</a></h3>
+<p>The transition from a generated proof to a fulfilled on-chain request happens through a specific sequence of contract calls.</p>
+<h4 id="1-on-chain-submission"><a class="header" href="#1-on-chain-submission">1. On-Chain Submission</a></h4>
+<p>The Bidder calls the <code>submitProof</code> function on the BrevisMarket contract:</p>
+<pre><code class="language-solidity">// BrevisMarket.sol
+function submitProof(bytes32 reqid, uint256[8] calldata proof)
+</code></pre>
+<h4 id="2-pico-verification"><a class="header" href="#2-pico-verification">2. Pico Verification</a></h4>
+<p>The <code>BrevisMarket</code> acts as the orchestrator. It internally routes the proof to the PicoVerifier contract to ensure mathematical integrity:</p>
+<pre><code class="language-solidity">// PicoVerifier.sol
+function verifyPicoProof(bytes32 riscvVkey, bytes32 publicValues, uint256[8] calldata proof)
+</code></pre>
+<p>If the PicoVerifier confirms the proof is valid, the <code>BrevisMarket</code> updates the status to Fulfilled, triggering the instant distribution of fees.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="operate-a-prover-node"><a class="header" href="#operate-a-prover-node">Operate a Prover Node</a></h1>
+<p>Operating a Brevis prover node is a high-responsibility role that transforms computational power into network security. As an operator, your primary goal is to maintain a reliable environment that fulfills ZK proof requests within deadlines to earn protocol fees and staking yields.</p>
+<h4 id="the-operational-stack"><a class="header" href="#the-operational-stack">The Operational Stack</a></h4>
+<p>While the architecture is detailed in the <a href="#off-chain-prover-architecture">previous section</a>, your daily operations revolve around two primary software components:</p>
+<ul>
+<li><strong>Pico Proving Server</strong>: The core execution engine that handles RISC-V ZK proof generation.</li>
+<li><strong>Bidder Server</strong>: The orchestrator that manages marketplace participation, bidding strategy, and on-chain submissions.</li>
+</ul>
+<h4 id="setup--management-lifecycle"><a class="header" href="#setup--management-lifecycle">Setup &amp; Management Lifecycle</a></h4>
+<p>Becoming an active prover involves a streamlined path from infrastructure setup to active participation:</p>
+<ol>
+<li><strong>Hardware &amp; Environment</strong>: Provisioning high-performance hardware and stable network connectivity to ensure proofs are generated and submitted within the required timeframe.</li>
+<li><strong>Software Deployment</strong>: First deploy the Proving Server to establish your computational baseline, followed by the Bidder Server to connect that power to the <code>BrevisMarket</code>..</li>
+<li><strong>Prover Account Initialization</strong>: Setting up your prover profile via the <code>StakingController</code>. We also recommend authorizing Submitter Addresses (worker keys) to handle automated on-chain actions while keeping your primary staking key safe (in cold storage).</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="run-the-pico-proving-server"><a class="header" href="#run-the-pico-proving-server">Run the Pico Proving Server</a></h1>
+<p>The Pico Proving Server is the computational backend of your node, responsible for executing RISC-V bytecode and generating ZK proofs. It operates as a standalone service that receives tasks and cost-estimation requests from the Bidder Server via a private RPC interface.</p>
+<h4 id="choosing-your-hardware"><a class="header" href="#choosing-your-hardware">Choosing Your Hardware</a></h4>
+<p>Your choice of hardware directly determines your node’s capability and reliability within the marketplace. Because ZK proof generation is computationally intensive, your environment must be powerful enough to meet the strict deadlines set by requesters:</p>
+<ul>
+<li><strong>GPU Proving (Recommended)</strong>: For production environments, a GPU host is strongly recommended. For many complex proof requests, a high-performance GPU is the only viable option to generate the proof within the required deadline.</li>
+<li><strong>CPU Proving</strong>: A CPU host is suitable for small workloads, experimentation, or initial testing. While it allows you to verify your node’s configuration, it may not be sufficient for the high-throughput or low-latency tasks found in the live marketplace.</li>
+</ul>
+<h4 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h4>
+<p>The subsections below outline the specific installation steps, system dependencies, and configuration requirements for each setup:</p>
+<ul>
+<li><a href="#deploy-gpu-prover"><strong>Deploy GPU Prover</strong></a>: Optimized setup for production-grade performance.</li>
+<li><a href="#deploy-cpu-prover"><strong>Deploy CPU Prover</strong></a>: Standard setup for testing and lightweight workloads.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="deploy-gpu-prover"><a class="header" href="#deploy-gpu-prover">Deploy GPU Prover</a></h1>
+<ol>
+<li>
+<p>Follow <a href="https://github.com/brevis-network/pico-ethproofs/blob/main/docs/multi-machine-setup.md">multi-machine-setup.md</a> to prepare the GPU box.</p>
+</li>
+<li>
+<p>Install <a href="https://docs.docker.com/engine/install">Docker</a> and add your user to the <code>docker</code> group:</p>
+<pre><code class="language-bash">sudo groupadd docker 2&gt;/dev/null || true &amp;&amp; sudo usermod -aG docker $USER
+</code></pre>
+<p>If Docker reports <code>could not select device driver "" with capabilities: [[gpu]]</code>, install the <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html">NVIDIA Container Toolkit</a> and restart Docker:</p>
+<pre><code class="language-bash">sudo systemctl restart docker
+</code></pre>
+</li>
+<li>
+<p>Download the GPU Pico proving service image from <code>/home/ubuntu</code>:</p>
+<pre><code class="language-bash">curl -sL -O https://pico-proofs.s3.us-west-2.amazonaws.com/prover-network/mainnet/pico-proving-service-gpu.tar
+</code></pre>
+</li>
+<li>
+<p>Load the image into Docker:</p>
+<pre><code class="language-bash">docker load -i pico-proving-service-gpu.tar
+</code></pre>
+</li>
+<li>
+<p>Clone the repository and enter the GPU docker folder:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/pico-proving-service
+cd pico-proving-service/docker/gpu
+</code></pre>
+</li>
+<li>
+<p>Copy the environment template:</p>
+<pre><code class="language-bash">cp .env.example .env
+</code></pre>
+<ul>
+<li>Fix <code>PROVER_COUNT</code> to the number of GPUs on your machine.</li>
+<li>The <code>SPLIT_THRESHOLD</code>, <code>CHUNK_SIZE</code>, <code>MEM_POOL_RESERVE_SIZE</code> and <code>PICO_GPU_MEM</code> are set to default for RTX 5090. For RTX 4090, comment the settings for 5090 and enable the settings for 4090. </li>
+</ul>
+<p>Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, you could enable <code>MAX_EMULATION_CYCLES</code> to give a try, its value is machine specific.</p>
+</li>
+<li>
+<p>Download dependencies and bring up the containers:</p>
+<pre><code class="language-bash">make download-gnark
+make up
+</code></pre>
+</li>
+<li>
+<p>Verify the containers:</p>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<p>You should see <code>pico-proving-service</code> and <code>pico_gnark_server</code>. The Gnark server produces the final on-chain verifiable proof.</p>
+</li>
+<li>
+<p>Review the <code>Makefile</code> for other targets (down/restart/clean). For logs, run:</p>
+<pre><code class="language-bash">make logs-server
+make logs-gnark
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="deploy-cpu-prover"><a class="header" href="#deploy-cpu-prover">Deploy CPU Prover</a></h1>
+<ol>
+<li>
+<p>Prepare the host:</p>
+<ul>
+<li>Instance: AWS <code>r7i.16xlarge</code> (64 vCPUs) or equivalent.</li>
+<li>OS: <code>ubuntu-24.04-amd64-server</code>.</li>
+<li>Install prerequisites:
+<ul>
+<li><a href="https://www.rust-lang.org/tools/install">Rust</a> (restart the shell after installation).</li>
+<li>Build tools: <code>sudo apt-get install -y build-essential cmake git pkg-config libssl-dev</code></li>
+<li><a href="https://github.com/launchbadge/sqlx/tree/main/sqlx-cli">sqlx-cli</a>: <code>cargo install sqlx-cli</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Install Docker and add your user to the <code>docker</code> group:</p>
+<pre><code class="language-bash">sudo groupadd docker 2&gt;/dev/null || true &amp;&amp; sudo usermod -aG docker $USER
+</code></pre>
+</li>
+<li>
+<p>Download the CPU image from <code>/home/ubuntu</code>:</p>
+<pre><code class="language-bash">curl -sL -O https://pico-proofs.s3.us-west-2.amazonaws.com/prover-network/mainnet/pico-proving-service-cpu.tar
+</code></pre>
+</li>
+<li>
+<p>Load the image:</p>
+<pre><code class="language-bash">docker load -i pico-proving-service-cpu.tar
+</code></pre>
+</li>
+<li>
+<p>Clone the repository and enter the CPU docker folder:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/pico-proving-service
+cd pico-proving-service/docker/cpu
+</code></pre>
+</li>
+<li>
+<p>Copy the environment template:</p>
+<pre><code class="language-bash">cp .env.example .env
+</code></pre>
+<p>Keep the default values unless you have a specific reason to override them.</p>
+</li>
+<li>
+<p>Download dependencies and start the containers:</p>
+<pre><code class="language-bash">make download-gnark
+make up
+</code></pre>
+</li>
+<li>
+<p>Check container status:</p>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<p>You should see <code>pico-proving-service</code> and <code>pico_gnark_server</code>. The Gnark server produces the final on-chain verifiable proof.</p>
+</li>
+<li>
+<p>Review the <code>Makefile</code> for lifecycle targets (stop/restart/clean). For logs, run:</p>
+<pre><code class="language-bash">make logs-server
+make logs-gnark
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="run-the-bidder-server"><a class="header" href="#run-the-bidder-server">Run the Bidder Server</a></h1>
+<p>The Bidder Server is the operational orchestrator of your prover node. It manages the business logic and marketplace interactions required to fulfill proof requests and secure rewards.</p>
+<h4 id="operational-role"><a class="header" href="#operational-role">Operational Role</a></h4>
+<p>The Bidder automates the proof request lifecycle by bridging your off-chain Proving Service with the on-chain BrevisMarket. It is responsible for monitoring requests, performing “Dry Runs” to verify provability, managing auction bids, and submitting finalized proofs for settlement.</p>
+<h4 id="setup-workflow"><a class="header" href="#setup-workflow">Setup Workflow</a></h4>
+<p>The deployment process is divided into two phases:</p>
+<ol>
+<li><a href="#initialize-prover-account"><strong>Initialize Prover Account</strong></a>: Establishing your on-chain identity via the StakingController, depositing stake, and authorizing Submitter Addresses to secure your assets.</li>
+<li><a href="#deploy-bidder-service"><strong>Deploy Bidder Service</strong></a>: A comprehensive guide to preparing your machine, installing necessary dependencies, and launching the Bidder binary to connect with your Proving Service.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="initialize-prover-account"><a class="header" href="#initialize-prover-account">Initialize Prover Account</a></h1>
+<p>Brevis provides CLI utilities that streamline on-chain operations to initalize a prover.</p>
+<ol>
+<li>
+<p>Clone the bidder ops repo from <code>/home/ubuntu</code>:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-bidder-ops
+</code></pre>
+</li>
+<li>
+<p>From the <code>tools</code> directory in this repo, build the binary:</p>
+<pre><code class="language-bash">cd tools
+go build
+</code></pre>
+</li>
+<li>
+<p>Update <code>config.toml</code> with the following fields:</p>
+<table>
+<thead>
+<tr><th width="140.55078125">Section</th><th width="212.1171875">Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>chain</td><td>keystore</td><td>Path to your prover Ethereum account keystore JSON</td></tr>
+<tr><td>chain</td><td>passphrase</td><td>Passphrase for the prover keystore</td></tr>
+<tr><td>init_prover</td><td>submitter_keystore</td><td>(Optional) Submitter keystore if using a different account</td></tr>
+<tr><td>init_prover</td><td>submitter_passphrase</td><td>(Optional) Passphrase for the submitter account</td></tr>
+<tr><td>init_prover</td><td>prover_name</td><td>Name that identifies you or your organization</td></tr>
+<tr><td>init_prover</td><td>prover_icon</td><td>URL of the icon that represents you or your organization</td></tr>
+</tbody>
+</table>
+
+</li>
+<li>
+<p>Run:</p>
+<pre><code class="language-bash">./tools init-prover --config ./config.toml
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>Note that this step will also auto stake a configured minimum amount BREV token to ensure prover meets the minimum self-stake requirement.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="deploy-bidder-service"><a class="header" href="#deploy-bidder-service">Deploy Bidder Service</a></h1>
+<h3 id="prepare-ec2-machine-and-install-dependencies"><a class="header" href="#prepare-ec2-machine-and-install-dependencies">Prepare EC2 machine and install dependencies</a></h3>
+<ol>
+<li>
+<p>Launch an Ubuntu EC2 instance with appropriate security groups and a key pair.</p>
+</li>
+<li>
+<p>Install Go (&gt;=1.16):</p>
+<pre><code class="language-bash">sudo snap install go --classic
+mkdir -p "$HOME/go/bin"
+</code></pre>
+</li>
+<li>
+<p>Install CockroachDB:</p>
+<pre><code class="language-bash">curl -sL https://binaries.cockroachdb.com/cockroach-v24.2.3.linux-amd64.tgz \
+  | sudo tar -xz --strip 1 -C /usr/local/bin cockroach-v24.2.3.linux-amd64/cockroach
+sudo chmod +x /usr/local/bin/cockroach
+</code></pre>
+</li>
+<li>
+<p>Configure CockroachDB as a systemd service:</p>
+<pre><code class="language-bash">sudo mkdir -p /var/log/crdb
+sudo touch /var/log/crdb/out.log /var/log/crdb/err.log
+
+sudo tee /etc/systemd/system/crdb.service &lt;&lt; EOF
+[Unit]
+Description=CockroachDB single node
+After=network-online.target
+
+[Service]
+WorkingDirectory=/home/ubuntu
+ExecStart=/usr/local/bin/cockroach start-single-node --insecure --listen-addr=localhost:26257 \
+    --http-addr=localhost:18080 --store=path=/home/ubuntu/db
+StandardOutput=append:/var/log/crdb/out.log
+StandardError=append:/var/log/crdb/err.log
+Restart=always
+User=ubuntu
+Group=ubuntu
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl enable crdb.service
+sudo systemctl start crdb.service
+</code></pre>
+</li>
+<li>
+<p>Configure Go environment variables by appending the following to <code>$HOME/.profile</code>:</p>
+<pre><code class="language-bash">export GOBIN=$HOME/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOBIN
+</code></pre>
+<p>Then reload:</p>
+<pre><code class="language-bash">source $HOME/.profile
+</code></pre>
+</li>
+</ol>
+<h3 id="setup-binary-db-config-and-accounts"><a class="header" href="#setup-binary-db-config-and-accounts">Setup binary, db, config and accounts</a></h3>
+<ol>
+<li>
+<p>Clone the bidder service repo from <code>/home/ubuntu</code>:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-bidder
+cd prover-network-bidder
+git checkout main
+</code></pre>
+</li>
+<li>
+<p>Initialize the CockroachDB schema:</p>
+<pre><code class="language-bash">cat $HOME/prover-network-bidder/dal/schema.sql | cockroach sql --insecure
+</code></pre>
+</li>
+<li>
+<p>Build and install the bidder binary:</p>
+<pre><code class="language-bash">cd ./cmd/service
+go build -o bidder
+cp ./bidder $HOME/go/bin
+cd ~
+</code></pre>
+</li>
+<li>
+<p>Copy bidder configs:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-ops
+cp -a prover-network-ops/node-configs ~/.bidder
+</code></pre>
+</li>
+<li>
+<p>Edit <code>~/.bidder/config.toml</code>:</p>
+<p>You may use separate accounts for staking (<code>prover</code>) and for bidding/submitting proofs (<code>submitter</code>), or reuse the same Ethereum account for both.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>prover_url</code></td><td>Pico proving service gRPC endpoint (<code>${pico-ip}:${port}</code>, default port <code>50052</code>)</td></tr>
+<tr><td><code>prover_eth_addr</code></td><td>Ethereum address of the prover account</td></tr>
+<tr><td><code>submitter_keystore</code></td><td>Path to the submitter keystore JSON (or AWS KMS reference)</td></tr>
+<tr><td><code>submitter_passphrase</code></td><td>Keystore password (or <code>apikey:apisec</code> for AWS KMS)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Optional tuning fields:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price per your economics</td></tr>
+<tr><td><code>prove_min_duration</code></td><td>Skip requests whose remaining time (reveal → deadline) is less than this many seconds</td></tr>
+<tr><td><code>max_input_size</code></td><td><code>0</code> means no limit; otherwise skip requests with larger inputs</td></tr>
+<tr><td><code>max_fee</code></td><td>Skip requests whose bid fee would exceed this ceiling</td></tr>
+<tr><td><code>vk_whitelist</code></td><td>If empty, accept all requests. Otherwise process only VKs on this list</td></tr>
+<tr><td><code>vk_blacklist</code></td><td>Skip requests targeting VKs on this list</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF and uniquely identifies a zk program.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="run-the-bidder-service"><a class="header" href="#run-the-bidder-service">Run the bidder service</a></h3>
+<ol>
+<li>
+<p>Create a systemd service:</p>
+<pre><code class="language-bash">sudo mkdir -p /var/log/bidder
+sudo touch /var/log/bidder/app.log
+
+sudo tee /etc/systemd/system/bidder.service &lt;&lt; EOF
+[Unit]
+Description=bidder daemon
+After=network-online.target
+
+[Service]
+Environment=HOME=/home/ubuntu
+ExecStart=/home/ubuntu/go/bin/bidder --config /home/ubuntu/.bidder/config.toml
+StandardOutput=append:/var/log/bidder/app.log
+StandardError=append:/var/log/bidder/app.log
+Restart=always
+RestartSec=3
+User=ubuntu
+Group=ubuntu
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF
+</code></pre>
+</li>
+<li>
+<p>Create <code>/etc/logrotate.d/bidder</code> and add the following:</p>
+<pre><code>/var/log/bidder/*.log {
+    compress
+    copytruncate
+    daily
+    maxsize 30M
+    rotate 30
+}
+</code></pre>
+</li>
+<li>
+<p>Enable and start the service:</p>
+<pre><code class="language-bash">sudo systemctl enable bidder
+sudo systemctl start bidder
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="use-the-provernet"><a class="header" href="#use-the-provernet">Use the ProverNet</a></h1>
+<p>This section focuses on how to use the ProverNet, namely,</p>
+<ul>
+<li><a href="#write-applications"><strong>Write Applications</strong></a>: specify what computational work to prove.</li>
+<li><a href="#deploy-cpu-prover"><strong>Send Proof Requests</strong></a>: specify how to request a proof for the computational work.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="write-applications"><a class="header" href="#write-applications">Write Applications</a></h1>
+<p>Brevis offers Pico client SDK to facilitate the writing of the applications that can be proved by prover node. </p>
+<h4 id="install-pico-cli"><a class="header" href="#install-pico-cli">Install Pico CLI</a></h4>
+<p>Use Pico CLI <code>v1.2.2</code> for the steps below.</p>
+<p><strong>Option 1: Install via Cargo</strong></p>
+<pre><code>cargo +nightly-2025-08-04 install --git https://github.com/brevis-network/pico --tag v1.2.2 pico-cli
+</code></pre>
+<p>Verify the installation:</p>
+<pre><code>cargo pico --version
+</code></pre>
+<p><strong>Option 2: Install from a Local Checkout</strong></p>
+<pre><code>git clone https://github.com/brevis-network/pico
+cd pico
+git checkout v1.2.2
+cd sdk/cli
+cargo install --locked --force --path .
+</code></pre>
+<h4 id="write-and-build-the-application-elf-artifact"><a class="header" href="#write-and-build-the-application-elf-artifact">Write and Build the Application (ELF Artifact)</a></h4>
+<p>Follow the <a href="https://pico-docs.brevis.network/writing-apps/programs">Pico documentation</a> and the <a href="https://github.com/brevis-network/evm-pico-apps">EVM Pico apps examples</a> to write your program. Build it into an ELF with:</p>
+<pre><code>cd &lt;app-name&gt;
+cargo pico build
+cd ..
+</code></pre>
+<p>It’s the binary in ELF format that will be registered and loaded into prover nodes. </p>
+<h4 id="generate-the-verification-key-app-id"><a class="header" href="#generate-the-verification-key-app-id">Generate the Verification Key (App ID)</a></h4>
+<p>The Verification Key (App ID) uniquely identifies an app. Every ELF has a deterministic verification key. Use the helper in <code>evm-pico-apps</code>:</p>
+<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf &lt;app-name&gt;/elf/riscv32im-pico-zkvm-elf
+</code></pre>
+<p>Example (Fibonacci app):</p>
+<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf fibonacci/elf/riscv32im-pico-zkvm-elf
+</code></pre>
+<p>Sample output:</p>
+<pre><code>Generated app_id: 0x00399db87f8d0d43e1795c4aebffe8cc58486e41b98371bdf667f3d29ce4476b
+</code></pre>
+<p>When asking the ProverNet for a proof, the ELF binary and the App ID are required.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="send-proof-requests"><a class="header" href="#send-proof-requests">Send Proof Requests</a></h1>
+<p>To request a proof, in additions to the ELF binary and App ID, the input parameters of the App also need specified.</p>
+<h4 id="generate-input-data-and-public-values-digest"><a class="header" href="#generate-input-data-and-public-values-digest">Generate Input Data and Public Values Digest</a></h4>
+<p>Use the <a href="https://github.com/brevis-network/evm-pico-apps?tab=readme-ov-file#example-apps">example apps</a> as a template. They typically emit both the encoded input data and the public values digest expected by the prover. Example (Fibonacci, <code>n=100</code>):</p>
+<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-inputs-fibonacci -- --n 100
+</code></pre>
+<p>Sample output:</p>
+<pre><code>=== For Onchain ProofRequest ===
+vk: 0x00399db87f8d0d43e1795c4aebffe8cc58486e41b98371bdf667f3d29ce4476b
+publicValuesDigest: 0x12c6f9f81993158e5d1e480b643b0466160893ebb0531e8c3ad7dd22c3fdeaa3
+inputData: 0x01000000000000000400000000000000640000000000000000000000
+</code></pre>
+<p>Persist these values—they flow directly into the proof-request transaction.</p>
+<h3 id="send-a-proof-request"><a class="header" href="#send-a-proof-request">Send a Proof Request</a></h3>
+<p>The easiest way to submit requests is via the CLI utility, which batches multiple entries and handles encoding. </p>
+<ol>
+<li>
+<p>Clone the bidder ops repo from <code>/home/ubuntu</code>:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-bidder-ops
+</code></pre>
+</li>
+<li>
+<p>From the <code>tools</code> directory, build the binary:</p>
+<pre><code>cd tools
+go build
+</code></pre>
+</li>
+<li>
+<p>Update the <code>[chain]</code> section in <code>config.toml</code>:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>keystore</td><td>Path to your Ethereum account keystore JSON</td></tr>
+<tr><td>passphrase</td><td>Passphrase for the keystore</td></tr>
+</tbody>
+</table>
+</div>
+<p>Adjust the parameters inside each <code>[[request]]</code> section as needed. Add multiple <code>[[request]]</code> sections to submit more than one proof request.</p>
+</li>
+<li>
+<p>Run:</p>
+<pre><code>./tools request-proof --config ./config.toml
+</code></pre>
+</li>
+</ol>
+<p>Use the checklist below to fill each field in <code>[[request]]</code>  section correctly:</p>
+<ol>
+<li><strong><code>nonce</code></strong> – Unique identifier you choose per request.</li>
+<li><strong><code>vk</code></strong> – The verification key/app ID from Generate the Verification Key.</li>
+<li><strong><code>public_value_digest</code></strong> – Output from Generate Input Data and Public Values Digest.</li>
+<li><strong><code>img_url</code></strong> – URL hosting the ELF artifact built in Build the Application (ELF Artifact).</li>
+<li><strong><code>input_data</code></strong> – Encoded input from the generator step.</li>
+<li><strong><code>input_url</code></strong> – Optional URL pointing to the input payload when it is too large to inline. Provide either <code>inputData</code> or <code>inputURL</code> (or both).</li>
+<li><strong><code>fee</code> tuple (<code>max_fee</code>, <code>min_stake</code>, <code>deadline</code>)</strong>:
+<ul>
+<li><code>max_fee</code>: Maximum amount (USDC on Base) you are willing to pay for the proof.</li>
+<li><code>min_stake</code>: Minimum prover stake required to bid on this request.</li>
+<li><code>deadline</code>: Unix timestamp by which the proof must be submitted. The deadline must be within 30 days of the request time.</li>
+</ul>
+</li>
+<li><strong><code>version</code></strong> - Version of the Pico verfifier to use, default to 0.</li>
+</ol>
+<h3 id="sample-apps-for-testing"><a class="header" href="#sample-apps-for-testing">Sample Apps for Testing</a></h3>
+<p>Use these reference programs when validating your setup:</p>
+<ul>
+<li><a href="https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci"><strong>Fibonacci</strong></a> – Computes the <em>n</em>-th Fibonacci number from a <code>u32</code> input. Lightweight workload for quick smoke tests.</li>
+<li><a href="https://github.com/brevis-network/pico/tree/main/examples/tendermint/app"><strong>Tendermint</strong></a> – Verifies consensus transitions between Tendermint light blocks. Medium-weight workload that exercises Merkle proofs and signature checks.</li>
+<li><a href="https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico"><strong>Reth</strong></a> – Executes Ethereum block verification via the Reth executor. Heavy workload representative of production proving jobs.</li>
+</ul>
+<p>Build ELFs for these samples with <code>cargo pico build</code> inside each app directory, and use the matching input generators (where provided) to obtain the request payloads.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="staking-in-provernet"><a class="header" href="#staking-in-provernet">Staking in ProverNet</a></h1>
+<p>BREV holders may stake BREV to the provers in ProverNet. The process of staking is a form of active participation similar to proof of stake delegation. With these delegated BREV, a prover can therefore receive more proving workload by locking them up and earn additional revenue. In return, the prover will share a portion of the proving fees with the delegators.</p>
+<h4 id="bridge-brev-to-base"><a class="header" href="#bridge-brev-to-base">Bridge BREV to Base</a></h4>
+<p>ProverNet allows you staking BREV on Base. Before you start staking, you may need to bridge BREV to Base first, via <a href="https://cbridge.celer.network/1/8453/BREV">cBridge</a>.</p>
+<p><em>[Screenshot]</em></p>
+<h4 id="view-active-provers"><a class="header" href="#view-active-provers">View Active Provers</a></h4>
+<p>Note that if the delegated prover fails to meet its SLA commitments, your delegated stake may be slashed. Therefore, it is critical to carefully evaluate different proving providers and adjust<br>your stakes from time to time. Visit Brevis Prover Network <em>[Link]</em> and you can view all active provers in the ProverNet, along with key statistics such as the number of BREV staked, the number of proofs generated, and the proof fee received.</p>
+<h4 id="stake-brev"><a class="header" href="#stake-brev">Stake BREV</a></h4>
+<p>To start staking your BREV, you will need to connect wallet and select the prover you would like to stake with. </p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.19.49.png" alt=""><figcaption></figcaption></p>
+<p>Once wallet is connected, the <em>Stake</em> button will be enabled and you can click the button to stake now!</p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.33.54.png" alt=""><figcaption></figcaption></p>
+<p>You may need to <em>Approve</em> the Brevis staking contract first to allow it to spend your BREV. Once sufficient amount is approved, the <em>Stake</em> button will be enabled, and you can submit the stake transaction.</p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.32.25.png" alt=""><figcaption></figcaption></p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.36.00.png" alt=""><figcaption></figcaption></p>
+<p>You can also increase your stake with provers you’ve already delegated to. Visit the <em>Dashboard</em> <em>[Link]</em> to see your current delegated provers and use the <em>Stake More</em> option to add additional BREV.</p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.37.21.png" alt=""><figcaption></figcaption></p>
+<h4 id="dashboard"><a class="header" href="#dashboard">Dashboard</a></h4>
+<p>On the Dashboard <em>[LINK]</em>, you can view your total stake and see detailed staking information for each prover, including the staked amount, the pending unstake amount, and the withdrawable amount.</p>
+<ul>
+<li><strong>Your total stake</strong>: includes all your staked BREV to each prover plus the staking rewards you’ve earned. The staking rewards are automatically compounded into your total stake on a daily basis.</li>
+<li><strong>Staked amount for each prover</strong>: is the total amount of BREV you currently staked with this prover.</li>
+<li><strong>Pending unstake amount</strong>: is the unstaked amount pending in the unstaking process, which takes 7 days to complete.</li>
+<li><strong>Withdrawable amount</strong>: is the unstaked amount with this prover that has passed the 7-day processing window and is now withdrawable.</li>
+</ul>
+<h4 id="unstake-brev"><a class="header" href="#unstake-brev">Unstake BREV</a></h4>
+<p>You can unstake your BREV at any time by clicking the <em>Request Unstake</em> button on the Dashboard page. </p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.03.56.png" alt=""><figcaption></figcaption></p>
+<p>First, you may need to <em>Approve</em> the Brevis staking contract to allow it to unstake your BREV. Once sufficient amount is approved, the <em>Unstake</em> button will be enabled, and you can submit the unstake transaction. Please note that the unstaking process takes <strong>7 days</strong>. After the waiting period, you can withdraw your BREV and have them returned to your account.</p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 21.46.15 (1).png" alt=""><figcaption></figcaption></p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.01.40.png" alt=""><figcaption></figcaption></p>
+<h4 id="withdraw-brev"><a class="header" href="#withdraw-brev">Withdraw BREV</a></h4>
+<p>You can withdraw your unstaked BREV once the 7-day processing window has passed, by simply clicking the <em>Withdraw</em> button on the Dashboard page. If you have no unstaked BREV or your unstaked BREV is still within the 7-day waiting period, the <em>Withdraw</em> button will be disabled.</p>
+<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.48.11.png" alt=""><figcaption></figcaption></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
