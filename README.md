@@ -19,8 +19,8 @@ As the demand for verifiable computation and trustless applications scales, the 
 
 The **BREV token** serves as the heartbeat of the ProverNet economy, aligning incentives and facilitating value exchange across the network:
 
-* **Payment Medium**: BREV is the native settlement currency used by applications to pay for proving services.
-* **Economic Security**: Provers and delegators stake BREV to guarantee network reliability. This collateral ensures that participants remain committed to delivering valid proofs within requested deadlines.
+* **Payment Medium**: BREV is the native settlement currency for all proving services.
+* **Economic Security**: Provers and delegators stake BREV to guarantee network reliability. This collateral ensures that prover nodes remain committed to delivering valid proofs within requested deadlines.
 * **Reward Distribution**: Staked BREV qualifies participants to receive a share of the network's generated proof fees and rewards, incentivizing long-term support and high-quality service.
 * **Network Governance**: BREV holders govern critical protocol parameters, such as marketplace fee structures and minimum security requirements.
 
