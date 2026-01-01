@@ -52,7 +52,7 @@ While production applications will typically implement their own programmatic re
      * `max_fee`: Maximum fee you are willing to pay for the proof.
      * `min_stake`: Minimum prover stake required to bid on this request.
      * `deadline`: Unix timestamp for proof submission (must be within 30 days).
-3.  Execution: Run the command to submit your requests:
+3.  **Execution**: Run the command to submit your requests:
 
     ```bash
     ./tools request-proof --config ./config.toml
