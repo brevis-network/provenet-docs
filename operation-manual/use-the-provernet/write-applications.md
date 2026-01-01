@@ -2,6 +2,8 @@
 
 To utilize the ProverNet, you must first develop your application logic and compile it for the Pico zkVM to generate its unique identifier.
 
+***
+
 #### 1. Install Pico CLI
 
 The Pico CLI is required to build programs and manage zkVM artifacts. Please use version `v1.2.2`.
@@ -28,6 +30,8 @@ cargo install --locked --force --path .
 cargo pico --version
 ```
 
+***
+
 #### 2. Build the Application (ELF Artifact)
 
 Pico applications are compiled into a RISC-V Executable and Linkable Format (ELF) file.
@@ -43,7 +47,9 @@ cargo pico build
 cd ..
 ```
 
-#### Generate the Verification Key (App ID)
+***
+
+#### 3. Generate the Verification Key (App ID)
 
 Every program ELF has a unique, deterministic **Verification Key (vk)**, which serves as the **App ID** on the ProverNet. This key is static for a specific version of your code.&#x20;
 
