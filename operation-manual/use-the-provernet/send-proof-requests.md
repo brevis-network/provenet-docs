@@ -1,12 +1,37 @@
 # Send Proof Requests
 
-Once you have your application’s vk and ELF file, you can request a proof by preparing specific input data and interacting with the marketplace. This process triggers the auction mechanism where a prover will be assigned to fulfill your request.
+To request a proof from the marketplace, you must submit a transaction to the `BrevisMarket` contract. This page details the data structure required by the contract and the tools available to submit it.
 
 ***
 
-#### 1. Prepare Inputs and Public Values
+#### 1. The ProofRequest Structure
 
-Before sending a request, you must generate the data for the specific execution instance you want to prove. This step produces the `inputData` (raw inputs) and the `publicValuesDigest` (a commitment to the program's outputs).
+Every proof request is defined by the `ProofRequest` struct. Whether you use the CLI or a custom script, these are the parameters you must provide:
+
+```solidity
+struct ProofRequest {
+    uint64 nonce;               // Unique ID for the request
+    bytes32 vk;                 // The Verification Key (App ID)
+    bytes32 publicValuesDigest; // Commitment to the program outputs
+    string imgURL;              // URL to the compiled ELF artifact
+    bytes inputData;            // Encoded input data (raw bytes)
+    string inputURL;            // (Optional) URL to input data if payload is large
+    uint32 version;             // Verifier version (default: 0)
+    FeeParams fee;              // Economic parameters for the auction
+}
+
+struct FeeParams {
+    uint96 maxFee;    // Max USDC to pay for the proof
+    uint96 minStake;  // Minimum prover stake required to bid
+    uint64 deadline;  // Unix timestamp; proof must be submitted by this time
+}
+```
+
+***
+
+#### 2. Prepare Inputs and Public Values
+
+Before filling the `ProofRequest` struct, you must generate the execution-specific data. This produces the `inputData` and the `publicValuesDigest`.
 
 Use the [example apps](https://github.com/brevis-network/evm-pico-apps?tab=readme-ov-file#example-apps) as a template for generating these values. For instance, using the Fibonacci app with `n=100`:
 
@@ -23,13 +48,13 @@ publicValuesDigest: 0x12c6f9f81993158e5d1e480b643b0466160893ebb0531e8c3ad7dd22c3
 inputData: 0x01000000000000000400000000000000640000000000000000000000
 ```
 
-> Important: Save these values accurately. They are the exact parameters required for the `requestProof` transaction; any mismatch will cause the on-chain verification to fail.
+> Note: Ensure these values are captured accurately. Any mismatch between the `inputData` and `publicValuesDigest` will cause the on-chain verification to fail.
 
 ***
 
-#### 2. Send a Proof Request
+#### 3. Send a Proof Request
 
-While production applications will typically implement their own programmatic request logic, Brevis provides a **CLI utility** as a reference implementation and testing tool. Developers can use the CLI source code to understand how to correctly encode parameters and interact with the `BrevisMarket` contract.
+While production applications will typically implement their own programmatic request logic using the struct above, Brevis provides a CLI utility as a reference implementation and testing tool.
 
 **Using the CLI Reference Tool**
 
@@ -40,18 +65,7 @@ While production applications will typically implement their own programmatic re
     cd prover-network-bidder-ops/tools
     go build -o tools
     ```
-2. **Configuration**: Update the `[chain]` section in `config.toml` with your `keystore` path and `passphrase`. Then, add one or more `[[request]]` sections using the checklist below:
-   * `nonce`: A unique identifier you choose per request.
-   * `vk`: The verification key/app ID generated in the previous step.
-   * `public_value_digest`: The output from the input generator.
-   * `img_url`: URL hosting the compiled ELF artifact.
-   * `input_data`: Encoded input from the generator step.
-   * `input_url`: (Optional) URL for the input payload if it is too large to inline.
-   * `version`: Version of the Pico verifier (defaults to 0).
-   * `fee`:
-     * `max_fee`: Maximum fee you are willing to pay for the proof.
-     * `min_stake`: Minimum prover stake required to bid on this request.
-     * `deadline`: Unix timestamp for proof submission (must be within 30 days).
+2. **Configuration**: Update the `[chain]` section in `config.toml` with your `keystore` path and `passphrase`. Add your request details in the `[[request]]` section using the parameters derived in the previous steps.
 3.  **Execution**: Run the command to submit your requests:
 
     ```bash
