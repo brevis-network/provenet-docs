@@ -76,8 +76,8 @@ While production applications will typically implement their own programmatic re
 
 #### Sample Apps for Testing
 
-Use these reference programs to validate your setup and observe how different workloads perform on the network:
+Use these reference programs to validate your setup:
 
-* [Fibonacci](https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci): Computes the _n_-th Fibonacci number from a `u32` input. This is a lightweight workload ideal for quick smoke tests and connectivity checks.
-* [Tendermint](https://github.com/brevis-network/pico/tree/main/examples/tendermint/app): Verifies consensus transitions between Tendermint light blocks. This is a medium-weight workload that exercises Merkle proofs and signature checks.
-* [Reth](https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico): Executes Ethereum block verification via the Reth executor. This is a heavy workload representative of production-grade proving jobs.
+* [Fibonacci](https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci): Computes the _n_-th Fibonacci number. A lightweight workload for quick smoke tests.
+* [Tendermint](https://github.com/brevis-network/pico/tree/main/examples/tendermint/app): Verifies consensus transitions. A medium-weight workload that exercises Merkle proofs and signature checks.
+* [Reth](https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico): Executes Ethereum block verification. A heavy workload representative of production proving jobs.
