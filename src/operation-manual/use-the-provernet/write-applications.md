@@ -51,7 +51,7 @@ cd ..
 
 #### 3. Generate the Verification Key (App ID)
 
-Every program ELF has a unique, deterministic **Verification Key (vk)**, which serves as the **App ID** on the ProverNet. This key is static for a specific version of your code.&#x20;
+Every program ELF has a unique, deterministic **Verification Key (VK)**, which serves as the **App ID** on ProverNet. This key is static for a specific version of your code.&#x20;
 
 Use the helper tool in the `evm-pico-apps` repository to extract it:
 
