@@ -36,7 +36,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-e596ef10.js";
+            window.path_to_searchindex_js = "../../searchindex-b478b179.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-a2c5dde0.js"></script>
@@ -179,10 +179,10 @@
 <p>Request Fulfillment is the final stage of the proof lifecycle. This phase transitions the proof from off-chain computation to on-chain verification, concluding with the automated settlement of fees and the handling of any service failures.</p>
 <hr>
 <h3 id="proof-generation--submission"><a class="header" href="#proof-generation--submission">Proof Generation &amp; Submission</a></h3>
-<p>Once a request is assigned, the winning prover must deliver a valid cryptographic proof before the specified Deadline.</p>
+<p>Once a request is assigned, the winning prover must deliver a valid cryptographic proof before the specified deadline.</p>
 <ul>
-<li><strong>Off-Chain Execution</strong>: The prover runs the computation and generates a ZK proof using the Brevis ZK-VM. Success in this phase depends on both high-performance hardware and service reliability to ensure the proof is ready within the required timeframe.</li>
-<li><strong>On-Chain Submission</strong>: The prover submits the completed proof to the <code>BrevisMarket</code> contract, which calls the PicoVerifier to programmatically verify the proof’s validity. If the proof is correct, the request status is updated to Fulfilled.</li>
+<li><strong>Off-Chain Execution</strong>: The prover runs the computation and generates a ZK proof using the Brevis zkVM. Success in this phase depends on both high-performance hardware and service reliability to ensure the proof is ready within the required timeframe.</li>
+<li><strong>On-Chain Submission</strong>: The prover submits the completed proof to the <code>BrevisMarket</code> contract, which calls the <code>PicoVerifier</code> to programmatically verify the proof’s validity. If the proof is correct, the request status is updated to Fulfilled.</li>
 </ul>
 <hr>
 <h3 id="fee-distribution"><a class="header" href="#fee-distribution">Fee Distribution</a></h3>
@@ -191,7 +191,7 @@
 <ol>
 <li><strong>Protocol Fee</strong>: The <code>BrevisMarket</code> contract takes a small cut as a protocol fee, which is sent to the network treasury.</li>
 <li><strong>Prover Commission</strong>: From the remaining amount, the prover’s commission (based on their default or source-specific rate) is deducted and sent directly to their designated wallet.</li>
-<li><strong>Staking Yield</strong>: The final portion is deposited into the operator’s ProverVault. This increases the value of the vault’s underlying assets, causing an immediate share price appreciation that serves as compounding yield for all stakers.</li>
+<li><strong>Staking Yield</strong>: The final portion is deposited into the operator’s ProverVault. This increases the value of the vault’s underlying assets, causing an immediate share price appreciation that compounds yield for all stakers.</li>
 </ol>
 <hr>
 <h3 id="failure-handling"><a class="header" href="#failure-handling">Failure Handling</a></h3>

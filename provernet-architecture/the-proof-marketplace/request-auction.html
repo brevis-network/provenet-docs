@@ -36,7 +36,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-e596ef10.js";
+            window.path_to_searchindex_js = "../../searchindex-b478b179.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-a2c5dde0.js"></script>
@@ -190,7 +190,7 @@
 <h3 id="prover-eligibility"><a class="header" href="#prover-eligibility">Prover Eligibility</a></h3>
 <p>Not every prover can bid on every request. The marketplace automatically filters participants based on their real-time status:</p>
 <ol>
-<li><strong>Active Status</strong>: Only provers in the Active state (those meeting the global Minimum Self-Stake) can participate in auctions.</li>
+<li><strong>Active Status</strong>: Only provers in the <code>Active</code> state (those meeting the global Minimum Self-Stake) can participate in auctions.</li>
 <li><strong>Collateral Sufficiency</strong>: A prover must have enough available stake in their ProverVault to meet the request’s <code>minStake</code>. The <a href="overcommit-protection.html">Overcommit Protection</a> mechanism governs the extent to which a prover can take on additional concurrent workload relative to their total stake.</li>
 <li><strong>Reliability &amp; Performance</strong>: To meet the deadline, provers must maintain high hardware performance and service reliability. Significant downtime or hardware lag can prevent a prover from fulfilling an assignment, putting their stake at risk.</li>
 </ol>

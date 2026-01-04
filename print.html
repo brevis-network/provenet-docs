@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e596ef10.js";
+            window.path_to_searchindex_js = "searchindex-b478b179.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-a2c5dde0.js"></script>
@@ -177,52 +177,52 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Welcome to the Brevis ProverNet, the foundational coordination layer for the ZK ecosystem. ProverNet operates as a <strong>decentralized marketplace</strong> that bridges the gap between applications requiring zero-knowledge proofs and the specialized hardware capable of generating them</p>
+<p>Welcome to the Brevis ProverNet, the foundational coordination layer for the ZK ecosystem. ProverNet operates as a <strong>decentralized marketplace</strong> that bridges the gap between applications requiring zero-knowledge proofs and the specialized hardware capable of generating them.</p>
 <hr>
 <h4 id="coordinating-the-zk-ecosystem"><a class="header" href="#coordinating-the-zk-ecosystem">Coordinating the ZK Ecosystem</a></h4>
-<p>As the demand for verifiable computation and trustless applications scales, the need for high-performance, cost-effective ZK proving capacity is growing rapidly. ProverNet addresses this by creating a unified environment where all participants—from developers to hardware providers—interact to drive the efficiency of zero-knowledge technology.</p>
+<p>As the demand for verifiable computation and trustless applications scales, the need for high-performance, cost-effective ZK proving capacity is growing rapidly. ProverNet addresses this by creating a unified environment where all participants (from developers to hardware providers) interact to drive the efficiency of zero-knowledge technology.</p>
 <ul>
-<li><strong>ZK App Developers</strong>: Focus entirely on building innovative application logic without the burden of managing complex proving infrastructure. By defining computational work for the <strong>Pico zkVM</strong>, developers gain instant access to a global network of hardware.</li>
+<li><strong>ZK App Developers</strong>: Focus entirely on building innovative application logic without the burden of managing complex proving infrastructure. By defining computational work for the <strong>Pico zkVM</strong>, developers gain instant access to a global proving network.</li>
 <li><strong>ZK App Users</strong>: Benefit from lower costs and faster response times for verifiable transactions. Real-time competition between provers ensures that efficiency gains are passed directly to users via optimized proof fees.</li>
 <li><strong>Provers</strong>: Hardware providers find a streamlined way to monetize their capacity. The network’s auction mechanism matches provers with the specific workloads that best suit their hardware optimizations.</li>
 <li><strong>Stakers</strong>: Token holders provide the economic security that underpins every proof. By delegating BREV to reputable provers, stakers help ensure a high quality of service while participating in the growth of the proving economy.</li>
 </ul>
 <hr>
 <h4 id="the-brev-economy"><a class="header" href="#the-brev-economy">The BREV Economy</a></h4>
-<p>The <strong>BREV token</strong> serves as the heartbeat of the ProverNet economy, aligning incentives and facilitating value exchange across the network:</p>
+<p>The <strong>BREV token</strong> serves as the core of the ProverNet economy, aligning incentives and facilitating value exchange across the network:</p>
 <ul>
-<li><strong>Payment Medium</strong>: BREV is the native settlement currency for all proving services.</li>
+<li><strong>Payment Medium</strong>: BREV is the native settlement currency for all proving services</li>
 <li><strong>Economic Security</strong>: Provers and delegators stake BREV to guarantee network reliability. This collateral ensures that prover nodes remain committed to delivering valid proofs within requested deadlines.</li>
 <li><strong>Reward Distribution</strong>: Staked BREV qualifies participants to receive a share of the network’s generated proof fees and rewards, incentivizing long-term support and high-quality service.</li>
 <li><strong>Network Governance</strong>: BREV holders govern critical protocol parameters, such as marketplace fee structures and minimum security requirements.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="system-overview"><a class="header" href="#system-overview">System Overview</a></h1>
-<p>The Brevis Prover Network is a decentralized infrastructure that enables smart contracts to offload complex, data-heavy computations to an off-chain network without sacrificing security.</p>
-<p>By utilizing Zero-Knowledge (ZK) proofs, the network allows a smart contract to verify that a piece of off-chain work was performed correctly. This architecture allows the blockchain to act as an enforcement and settlement layer for expensive computations—such as analyzing historical states or complex data transitions—that would otherwise be impossible to perform on-chain.</p>
+<p>The Brevis Prover Network (ProverNet) is a decentralized infrastructure that enables smart contracts to offload complex, data-heavy computations to an off-chain network without sacrificing security.</p>
+<p>By utilizing Zero-Knowledge (ZK) proofs, the network allows a smart contract to verify that a piece of off-chain work was performed correctly. This architecture allows the blockchain to act as an enforcement and settlement layer for expensive computations such as analyzing historical states or complex data transitions, which would otherwise be prohibitively expensive to perform on-chain.</p>
 <hr>
 <h3 id="the-network-architecture"><a class="header" href="#the-network-architecture">The Network Architecture</a></h3>
-<p>The network functions through a continuous, trustless loop between <strong>on-chain enforcement</strong> and <strong>off-chain execution</strong>.  The off-chain provers perform the heavy computation, while the on-chain contracts ensure that the rules of the protocol are followed and that only mathematically correct results are accepted.</p>
+<p>The network functions through a continuous, trustless loop between <strong>on-chain enforcement</strong> and <strong>off-chain execution</strong>. The off-chain provers perform the heavy computation, while the on-chain contracts ensure that the rules of the protocol are followed and that only mathematically correct results are accepted.</p>
 <h4 id="1-on-chain-enforcement-the-rules--verdict"><a class="header" href="#1-on-chain-enforcement-the-rules--verdict">1. On-Chain Enforcement (The Rules &amp; Verdict)</a></h4>
 <p>The smart contract suite serves as the final source of truth for the network’s state and rules:</p>
 <ul>
 <li><strong>Economic Alignment &amp; Accountability</strong>: The <code>StakingController</code> manages prover identity and ensures every participant is a committed stakeholder with “skin in the game”. This framework aligns prover incentives by enabling them to earn rewards and yields proportional to their stake and performance.</li>
 <li><strong>The Marketplace</strong>: The <code>BrevisMarket</code> acts as a trustless escrow and auction house, defining how work is assigned and payments are distributed to ensure a fair and competitive environment for all participants.</li>
-<li><strong>Cryptographic Verification</strong>: The <code>PicoVerifier</code> (Brevis ZK-VM) provides the final cryptographic verdict. It programmatically enforces that any result submitted by a prover matches the requested computation before any rewards are released, guaranteeing the integrity of the work performed.</li>
+<li><strong>Cryptographic Verification</strong>: The <code>PicoVerifier</code> (Brevis zkVM) provides the final cryptographic verdict. It programmatically enforces that any result submitted by a prover matches the requested computation before any rewards are released, guaranteeing the integrity of the work performed.</li>
 </ul>
 <h4 id="2-off-chain-execution-the-work"><a class="header" href="#2-off-chain-execution-the-work">2. Off-Chain Execution (The Work)</a></h4>
 <p>The off-chain Prover Nodes are the active participants that power the network:</p>
 <ul>
 <li><strong>Market Monitoring</strong>: Provers continuously monitor the <code>BrevisMarket</code> for new <code>ProofRequests</code> that match their hardware capabilities and risk profile.</li>
 <li><strong>Competitive Bidding</strong>: Prover nodes run automated logic to participate in reverse auctions, bidding the most competitive fees based on local operational costs.</li>
-<li><strong>ZK Proof Generation</strong>: Once a prover wins an auction, they execute the requested computation and generate a ZK proof using a combination of highly optimized, efficient ZK-VM software and high-performance hardware.</li>
+<li><strong>ZK Proof Generation</strong>: Once a prover wins an auction, they execute the requested computation and generate a ZK proof using optimized zkVM software and high-performance hardware.</li>
 <li><strong>Proof Submission</strong>: The completed proof is submitted to the blockchain to trigger the on-chain verification and settlement process.</li>
 </ul>
 <hr>
 <h3 id="core-network-roles"><a class="header" href="#core-network-roles">Core Network Roles</a></h3>
 <ul>
 <li><strong>Requesters</strong>: Smart contracts or users that need trustless, verifiable computation.</li>
-<li><strong>Provers</strong>: Off-chain operators running the Brevis node software and high-performance ZK-generation hardware.</li>
+<li><strong>Provers</strong>: Off-chain operators running Brevis node software and high-performance ZK-generation hardware.</li>
 <li><strong>Stakers</strong>: BREV token holders who provide economic security (collateral) for provers in exchange for a share of the generated fees.</li>
 </ul>
 <hr>
@@ -386,7 +386,7 @@
 <h3 id="prover-eligibility"><a class="header" href="#prover-eligibility">Prover Eligibility</a></h3>
 <p>Not every prover can bid on every request. The marketplace automatically filters participants based on their real-time status:</p>
 <ol>
-<li><strong>Active Status</strong>: Only provers in the Active state (those meeting the global Minimum Self-Stake) can participate in auctions.</li>
+<li><strong>Active Status</strong>: Only provers in the <code>Active</code> state (those meeting the global Minimum Self-Stake) can participate in auctions.</li>
 <li><strong>Collateral Sufficiency</strong>: A prover must have enough available stake in their ProverVault to meet the request’s <code>minStake</code>. The <a href="#overcommit-protection">Overcommit Protection</a> mechanism governs the extent to which a prover can take on additional concurrent workload relative to their total stake.</li>
 <li><strong>Reliability &amp; Performance</strong>: To meet the deadline, provers must maintain high hardware performance and service reliability. Significant downtime or hardware lag can prevent a prover from fulfilling an assignment, putting their stake at risk.</li>
 </ol>
@@ -414,10 +414,10 @@
 <p>Request Fulfillment is the final stage of the proof lifecycle. This phase transitions the proof from off-chain computation to on-chain verification, concluding with the automated settlement of fees and the handling of any service failures.</p>
 <hr>
 <h3 id="proof-generation--submission"><a class="header" href="#proof-generation--submission">Proof Generation &amp; Submission</a></h3>
-<p>Once a request is assigned, the winning prover must deliver a valid cryptographic proof before the specified Deadline.</p>
+<p>Once a request is assigned, the winning prover must deliver a valid cryptographic proof before the specified deadline.</p>
 <ul>
-<li><strong>Off-Chain Execution</strong>: The prover runs the computation and generates a ZK proof using the Brevis ZK-VM. Success in this phase depends on both high-performance hardware and service reliability to ensure the proof is ready within the required timeframe.</li>
-<li><strong>On-Chain Submission</strong>: The prover submits the completed proof to the <code>BrevisMarket</code> contract, which calls the PicoVerifier to programmatically verify the proof’s validity. If the proof is correct, the request status is updated to Fulfilled.</li>
+<li><strong>Off-Chain Execution</strong>: The prover runs the computation and generates a ZK proof using the Brevis zkVM. Success in this phase depends on both high-performance hardware and service reliability to ensure the proof is ready within the required timeframe.</li>
+<li><strong>On-Chain Submission</strong>: The prover submits the completed proof to the <code>BrevisMarket</code> contract, which calls the <code>PicoVerifier</code> to programmatically verify the proof’s validity. If the proof is correct, the request status is updated to Fulfilled.</li>
 </ul>
 <hr>
 <h3 id="fee-distribution"><a class="header" href="#fee-distribution">Fee Distribution</a></h3>
@@ -426,7 +426,7 @@
 <ol>
 <li><strong>Protocol Fee</strong>: The <code>BrevisMarket</code> contract takes a small cut as a protocol fee, which is sent to the network treasury.</li>
 <li><strong>Prover Commission</strong>: From the remaining amount, the prover’s commission (based on their default or source-specific rate) is deducted and sent directly to their designated wallet.</li>
-<li><strong>Staking Yield</strong>: The final portion is deposited into the operator’s ProverVault. This increases the value of the vault’s underlying assets, causing an immediate share price appreciation that serves as compounding yield for all stakers.</li>
+<li><strong>Staking Yield</strong>: The final portion is deposited into the operator’s ProverVault. This increases the value of the vault’s underlying assets, causing an immediate share price appreciation that compounds yield for all stakers.</li>
 </ol>
 <hr>
 <h3 id="failure-handling"><a class="header" href="#failure-handling">Failure Handling</a></h3>
@@ -534,7 +534,7 @@ function verifyPicoProof(bytes32 riscvVkey, bytes32 publicValues, uint256[8] cal
 <p>Becoming an active prover involves a streamlined path from infrastructure setup to active participation:</p>
 <ol>
 <li><strong>Hardware &amp; Environment</strong>: Provisioning high-performance hardware and stable network connectivity to ensure proofs are generated and submitted within the required timeframe.</li>
-<li><strong>Software Deployment</strong>: First deploy the Proving Server to establish your computational baseline, followed by the Bidder Server to connect that power to the <code>BrevisMarket</code>..</li>
+<li><strong>Software Deployment</strong>: First deploy the Proving Server to establish your computational baseline, followed by the Bidder Server to connect that power to the <code>BrevisMarket</code>.</li>
 <li><strong>Prover Account Initialization</strong>: Setting up your prover profile via the <code>StakingController</code>. We also recommend authorizing Submitter Addresses (worker keys) to handle automated on-chain actions while keeping your primary staking key safe (in cold storage).</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div>

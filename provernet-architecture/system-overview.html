@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-e596ef10.js";
+            window.path_to_searchindex_js = "../searchindex-b478b179.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-a2c5dde0.js"></script>
@@ -176,31 +176,31 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="system-overview"><a class="header" href="#system-overview">System Overview</a></h1>
-<p>The Brevis Prover Network is a decentralized infrastructure that enables smart contracts to offload complex, data-heavy computations to an off-chain network without sacrificing security.</p>
-<p>By utilizing Zero-Knowledge (ZK) proofs, the network allows a smart contract to verify that a piece of off-chain work was performed correctly. This architecture allows the blockchain to act as an enforcement and settlement layer for expensive computations—such as analyzing historical states or complex data transitions—that would otherwise be impossible to perform on-chain.</p>
+<p>The Brevis Prover Network (ProverNet) is a decentralized infrastructure that enables smart contracts to offload complex, data-heavy computations to an off-chain network without sacrificing security.</p>
+<p>By utilizing Zero-Knowledge (ZK) proofs, the network allows a smart contract to verify that a piece of off-chain work was performed correctly. This architecture allows the blockchain to act as an enforcement and settlement layer for expensive computations such as analyzing historical states or complex data transitions, which would otherwise be prohibitively expensive to perform on-chain.</p>
 <hr>
 <h3 id="the-network-architecture"><a class="header" href="#the-network-architecture">The Network Architecture</a></h3>
-<p>The network functions through a continuous, trustless loop between <strong>on-chain enforcement</strong> and <strong>off-chain execution</strong>.  The off-chain provers perform the heavy computation, while the on-chain contracts ensure that the rules of the protocol are followed and that only mathematically correct results are accepted.</p>
+<p>The network functions through a continuous, trustless loop between <strong>on-chain enforcement</strong> and <strong>off-chain execution</strong>. The off-chain provers perform the heavy computation, while the on-chain contracts ensure that the rules of the protocol are followed and that only mathematically correct results are accepted.</p>
 <h4 id="1-on-chain-enforcement-the-rules--verdict"><a class="header" href="#1-on-chain-enforcement-the-rules--verdict">1. On-Chain Enforcement (The Rules &amp; Verdict)</a></h4>
 <p>The smart contract suite serves as the final source of truth for the network’s state and rules:</p>
 <ul>
 <li><strong>Economic Alignment &amp; Accountability</strong>: The <code>StakingController</code> manages prover identity and ensures every participant is a committed stakeholder with “skin in the game”. This framework aligns prover incentives by enabling them to earn rewards and yields proportional to their stake and performance.</li>
 <li><strong>The Marketplace</strong>: The <code>BrevisMarket</code> acts as a trustless escrow and auction house, defining how work is assigned and payments are distributed to ensure a fair and competitive environment for all participants.</li>
-<li><strong>Cryptographic Verification</strong>: The <code>PicoVerifier</code> (Brevis ZK-VM) provides the final cryptographic verdict. It programmatically enforces that any result submitted by a prover matches the requested computation before any rewards are released, guaranteeing the integrity of the work performed.</li>
+<li><strong>Cryptographic Verification</strong>: The <code>PicoVerifier</code> (Brevis zkVM) provides the final cryptographic verdict. It programmatically enforces that any result submitted by a prover matches the requested computation before any rewards are released, guaranteeing the integrity of the work performed.</li>
 </ul>
 <h4 id="2-off-chain-execution-the-work"><a class="header" href="#2-off-chain-execution-the-work">2. Off-Chain Execution (The Work)</a></h4>
 <p>The off-chain Prover Nodes are the active participants that power the network:</p>
 <ul>
 <li><strong>Market Monitoring</strong>: Provers continuously monitor the <code>BrevisMarket</code> for new <code>ProofRequests</code> that match their hardware capabilities and risk profile.</li>
 <li><strong>Competitive Bidding</strong>: Prover nodes run automated logic to participate in reverse auctions, bidding the most competitive fees based on local operational costs.</li>
-<li><strong>ZK Proof Generation</strong>: Once a prover wins an auction, they execute the requested computation and generate a ZK proof using a combination of highly optimized, efficient ZK-VM software and high-performance hardware.</li>
+<li><strong>ZK Proof Generation</strong>: Once a prover wins an auction, they execute the requested computation and generate a ZK proof using optimized zkVM software and high-performance hardware.</li>
 <li><strong>Proof Submission</strong>: The completed proof is submitted to the blockchain to trigger the on-chain verification and settlement process.</li>
 </ul>
 <hr>
 <h3 id="core-network-roles"><a class="header" href="#core-network-roles">Core Network Roles</a></h3>
 <ul>
 <li><strong>Requesters</strong>: Smart contracts or users that need trustless, verifiable computation.</li>
-<li><strong>Provers</strong>: Off-chain operators running the Brevis node software and high-performance ZK-generation hardware.</li>
+<li><strong>Provers</strong>: Off-chain operators running Brevis node software and high-performance ZK-generation hardware.</li>
 <li><strong>Stakers</strong>: BREV token holders who provide economic security (collateral) for provers in exchange for a share of the generated fees.</li>
 </ul>
 <hr>
