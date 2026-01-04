@@ -14,5 +14,5 @@ While the architecture is detailed in the [previous section](../../provernet-arc
 Becoming an active prover involves a streamlined path from infrastructure setup to active participation:
 
 1. **Hardware & Environment**: Provisioning high-performance hardware and stable network connectivity to ensure proofs are generated and submitted within the required timeframe.
-2. **Software Deployment**: First deploy the Proving Server to establish your computational baseline, followed by the Bidder Server to connect that power to the `BrevisMarket`..
+2. **Software Deployment**: First deploy the Proving Server to establish your computational baseline, followed by the Bidder Server to connect that power to the `BrevisMarket`.
 3. **Prover Account Initialization**: Setting up your prover profile via the `StakingController`. We also recommend authorizing Submitter Addresses (worker keys) to handle automated on-chain actions while keeping your primary staking key safe (in cold storage).
