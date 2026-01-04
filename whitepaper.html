@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Staking - Brevis ProveNet</title>
+        <title>Whitepaper - Brevis ProveNet</title>
 
 
         <!-- Custom HTML head -->
@@ -13,33 +13,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="../../favicon-f2934afb.png">
-        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../../css/general-2459343d.css">
-        <link rel="stylesheet" href="../../css/chrome-cc69e1fb.css">
-        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
+        <link rel="shortcut icon" href="favicon-f2934afb.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-cc69e1fb.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-56612340.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-56612340.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../../theme/custom-fc75f45e.css">
+        <link rel="stylesheet" href="theme/custom-fc75f45e.css">
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../../";
+            const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-e5475cd1.js";
+            window.path_to_searchindex_js = "searchindex-e5475cd1.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../toc-9f85df4a.js"></script>
+        <script src="toc-9f85df4a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -106,7 +106,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                     <h1 class="menu-title">Brevis ProveNet</h1>
 
                     <div class="right-buttons">
-                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -175,60 +175,18 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="staking"><a class="header" href="#staking">Staking</a></h1>
-<p>The Staking system provides the economic framework for prover participation. By requiring provers to lock collateral, the protocol ensures a highly active and responsive marketplace where every actor has a measurable commitment to the network’s operational success.</p>
-<hr>
-<h3 id="prover-lifecycle"><a class="header" href="#prover-lifecycle">Prover Lifecycle</a></h3>
-<p>The <code>StakingController</code> manages the journey of an operator through a defined set of states and requirements to ensure all active participants remain economically aligned with the protocol.</p>
-<h4 id="prover-states"><a class="header" href="#prover-states">Prover States</a></h4>
-<ul>
-<li><strong>Null</strong>: The initial state for any operator before registration or vault initialization.</li>
-<li><strong>Active</strong>: The prover is fully operational and eligible to bid on and fulfill proof requests in the marketplace.</li>
-<li><strong>Deactivated</strong>: A cooldown or exit state. The prover can no longer take on new work but remains in the system to fulfill or mature existing unstake requests.</li>
-<li><strong>Jailed</strong>: An administrative penalty state. Jailed provers are ineligible for new work until they are reactivated by an authorized administrator.</li>
-</ul>
-<h4 id="registration--initialization"><a class="header" href="#registration--initialization">Registration &amp; Initialization</a></h4>
-<p>Operators enter the network by calling <code>initializeProver</code>. This function triggers two simultaneous actions:</p>
-<ol>
-<li><strong>Vault Deployment</strong>: The deterministic deployment of a dedicated ProverVault (ERC-4626) specifically for that operator.</li>
-<li><strong>Initial Deposit</strong>: An initial stake that satisfies the minimum self-stake requirement, moving the operator directly from the Null state to the Active state.</li>
-</ol>
-<h4 id="self-stake-requirement"><a class="header" href="#self-stake-requirement">Self-Stake Requirement</a></h4>
-<p>To maintain an Active status, provers must adhere to strict collateral rules:</p>
-<ul>
-<li><strong>Mandatory Collateral</strong>: Provers must maintain a specific amount of their own assets (<code>minSelfStake</code>) within their vault at all times.</li>
-<li><strong>Non-Transferable Shares</strong>: The portion of vault shares representing the minimum self-stake is locked and cannot be transferred while the prover is active.</li>
-<li><strong>Automatic Enforcement</strong>: If a prover’s self-stake falls below the required threshold, the system transitions them to the Deactivated state to ensure all active work is properly collateralized.</li>
-</ul>
-<hr>
-<h3 id="the-staking-process"><a class="header" href="#the-staking-process">The Staking Process</a></h3>
-<p>Asset management within the network is handled through a streamlined process for both provers and their stakers utilizing isolated vaults.</p>
-<ul>
-<li><strong>Direct Staking</strong>: Users can stake with any active prover by depositing BREV tokens into the <code>StakingController</code>. The controller manages the deposit into the isolated vault and issues vault shares to the user.</li>
-<li><strong>Compounding Yield</strong>: Rewards from the marketplace or foundation are added directly to the vault assets. This increases the value of all shares automatically, allowing for seamless compounding without manual claims.</li>
-</ul>
-<hr>
-<h3 id="two-phase-unstaking-process"><a class="header" href="#two-phase-unstaking-process">Two-Phase Unstaking Process</a></h3>
-<p>To ensure provers cannot bypass commitments to pending work, all withdrawals follow a mandatory two-phase process:</p>
-<ol>
-<li><strong>Phase 1: Request (<code>requestUnstake</code>)</strong>: A user initiates an unstake by specifying the number of vault shares to redeem. The shares are burned, and the equivalent asset value enters a mandatory Unstake Delay period.</li>
-<li><strong>Phase 2: Completion (<code>completeUnstake</code>)</strong>: After the delay period has passed, the user calls <code>completeUnstake</code> to transfer the BREV tokens from the vault directly to their wallet.</li>
-</ol>
-<blockquote>
-<p>Note: Assets in the “Pending” phase remain part of the prover’s economic accountability until the second phase is completed, ensuring provers remain responsive to assignments even during their exit period.</p>
-</blockquote>
+                        <h1 id="whitepaper"><a class="header" href="#whitepaper">Whitepaper</a></h1>
+<p>MiCAR whitepaper: <a href="https://brevis.network/whitepaper/micar.xhtml">https://brevis.network/whitepaper/micar.xhtml</a></p>
+<p>Whitepaper: <a href="https://brevis.network/whitepaper/provernet.pdf">https://brevis.network/whitepaper/provernet.pdf</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../provernet-architecture/staking-and-economic-security/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="user-tutorial/staking-in-provernet.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../../provernet-architecture/staking-and-economic-security/reward-distribution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -236,13 +194,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../provernet-architecture/staking-and-economic-security/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="user-tutorial/staking-in-provernet.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../../provernet-architecture/staking-and-economic-security/reward-distribution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                    </a>
             </nav>
 
         </div>
@@ -260,13 +215,13 @@
         </script>
 
 
-        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
-        <script src="../../mark-09e88c2c.min.js"></script>
-        <script src="../../searcher-c2a407aa.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="../../clipboard-1626706a.min.js"></script>
-        <script src="../../highlight-abc7f01d.js"></script>
-        <script src="../../book-a0b12cfe.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 
