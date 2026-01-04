@@ -3,17 +3,17 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Deploy GPU Prover - Brevis ProveNet</title>
+        <title>Deploy GPU Prover</title>
 
 
         <!-- Custom HTML head -->
-        <link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: light)">
-        <link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: dark)">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="../../../favicon-f2934afb.png">
+        <link rel="icon" href="../../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../../../css/variables-8adf115d.css">
         <link rel="stylesheet" href="../../../css/general-2459343d.css">
         <link rel="stylesheet" href="../../../css/chrome-cc69e1fb.css">
@@ -28,7 +28,6 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../../ayu-highlight-56612340.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../../../theme/custom-fc75f45e.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +35,10 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-b478b179.js";
+            window.path_to_searchindex_js = "../../../searchindex-a5f92462.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../../toc-a2c5dde0.js"></script>
+        <script src="../../../toc-55dbec7a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -138,7 +137,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Brevis ProveNet</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -199,7 +198,7 @@
 </code></pre>
 </li>
 <li>
-<p>Clone the repository and enter the GPU docker folder:</p>
+<p>Clone the repository and enter the GPU Docker folder:</p>
 <pre><code class="language-bash">git clone https://github.com/brevis-network/pico-proving-service
 cd pico-proving-service/docker/gpu
 </code></pre>
@@ -212,7 +211,7 @@ cd pico-proving-service/docker/gpu
 <li>Fix <code>PROVER_COUNT</code> to the number of GPUs on your machine.</li>
 <li>The <code>SPLIT_THRESHOLD</code>, <code>CHUNK_SIZE</code>, <code>MEM_POOL_RESERVE_SIZE</code> and <code>PICO_GPU_MEM</code> are set to default for RTX 5090. For RTX 4090, comment the settings for 5090 and enable the settings for 4090. </li>
 </ul>
-<p>Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, you could enable <code>MAX_EMULATION_CYCLES</code> to give a try, its value is machine specific.</p>
+<p>Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, try enabling <code>MAX_EMULATION_CYCLES</code>. Its value is machine specific.</p>
 </li>
 <li>
 <p>Download dependencies and bring up the containers:</p>

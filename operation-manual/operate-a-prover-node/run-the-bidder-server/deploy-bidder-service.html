@@ -3,17 +3,17 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Deploy Bidder Service - Brevis ProveNet</title>
+        <title>Deploy Bidder Service</title>
 
 
         <!-- Custom HTML head -->
-        <link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: light)">
-        <link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: dark)">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="../../../favicon-f2934afb.png">
+        <link rel="icon" href="../../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../../../css/variables-8adf115d.css">
         <link rel="stylesheet" href="../../../css/general-2459343d.css">
         <link rel="stylesheet" href="../../../css/chrome-cc69e1fb.css">
@@ -28,7 +28,6 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../../ayu-highlight-56612340.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../../../theme/custom-fc75f45e.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +35,10 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-b478b179.js";
+            window.path_to_searchindex_js = "../../../searchindex-a5f92462.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../../toc-a2c5dde0.js"></script>
+        <script src="../../../toc-55dbec7a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -138,7 +137,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Brevis ProveNet</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
                         <a href="../../../print.html" title="Print this book" aria-label="Print this book">
@@ -285,17 +284,17 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <tr><th>Field</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price per your economics</td></tr>
+<tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price based on your operational costs</td></tr>
 <tr><td><code>prove_min_duration</code></td><td>Skip requests whose remaining time (reveal → deadline) is less than this many seconds</td></tr>
 <tr><td><code>max_input_size</code></td><td><code>0</code> means no limit; otherwise skip requests with larger inputs</td></tr>
 <tr><td><code>max_fee</code></td><td>Skip requests whose bid fee would exceed this ceiling</td></tr>
-<tr><td><code>vk_whitelist</code></td><td>If empty, accept all requests. Otherwise process only VKs on this list</td></tr>
+<tr><td><code>vk_whitelist</code></td><td>If empty, accept all requests. Otherwise process only verification keys (VKs) on this list</td></tr>
 <tr><td><code>vk_blacklist</code></td><td>Skip requests targeting VKs on this list</td></tr>
 </tbody>
 </table>
 </div>
 <blockquote>
-<p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF and uniquely identifies a zk program.</p>
+<p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF binary and uniquely identifies a ZK program.</p>
 </blockquote>
 </li>
 </ol>

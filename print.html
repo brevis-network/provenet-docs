@@ -3,18 +3,18 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Brevis ProveNet</title>
+        <title></title>
         <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
-        <link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: light)">
-        <link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: dark)">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="favicon-f2934afb.png">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
         <link rel="stylesheet" href="css/variables-8adf115d.css">
         <link rel="stylesheet" href="css/general-2459343d.css">
         <link rel="stylesheet" href="css/chrome-cc69e1fb.css">
@@ -29,7 +29,6 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-56612340.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/custom-fc75f45e.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -37,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-b478b179.js";
+            window.path_to_searchindex_js = "searchindex-a5f92462.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-a2c5dde0.js"></script>
+        <script src="toc-55dbec7a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -139,7 +138,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Brevis ProveNet</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -191,7 +190,7 @@
 <h4 id="the-brev-economy"><a class="header" href="#the-brev-economy">The BREV Economy</a></h4>
 <p>The <strong>BREV token</strong> serves as the core of the ProverNet economy, aligning incentives and facilitating value exchange across the network:</p>
 <ul>
-<li><strong>Payment Medium</strong>: BREV is the native settlement currency for all proving services</li>
+<li><strong>Payment Medium</strong>: BREV is the native settlement currency for all proving services.</li>
 <li><strong>Economic Security</strong>: Provers and delegators stake BREV to guarantee network reliability. This collateral ensures that prover nodes remain committed to delivering valid proofs within requested deadlines.</li>
 <li><strong>Reward Distribution</strong>: Staked BREV qualifies participants to receive a share of the network’s generated proof fees and rewards, incentivizing long-term support and high-quality service.</li>
 <li><strong>Network Governance</strong>: BREV holders govern critical protocol parameters, such as marketplace fee structures and minimum security requirements.</li>
@@ -577,7 +576,7 @@ function verifyPicoProof(bytes32 riscvVkey, bytes32 publicValues, uint256[8] cal
 </code></pre>
 </li>
 <li>
-<p>Clone the repository and enter the GPU docker folder:</p>
+<p>Clone the repository and enter the GPU Docker folder:</p>
 <pre><code class="language-bash">git clone https://github.com/brevis-network/pico-proving-service
 cd pico-proving-service/docker/gpu
 </code></pre>
@@ -590,7 +589,7 @@ cd pico-proving-service/docker/gpu
 <li>Fix <code>PROVER_COUNT</code> to the number of GPUs on your machine.</li>
 <li>The <code>SPLIT_THRESHOLD</code>, <code>CHUNK_SIZE</code>, <code>MEM_POOL_RESERVE_SIZE</code> and <code>PICO_GPU_MEM</code> are set to default for RTX 5090. For RTX 4090, comment the settings for 5090 and enable the settings for 4090. </li>
 </ul>
-<p>Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, you could enable <code>MAX_EMULATION_CYCLES</code> to give a try, its value is machine specific.</p>
+<p>Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, try enabling <code>MAX_EMULATION_CYCLES</code>. Its value is machine specific.</p>
 </li>
 <li>
 <p>Download dependencies and bring up the containers:</p>
@@ -644,7 +643,7 @@ make logs-gnark
 </code></pre>
 </li>
 <li>
-<p>Clone the repository and enter the CPU docker folder:</p>
+<p>Clone the repository and enter the CPU Docker folder:</p>
 <pre><code class="language-bash">git clone https://github.com/brevis-network/pico-proving-service
 cd pico-proving-service/docker/cpu
 </code></pre>
@@ -678,7 +677,7 @@ make logs-gnark
 <h1 id="run-the-bidder-server"><a class="header" href="#run-the-bidder-server">Run the Bidder Server</a></h1>
 <p>The Bidder Server is the operational orchestrator of your prover node. It manages the business logic and marketplace interactions required to fulfill proof requests and secure rewards.</p>
 <h4 id="operational-role"><a class="header" href="#operational-role">Operational Role</a></h4>
-<p>The Bidder automates the proof request lifecycle by bridging your off-chain Proving Service with the on-chain BrevisMarket. It is responsible for monitoring requests, performing “Dry Runs” to verify provability, managing auction bids, and submitting finalized proofs for settlement.</p>
+<p>The Bidder automates the proof request lifecycle by bridging your off-chain Proving Service with the on-chain BrevisMarket. It is responsible for monitoring requests, performing “dry runs” to verify provability, managing auction bids, and submitting finalized proofs for settlement.</p>
 <h4 id="setup-workflow"><a class="header" href="#setup-workflow">Setup Workflow</a></h4>
 <p>The deployment process is divided into two phases:</p>
 <ol>
@@ -687,7 +686,7 @@ make logs-gnark
 </ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="initialize-prover-account"><a class="header" href="#initialize-prover-account">Initialize Prover Account</a></h1>
-<p>Brevis provides CLI utilities that streamline on-chain operations to initalize a prover.</p>
+<p>Brevis provides CLI utilities that streamline on-chain operations to initialize a prover.</p>
 <ol>
 <li>
 <p>Clone the bidder ops repo from <code>/home/ubuntu</code>:</p>
@@ -707,7 +706,7 @@ go build
 <tr><th width="140.55078125">Section</th><th width="212.1171875">Field</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>chain</td><td>keystore</td><td>Path to your prover Ethereum account keystore JSON</td></tr>
+<tr><td>chain</td><td>keystore</td><td>Path to your prover's Ethereum account keystore JSON file</td></tr>
 <tr><td>chain</td><td>passphrase</td><td>Passphrase for the prover keystore</td></tr>
 <tr><td>init_prover</td><td>submitter_keystore</td><td>(Optional) Submitter keystore if using a different account</td></tr>
 <tr><td>init_prover</td><td>submitter_passphrase</td><td>(Optional) Passphrase for the submitter account</td></tr>
@@ -724,7 +723,7 @@ go build
 </li>
 </ol>
 <blockquote>
-<p>Note that this step will also auto stake a configured minimum amount BREV token to ensure prover meets the minimum self-stake requirement.</p>
+<p>Note that this step will also automatically stake the configured minimum amount BREV tokens to ensure the prover meets the minimum self-stake requirement.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="deploy-bidder-service"><a class="header" href="#deploy-bidder-service">Deploy Bidder Service</a></h1>
@@ -837,17 +836,17 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <tr><th>Field</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price per your economics</td></tr>
+<tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price based on your operational costs</td></tr>
 <tr><td><code>prove_min_duration</code></td><td>Skip requests whose remaining time (reveal → deadline) is less than this many seconds</td></tr>
 <tr><td><code>max_input_size</code></td><td><code>0</code> means no limit; otherwise skip requests with larger inputs</td></tr>
 <tr><td><code>max_fee</code></td><td>Skip requests whose bid fee would exceed this ceiling</td></tr>
-<tr><td><code>vk_whitelist</code></td><td>If empty, accept all requests. Otherwise process only VKs on this list</td></tr>
+<tr><td><code>vk_whitelist</code></td><td>If empty, accept all requests. Otherwise process only verification keys (VKs) on this list</td></tr>
 <tr><td><code>vk_blacklist</code></td><td>Skip requests targeting VKs on this list</td></tr>
 </tbody>
 </table>
 </div>
 <blockquote>
-<p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF and uniquely identifies a zk program.</p>
+<p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF binary and uniquely identifies a ZK program.</p>
 </blockquote>
 </li>
 </ol>
@@ -901,9 +900,9 @@ sudo systemctl start bidder
 <h1 id="use-the-provernet"><a class="header" href="#use-the-provernet">Use the ProverNet</a></h1>
 <p>The ProverNet enables decentralized ZK proof generation for custom computations via the Pico zkVM. This infrastructure separates the creation of computational logic from the actual request for proofs, allowing for a flexible ecosystem where different participants can interact with the network.</p>
 <h4 id="1-write-applications"><a class="header" href="#1-write-applications">1. <a href="#write-applications">Write Applications</a></a></h4>
-<p>The application developer defines the computational logic in Rust, which compiles to RISC-V for execution within the Pico zkVM. This process produces a unique <strong>verification key (vk)</strong> and a <strong>program image (elf)</strong> that serve as the identifiers for the specific work to be performed on the network.</p>
+<p>The application developer defines the computational logic in Rust, which compiles to RISC-V for execution within the Pico zkVM. This process produces a unique <strong>verification key (VK)</strong> and a <strong>program image (ELF)</strong> that serve as the identifiers for the specific work to be performed on the network.</p>
 <h4 id="2-send-proof-requests"><a class="header" href="#2-send-proof-requests">2. <a href="#send-proof-requests">Send Proof Requests</a></a></h4>
-<p>A request sender—which may be the application developer or an end-user—submits the program’s vk and public inputs to the BrevisMarket contract. By attaching a fee, the sender triggers the marketplace auction process to have the computation proved and verified on-chain.</p>
+<p>A request sender (which may be the application developer or an end-user) submits the program’s VK and public inputs to the BrevisMarket contract. By attaching a fee, the sender triggers the marketplace auction process to have the computation proved and verified on-chain.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="write-applications"><a class="header" href="#write-applications">Write Applications</a></h1>
 <p>To utilize the ProverNet, you must first develop your application logic and compile it for the Pico zkVM to generate its unique identifier.</p>
@@ -937,7 +936,7 @@ cd ..
 </code></pre>
 <hr>
 <h4 id="3-generate-the-verification-key-app-id"><a class="header" href="#3-generate-the-verification-key-app-id">3. Generate the Verification Key (App ID)</a></h4>
-<p>Every program ELF has a unique, deterministic <strong>Verification Key (vk)</strong>, which serves as the <strong>App ID</strong> on the ProverNet. This key is static for a specific version of your code. </p>
+<p>Every program ELF has a unique, deterministic <strong>Verification Key (VK)</strong>, which serves as the <strong>App ID</strong> on ProverNet. This key is static for a specific version of your code. </p>
 <p>Use the helper tool in the <code>evm-pico-apps</code> repository to extract it:</p>
 <pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf &lt;app-name&gt;/elf/riscv32im-pico-zkvm-elf
 </code></pre>
@@ -1025,14 +1024,14 @@ go build -o tools
 <p>Note that if the delegated prover fails to meet its SLA commitments, your delegated stake may be slashed. Therefore, it is critical to carefully evaluate different proving providers and adjust<br>your stakes from time to time. Visit Brevis Prover Network <em>[Link]</em> and you can view all active provers in the ProverNet, along with key statistics such as the number of BREV staked, the number of proofs generated, and the proof fee received.</p>
 <h4 id="stake-brev"><a class="header" href="#stake-brev">Stake BREV</a></h4>
 <p>To start staking your BREV, you will need to connect wallet and select the prover you would like to stake with. </p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.19.49.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.19.49.png" alt=""><figcaption></figcaption></figure>
 <p>Once wallet is connected, the <em>Stake</em> button will be enabled and you can click the button to stake now!</p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.33.54.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.33.54.png" alt=""><figcaption></figcaption></figure>
 <p>You may need to <em>Approve</em> the Brevis staking contract first to allow it to spend your BREV. Once sufficient amount is approved, the <em>Stake</em> button will be enabled, and you can submit the stake transaction.</p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.32.25.png" alt=""><figcaption></figcaption></p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.36.00.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.32.25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.36.00.png" alt=""><figcaption></figcaption></figure>
 <p>You can also increase your stake with provers you’ve already delegated to. Visit the <em>Dashboard</em> <em>[Link]</em> to see your current delegated provers and use the <em>Stake More</em> option to add additional BREV.</p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.37.21.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 20.37.21.png" alt=""><figcaption></figcaption></figure>
 <h4 id="dashboard"><a class="header" href="#dashboard">Dashboard</a></h4>
 <p>On the Dashboard <em>[LINK]</em>, you can view your total stake and see detailed staking information for each prover, including the staked amount, the pending unstake amount, and the withdrawable amount.</p>
 <ul>
@@ -1043,13 +1042,13 @@ go build -o tools
 </ul>
 <h4 id="unstake-brev"><a class="header" href="#unstake-brev">Unstake BREV</a></h4>
 <p>You can unstake your BREV at any time by clicking the <em>Request Unstake</em> button on the Dashboard page. </p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.03.56.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.03.56.png" alt=""><figcaption></figcaption></figure>
 <p>First, you may need to <em>Approve</em> the Brevis staking contract to allow it to unstake your BREV. Once sufficient amount is approved, the <em>Unstake</em> button will be enabled, and you can submit the unstake transaction. Please note that the unstaking process takes <strong>7 days</strong>. After the waiting period, you can withdraw your BREV and have them returned to your account.</p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 21.46.15 (1).png" alt=""><figcaption></figcaption></p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.01.40.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 21.46.15 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.01.40.png" alt=""><figcaption></figcaption></figure>
 <h4 id="withdraw-brev"><a class="header" href="#withdraw-brev">Withdraw BREV</a></h4>
 <p>You can withdraw your unstaked BREV once the 7-day processing window has passed, by simply clicking the <em>Withdraw</em> button on the Dashboard page. If you have no unstaked BREV or your unstaked BREV is still within the 7-day waiting period, the <em>Withdraw</em> button will be disabled.</p>
-<p><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.48.11.png" alt=""><figcaption></figcaption></p>
+<figure><img src=".gitbook/assets/Screenshot 2025-12-24 at 22.48.11.png" alt=""><figcaption></figcaption></figure>
 
                     </main>
 
