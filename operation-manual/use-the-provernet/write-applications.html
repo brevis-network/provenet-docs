@@ -36,7 +36,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-3c20cc00.js";
+            window.path_to_searchindex_js = "../../searchindex-e596ef10.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-a2c5dde0.js"></script>
@@ -176,40 +176,48 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="write-applications"><a class="header" href="#write-applications">Write Applications</a></h1>
-<p>Brevis offers Pico client SDK to facilitate the writing of the applications that can be proved by prover node. </p>
-<h4 id="install-pico-cli"><a class="header" href="#install-pico-cli">Install Pico CLI</a></h4>
-<p>Use Pico CLI <code>v1.2.2</code> for the steps below.</p>
+<p>To utilize the ProverNet, you must first develop your application logic and compile it for the Pico zkVM to generate its unique identifier.</p>
+<hr>
+<h4 id="1-install-pico-cli"><a class="header" href="#1-install-pico-cli">1. Install Pico CLI</a></h4>
+<p>The Pico CLI is required to build programs and manage zkVM artifacts. Please use version <code>v1.2.2</code>.</p>
 <p><strong>Option 1: Install via Cargo</strong></p>
-<pre><code>cargo +nightly-2025-08-04 install --git https://github.com/brevis-network/pico --tag v1.2.2 pico-cli
-</code></pre>
-<p>Verify the installation:</p>
-<pre><code>cargo pico --version
+<pre><code class="language-bash">cargo +nightly-2025-08-04 install --git https://github.com/brevis-network/pico --tag v1.2.2 pico-cli
 </code></pre>
 <p><strong>Option 2: Install from a Local Checkout</strong></p>
-<pre><code>git clone https://github.com/brevis-network/pico
+<pre><code class="language-bash">git clone https://github.com/brevis-network/pico
 cd pico
 git checkout v1.2.2
 cd sdk/cli
 cargo install --locked --force --path .
 </code></pre>
-<h4 id="write-and-build-the-application-elf-artifact"><a class="header" href="#write-and-build-the-application-elf-artifact">Write and Build the Application (ELF Artifact)</a></h4>
-<p>Follow the <a href="https://pico-docs.brevis.network/writing-apps/programs">Pico documentation</a> and the <a href="https://github.com/brevis-network/evm-pico-apps">EVM Pico apps examples</a> to write your program. Build it into an ELF with:</p>
+<p><strong>Verify the installation:</strong></p>
+<pre><code class="language-bash">cargo pico --version
+</code></pre>
+<hr>
+<h4 id="2-build-the-application-elf-artifact"><a class="header" href="#2-build-the-application-elf-artifact">2. Build the Application (ELF Artifact)</a></h4>
+<p>Pico applications are compiled into a RISC-V Executable and Linkable Format (ELF) file.</p>
+<ul>
+<li>Refer to the <a href="https://pico-docs.brevis.network/writing-apps/programs">Official Pico Documentation</a> for application structure.</li>
+<li>Explore <a href="https://github.com/brevis-network/evm-pico-apps">EVM Pico App Examples</a> for pre-built templates.</li>
+</ul>
+<p>To build your program into an ELF, run:</p>
 <pre><code>cd &lt;app-name&gt;
 cargo pico build
 cd ..
 </code></pre>
-<p>It’s the binary in ELF format that will be registered and loaded into prover nodes. </p>
-<h4 id="generate-the-verification-key-app-id"><a class="header" href="#generate-the-verification-key-app-id">Generate the Verification Key (App ID)</a></h4>
-<p>The Verification Key (App ID) uniquely identifies an app. Every ELF has a deterministic verification key. Use the helper in <code>evm-pico-apps</code>:</p>
-<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf &lt;app-name&gt;/elf/riscv32im-pico-zkvm-elf
+<hr>
+<h4 id="3-generate-the-verification-key-app-id"><a class="header" href="#3-generate-the-verification-key-app-id">3. Generate the Verification Key (App ID)</a></h4>
+<p>Every program ELF has a unique, deterministic <strong>Verification Key (vk)</strong>, which serves as the <strong>App ID</strong> on the ProverNet. This key is static for a specific version of your code. </p>
+<p>Use the helper tool in the <code>evm-pico-apps</code> repository to extract it:</p>
+<pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf &lt;app-name&gt;/elf/riscv32im-pico-zkvm-elf
 </code></pre>
 <p>Example (Fibonacci app):</p>
-<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf fibonacci/elf/riscv32im-pico-zkvm-elf
+<pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf fibonacci/elf/riscv32im-pico-zkvm-elf
 </code></pre>
 <p>Sample output:</p>
 <pre><code>Generated app_id: 0x00399db87f8d0d43e1795c4aebffe8cc58486e41b98371bdf667f3d29ce4476b
 </code></pre>
-<p>When asking the ProverNet for a proof, the ELF binary and the App ID are required.</p>
+<p>This <strong>app_id</strong> (the <code>vk</code>) along with the <strong>ELF</strong> is what you will use in your proof requests to tell the network exactly which program logic needs to be executed.</p>
 
                     </main>
 

@@ -36,7 +36,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-3c20cc00.js";
+            window.path_to_searchindex_js = "../../searchindex-e596ef10.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-a2c5dde0.js"></script>
@@ -176,11 +176,11 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="use-the-provernet"><a class="header" href="#use-the-provernet">Use the ProverNet</a></h1>
-<p>This section focuses on how to use the ProverNet, namely,</p>
-<ul>
-<li><a href="write-applications.html"><strong>Write Applications</strong></a>: specify what computational work to prove.</li>
-<li><a href="../operate-a-prover-node/run-the-pico-proving-server/deploy-cpu-prover.html"><strong>Send Proof Requests</strong></a>: specify how to request a proof for the computational work.</li>
-</ul>
+<p>The ProverNet enables decentralized ZK proof generation for custom computations via the Pico zkVM. This infrastructure separates the creation of computational logic from the actual request for proofs, allowing for a flexible ecosystem where different participants can interact with the network.</p>
+<h4 id="1-write-applications"><a class="header" href="#1-write-applications">1. <a href="write-applications.html">Write Applications</a></a></h4>
+<p>The application developer defines the computational logic in Rust, which compiles to RISC-V for execution within the Pico zkVM. This process produces a unique <strong>verification key (vk)</strong> and a <strong>program image (elf)</strong> that serve as the identifiers for the specific work to be performed on the network.</p>
+<h4 id="2-send-proof-requests"><a class="header" href="#2-send-proof-requests">2. <a href="send-proof-requests.html">Send Proof Requests</a></a></h4>
+<p>A request sender—which may be the application developer or an end-user—submits the program’s vk and public inputs to the BrevisMarket contract. By attaching a fee, the sender triggers the marketplace auction process to have the computation proved and verified on-chain.</p>
 
                     </main>
 

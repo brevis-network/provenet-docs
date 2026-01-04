@@ -36,7 +36,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-3c20cc00.js";
+            window.path_to_searchindex_js = "../../searchindex-e596ef10.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-a2c5dde0.js"></script>
@@ -176,10 +176,32 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="send-proof-requests"><a class="header" href="#send-proof-requests">Send Proof Requests</a></h1>
-<p>To request a proof, in additions to the ELF binary and App ID, the input parameters of the App also need specified.</p>
-<h4 id="generate-input-data-and-public-values-digest"><a class="header" href="#generate-input-data-and-public-values-digest">Generate Input Data and Public Values Digest</a></h4>
-<p>Use the <a href="https://github.com/brevis-network/evm-pico-apps?tab=readme-ov-file#example-apps">example apps</a> as a template. They typically emit both the encoded input data and the public values digest expected by the prover. Example (Fibonacci, <code>n=100</code>):</p>
-<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-inputs-fibonacci -- --n 100
+<p>To request a proof from the marketplace, you must submit a transaction to the <code>BrevisMarket</code> contract. This page details the data structure required by the contract and the tools available to submit it.</p>
+<hr>
+<h4 id="1-the-proofrequest-structure"><a class="header" href="#1-the-proofrequest-structure">1. The ProofRequest Structure</a></h4>
+<p>Every proof request is defined by the <code>ProofRequest</code> struct. Whether you use the CLI or a custom script, these are the parameters you must provide:</p>
+<pre><code class="language-solidity">struct ProofRequest {
+    uint64 nonce;               // Unique ID for the request
+    bytes32 vk;                 // The Verification Key (App ID)
+    bytes32 publicValuesDigest; // Commitment to the program outputs
+    string imgURL;              // URL to the compiled ELF artifact
+    bytes inputData;            // Encoded input data (raw bytes)
+    string inputURL;            // (Optional) URL to input data if payload is large
+    uint32 version;             // Verifier version (default: 0)
+    FeeParams fee;              // Economic parameters for the auction
+}
+
+struct FeeParams {
+    uint96 maxFee;    // Max USDC to pay for the proof
+    uint96 minStake;  // Minimum prover stake required to bid
+    uint64 deadline;  // Unix timestamp; proof must be submitted by this time
+}
+</code></pre>
+<hr>
+<h4 id="2-prepare-inputs-and-public-values"><a class="header" href="#2-prepare-inputs-and-public-values">2. Prepare Inputs and Public Values</a></h4>
+<p>Before filling the <code>ProofRequest</code> struct, you must generate the execution-specific data. This produces the <code>inputData</code> and the <code>publicValuesDigest</code>.</p>
+<p>Use the <a href="https://github.com/brevis-network/evm-pico-apps?tab=readme-ov-file#example-apps">example apps</a> as a template for generating these values. For instance, using the Fibonacci app with <code>n=100</code>:</p>
+<pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-inputs-fibonacci -- --n 100
 </code></pre>
 <p>Sample output:</p>
 <pre><code>=== For Onchain ProofRequest ===
@@ -187,67 +209,38 @@ vk: 0x00399db87f8d0d43e1795c4aebffe8cc58486e41b98371bdf667f3d29ce4476b
 publicValuesDigest: 0x12c6f9f81993158e5d1e480b643b0466160893ebb0531e8c3ad7dd22c3fdeaa3
 inputData: 0x01000000000000000400000000000000640000000000000000000000
 </code></pre>
-<p>Persist these values—they flow directly into the proof-request transaction.</p>
-<h3 id="send-a-proof-request"><a class="header" href="#send-a-proof-request">Send a Proof Request</a></h3>
-<p>The easiest way to submit requests is via the CLI utility, which batches multiple entries and handles encoding. </p>
+<blockquote>
+<p>Note: Ensure these values are captured accurately. Any mismatch between the <code>inputData</code> and <code>publicValuesDigest</code> will cause the on-chain verification to fail.</p>
+</blockquote>
+<hr>
+<h4 id="3-send-a-proof-request"><a class="header" href="#3-send-a-proof-request">3. Send a Proof Request</a></h4>
+<p>While production applications will typically implement their own programmatic request logic using the struct above, Brevis provides a CLI utility as a reference implementation and testing tool.</p>
+<p><strong>Using the CLI Reference Tool</strong></p>
 <ol>
 <li>
-<p>Clone the bidder ops repo from <code>/home/ubuntu</code>:</p>
-<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-bidder-ops
+<p><strong>Installation</strong>: Clone the repository and build the tool binary:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-ops
+cd prover-network-bidder-ops/tools
+go build -o tools
 </code></pre>
 </li>
 <li>
-<p>From the <code>tools</code> directory, build the binary:</p>
-<pre><code>cd tools
-go build
-</code></pre>
+<p><strong>Configuration</strong>: Update the <code>[chain]</code> section in <code>config.toml</code> with your <code>keystore</code> path and <code>passphrase</code>. Add your request details in the <code>[[request]]</code> section using the parameters derived in the previous steps.</p>
 </li>
 <li>
-<p>Update the <code>[chain]</code> section in <code>config.toml</code>:</p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Field</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>keystore</td><td>Path to your Ethereum account keystore JSON</td></tr>
-<tr><td>passphrase</td><td>Passphrase for the keystore</td></tr>
-</tbody>
-</table>
-</div>
-<p>Adjust the parameters inside each <code>[[request]]</code> section as needed. Add multiple <code>[[request]]</code> sections to submit more than one proof request.</p>
-</li>
-<li>
-<p>Run:</p>
-<pre><code>./tools request-proof --config ./config.toml
+<p><strong>Execution</strong>: Run the command to submit your requests:</p>
+<pre><code class="language-bash">./tools request-proof --config ./config.toml
 </code></pre>
 </li>
 </ol>
-<p>Use the checklist below to fill each field in <code>[[request]]</code>  section correctly:</p>
-<ol>
-<li><strong><code>nonce</code></strong> – Unique identifier you choose per request.</li>
-<li><strong><code>vk</code></strong> – The verification key/app ID from Generate the Verification Key.</li>
-<li><strong><code>public_value_digest</code></strong> – Output from Generate Input Data and Public Values Digest.</li>
-<li><strong><code>img_url</code></strong> – URL hosting the ELF artifact built in Build the Application (ELF Artifact).</li>
-<li><strong><code>input_data</code></strong> – Encoded input from the generator step.</li>
-<li><strong><code>input_url</code></strong> – Optional URL pointing to the input payload when it is too large to inline. Provide either <code>inputData</code> or <code>inputURL</code> (or both).</li>
-<li><strong><code>fee</code> tuple (<code>max_fee</code>, <code>min_stake</code>, <code>deadline</code>)</strong>:
+<hr>
+<h4 id="sample-apps-for-testing"><a class="header" href="#sample-apps-for-testing">Sample Apps for Testing</a></h4>
+<p>Use these reference programs to validate your setup:</p>
 <ul>
-<li><code>max_fee</code>: Maximum amount (USDC on Base) you are willing to pay for the proof.</li>
-<li><code>min_stake</code>: Minimum prover stake required to bid on this request.</li>
-<li><code>deadline</code>: Unix timestamp by which the proof must be submitted. The deadline must be within 30 days of the request time.</li>
+<li><a href="https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci">Fibonacci</a>: Computes the <em>n</em>-th Fibonacci number. A lightweight workload for quick smoke tests.</li>
+<li><a href="https://github.com/brevis-network/pico/tree/main/examples/tendermint/app">Tendermint</a>: Verifies consensus transitions. A medium-weight workload that exercises Merkle proofs and signature checks.</li>
+<li><a href="https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico">Reth</a>: Executes Ethereum block verification. A heavy workload representative of production proving jobs.</li>
 </ul>
-</li>
-<li><strong><code>version</code></strong> - Version of the Pico verfifier to use, default to 0.</li>
-</ol>
-<h3 id="sample-apps-for-testing"><a class="header" href="#sample-apps-for-testing">Sample Apps for Testing</a></h3>
-<p>Use these reference programs when validating your setup:</p>
-<ul>
-<li><a href="https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci"><strong>Fibonacci</strong></a> – Computes the <em>n</em>-th Fibonacci number from a <code>u32</code> input. Lightweight workload for quick smoke tests.</li>
-<li><a href="https://github.com/brevis-network/pico/tree/main/examples/tendermint/app"><strong>Tendermint</strong></a> – Verifies consensus transitions between Tendermint light blocks. Medium-weight workload that exercises Merkle proofs and signature checks.</li>
-<li><a href="https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico"><strong>Reth</strong></a> – Executes Ethereum block verification via the Reth executor. Heavy workload representative of production proving jobs.</li>
-</ul>
-<p>Build ELFs for these samples with <code>cargo pico build</code> inside each app directory, and use the matching input generators (where provided) to obtain the request payloads.</p>
 
                     </main>
 

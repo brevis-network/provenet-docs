@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3c20cc00.js";
+            window.path_to_searchindex_js = "searchindex-e596ef10.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-a2c5dde0.js"></script>
@@ -177,7 +177,25 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Brevis ProverNet is a decentralized marketplace where any application can access zero-knowledge proving capacity and any prover can compete to serve it.</p>
+<p>Welcome to the Brevis ProverNet, the foundational coordination layer for the ZK ecosystem. ProverNet operates as a <strong>decentralized marketplace</strong> that bridges the gap between applications requiring zero-knowledge proofs and the specialized hardware capable of generating them</p>
+<hr>
+<h4 id="coordinating-the-zk-ecosystem"><a class="header" href="#coordinating-the-zk-ecosystem">Coordinating the ZK Ecosystem</a></h4>
+<p>As the demand for verifiable computation and trustless applications scales, the need for high-performance, cost-effective ZK proving capacity is growing rapidly. ProverNet addresses this by creating a unified environment where all participants—from developers to hardware providers—interact to drive the efficiency of zero-knowledge technology.</p>
+<ul>
+<li><strong>ZK App Developers</strong>: Focus entirely on building innovative application logic without the burden of managing complex proving infrastructure. By defining computational work for the <strong>Pico zkVM</strong>, developers gain instant access to a global network of hardware.</li>
+<li><strong>ZK App Users</strong>: Benefit from lower costs and faster response times for verifiable transactions. Real-time competition between provers ensures that efficiency gains are passed directly to users via optimized proof fees.</li>
+<li><strong>Provers</strong>: Hardware providers find a streamlined way to monetize their capacity. The network’s auction mechanism matches provers with the specific workloads that best suit their hardware optimizations.</li>
+<li><strong>Stakers</strong>: Token holders provide the economic security that underpins every proof. By delegating BREV to reputable provers, stakers help ensure a high quality of service while participating in the growth of the proving economy.</li>
+</ul>
+<hr>
+<h4 id="the-brev-economy"><a class="header" href="#the-brev-economy">The BREV Economy</a></h4>
+<p>The <strong>BREV token</strong> serves as the heartbeat of the ProverNet economy, aligning incentives and facilitating value exchange across the network:</p>
+<ul>
+<li><strong>Payment Medium</strong>: BREV is the native settlement currency for all proving services.</li>
+<li><strong>Economic Security</strong>: Provers and delegators stake BREV to guarantee network reliability. This collateral ensures that prover nodes remain committed to delivering valid proofs within requested deadlines.</li>
+<li><strong>Reward Distribution</strong>: Staked BREV qualifies participants to receive a share of the network’s generated proof fees and rewards, incentivizing long-term support and high-quality service.</li>
+<li><strong>Network Governance</strong>: BREV holders govern critical protocol parameters, such as marketplace fee structures and minimum security requirements.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="system-overview"><a class="header" href="#system-overview">System Overview</a></h1>
 <p>The Brevis Prover Network is a decentralized infrastructure that enables smart contracts to offload complex, data-heavy computations to an off-chain network without sacrificing security.</p>
@@ -881,53 +899,83 @@ sudo systemctl start bidder
 </ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="use-the-provernet"><a class="header" href="#use-the-provernet">Use the ProverNet</a></h1>
-<p>This section focuses on how to use the ProverNet, namely,</p>
-<ul>
-<li><a href="#write-applications"><strong>Write Applications</strong></a>: specify what computational work to prove.</li>
-<li><a href="#deploy-cpu-prover"><strong>Send Proof Requests</strong></a>: specify how to request a proof for the computational work.</li>
-</ul>
+<p>The ProverNet enables decentralized ZK proof generation for custom computations via the Pico zkVM. This infrastructure separates the creation of computational logic from the actual request for proofs, allowing for a flexible ecosystem where different participants can interact with the network.</p>
+<h4 id="1-write-applications"><a class="header" href="#1-write-applications">1. <a href="#write-applications">Write Applications</a></a></h4>
+<p>The application developer defines the computational logic in Rust, which compiles to RISC-V for execution within the Pico zkVM. This process produces a unique <strong>verification key (vk)</strong> and a <strong>program image (elf)</strong> that serve as the identifiers for the specific work to be performed on the network.</p>
+<h4 id="2-send-proof-requests"><a class="header" href="#2-send-proof-requests">2. <a href="#send-proof-requests">Send Proof Requests</a></a></h4>
+<p>A request sender—which may be the application developer or an end-user—submits the program’s vk and public inputs to the BrevisMarket contract. By attaching a fee, the sender triggers the marketplace auction process to have the computation proved and verified on-chain.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="write-applications"><a class="header" href="#write-applications">Write Applications</a></h1>
-<p>Brevis offers Pico client SDK to facilitate the writing of the applications that can be proved by prover node. </p>
-<h4 id="install-pico-cli"><a class="header" href="#install-pico-cli">Install Pico CLI</a></h4>
-<p>Use Pico CLI <code>v1.2.2</code> for the steps below.</p>
+<p>To utilize the ProverNet, you must first develop your application logic and compile it for the Pico zkVM to generate its unique identifier.</p>
+<hr>
+<h4 id="1-install-pico-cli"><a class="header" href="#1-install-pico-cli">1. Install Pico CLI</a></h4>
+<p>The Pico CLI is required to build programs and manage zkVM artifacts. Please use version <code>v1.2.2</code>.</p>
 <p><strong>Option 1: Install via Cargo</strong></p>
-<pre><code>cargo +nightly-2025-08-04 install --git https://github.com/brevis-network/pico --tag v1.2.2 pico-cli
-</code></pre>
-<p>Verify the installation:</p>
-<pre><code>cargo pico --version
+<pre><code class="language-bash">cargo +nightly-2025-08-04 install --git https://github.com/brevis-network/pico --tag v1.2.2 pico-cli
 </code></pre>
 <p><strong>Option 2: Install from a Local Checkout</strong></p>
-<pre><code>git clone https://github.com/brevis-network/pico
+<pre><code class="language-bash">git clone https://github.com/brevis-network/pico
 cd pico
 git checkout v1.2.2
 cd sdk/cli
 cargo install --locked --force --path .
 </code></pre>
-<h4 id="write-and-build-the-application-elf-artifact"><a class="header" href="#write-and-build-the-application-elf-artifact">Write and Build the Application (ELF Artifact)</a></h4>
-<p>Follow the <a href="https://pico-docs.brevis.network/writing-apps/programs">Pico documentation</a> and the <a href="https://github.com/brevis-network/evm-pico-apps">EVM Pico apps examples</a> to write your program. Build it into an ELF with:</p>
+<p><strong>Verify the installation:</strong></p>
+<pre><code class="language-bash">cargo pico --version
+</code></pre>
+<hr>
+<h4 id="2-build-the-application-elf-artifact"><a class="header" href="#2-build-the-application-elf-artifact">2. Build the Application (ELF Artifact)</a></h4>
+<p>Pico applications are compiled into a RISC-V Executable and Linkable Format (ELF) file.</p>
+<ul>
+<li>Refer to the <a href="https://pico-docs.brevis.network/writing-apps/programs">Official Pico Documentation</a> for application structure.</li>
+<li>Explore <a href="https://github.com/brevis-network/evm-pico-apps">EVM Pico App Examples</a> for pre-built templates.</li>
+</ul>
+<p>To build your program into an ELF, run:</p>
 <pre><code>cd &lt;app-name&gt;
 cargo pico build
 cd ..
 </code></pre>
-<p>It’s the binary in ELF format that will be registered and loaded into prover nodes. </p>
-<h4 id="generate-the-verification-key-app-id"><a class="header" href="#generate-the-verification-key-app-id">Generate the Verification Key (App ID)</a></h4>
-<p>The Verification Key (App ID) uniquely identifies an app. Every ELF has a deterministic verification key. Use the helper in <code>evm-pico-apps</code>:</p>
-<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf &lt;app-name&gt;/elf/riscv32im-pico-zkvm-elf
+<hr>
+<h4 id="3-generate-the-verification-key-app-id"><a class="header" href="#3-generate-the-verification-key-app-id">3. Generate the Verification Key (App ID)</a></h4>
+<p>Every program ELF has a unique, deterministic <strong>Verification Key (vk)</strong>, which serves as the <strong>App ID</strong> on the ProverNet. This key is static for a specific version of your code. </p>
+<p>Use the helper tool in the <code>evm-pico-apps</code> repository to extract it:</p>
+<pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf &lt;app-name&gt;/elf/riscv32im-pico-zkvm-elf
 </code></pre>
 <p>Example (Fibonacci app):</p>
-<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf fibonacci/elf/riscv32im-pico-zkvm-elf
+<pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-app-id -- --elf fibonacci/elf/riscv32im-pico-zkvm-elf
 </code></pre>
 <p>Sample output:</p>
 <pre><code>Generated app_id: 0x00399db87f8d0d43e1795c4aebffe8cc58486e41b98371bdf667f3d29ce4476b
 </code></pre>
-<p>When asking the ProverNet for a proof, the ELF binary and the App ID are required.</p>
+<p>This <strong>app_id</strong> (the <code>vk</code>) along with the <strong>ELF</strong> is what you will use in your proof requests to tell the network exactly which program logic needs to be executed.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="send-proof-requests"><a class="header" href="#send-proof-requests">Send Proof Requests</a></h1>
-<p>To request a proof, in additions to the ELF binary and App ID, the input parameters of the App also need specified.</p>
-<h4 id="generate-input-data-and-public-values-digest"><a class="header" href="#generate-input-data-and-public-values-digest">Generate Input Data and Public Values Digest</a></h4>
-<p>Use the <a href="https://github.com/brevis-network/evm-pico-apps?tab=readme-ov-file#example-apps">example apps</a> as a template. They typically emit both the encoded input data and the public values digest expected by the prover. Example (Fibonacci, <code>n=100</code>):</p>
-<pre><code>VK_VERIFICATION=true cargo run -r --bin gen-inputs-fibonacci -- --n 100
+<p>To request a proof from the marketplace, you must submit a transaction to the <code>BrevisMarket</code> contract. This page details the data structure required by the contract and the tools available to submit it.</p>
+<hr>
+<h4 id="1-the-proofrequest-structure"><a class="header" href="#1-the-proofrequest-structure">1. The ProofRequest Structure</a></h4>
+<p>Every proof request is defined by the <code>ProofRequest</code> struct. Whether you use the CLI or a custom script, these are the parameters you must provide:</p>
+<pre><code class="language-solidity">struct ProofRequest {
+    uint64 nonce;               // Unique ID for the request
+    bytes32 vk;                 // The Verification Key (App ID)
+    bytes32 publicValuesDigest; // Commitment to the program outputs
+    string imgURL;              // URL to the compiled ELF artifact
+    bytes inputData;            // Encoded input data (raw bytes)
+    string inputURL;            // (Optional) URL to input data if payload is large
+    uint32 version;             // Verifier version (default: 0)
+    FeeParams fee;              // Economic parameters for the auction
+}
+
+struct FeeParams {
+    uint96 maxFee;    // Max USDC to pay for the proof
+    uint96 minStake;  // Minimum prover stake required to bid
+    uint64 deadline;  // Unix timestamp; proof must be submitted by this time
+}
+</code></pre>
+<hr>
+<h4 id="2-prepare-inputs-and-public-values"><a class="header" href="#2-prepare-inputs-and-public-values">2. Prepare Inputs and Public Values</a></h4>
+<p>Before filling the <code>ProofRequest</code> struct, you must generate the execution-specific data. This produces the <code>inputData</code> and the <code>publicValuesDigest</code>.</p>
+<p>Use the <a href="https://github.com/brevis-network/evm-pico-apps?tab=readme-ov-file#example-apps">example apps</a> as a template for generating these values. For instance, using the Fibonacci app with <code>n=100</code>:</p>
+<pre><code class="language-bash">VK_VERIFICATION=true cargo run -r --bin gen-inputs-fibonacci -- --n 100
 </code></pre>
 <p>Sample output:</p>
 <pre><code>=== For Onchain ProofRequest ===
@@ -935,67 +983,38 @@ vk: 0x00399db87f8d0d43e1795c4aebffe8cc58486e41b98371bdf667f3d29ce4476b
 publicValuesDigest: 0x12c6f9f81993158e5d1e480b643b0466160893ebb0531e8c3ad7dd22c3fdeaa3
 inputData: 0x01000000000000000400000000000000640000000000000000000000
 </code></pre>
-<p>Persist these values—they flow directly into the proof-request transaction.</p>
-<h3 id="send-a-proof-request"><a class="header" href="#send-a-proof-request">Send a Proof Request</a></h3>
-<p>The easiest way to submit requests is via the CLI utility, which batches multiple entries and handles encoding. </p>
+<blockquote>
+<p>Note: Ensure these values are captured accurately. Any mismatch between the <code>inputData</code> and <code>publicValuesDigest</code> will cause the on-chain verification to fail.</p>
+</blockquote>
+<hr>
+<h4 id="3-send-a-proof-request"><a class="header" href="#3-send-a-proof-request">3. Send a Proof Request</a></h4>
+<p>While production applications will typically implement their own programmatic request logic using the struct above, Brevis provides a CLI utility as a reference implementation and testing tool.</p>
+<p><strong>Using the CLI Reference Tool</strong></p>
 <ol>
 <li>
-<p>Clone the bidder ops repo from <code>/home/ubuntu</code>:</p>
-<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-bidder-ops
+<p><strong>Installation</strong>: Clone the repository and build the tool binary:</p>
+<pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-ops
+cd prover-network-bidder-ops/tools
+go build -o tools
 </code></pre>
 </li>
 <li>
-<p>From the <code>tools</code> directory, build the binary:</p>
-<pre><code>cd tools
-go build
-</code></pre>
+<p><strong>Configuration</strong>: Update the <code>[chain]</code> section in <code>config.toml</code> with your <code>keystore</code> path and <code>passphrase</code>. Add your request details in the <code>[[request]]</code> section using the parameters derived in the previous steps.</p>
 </li>
 <li>
-<p>Update the <code>[chain]</code> section in <code>config.toml</code>:</p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Field</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>keystore</td><td>Path to your Ethereum account keystore JSON</td></tr>
-<tr><td>passphrase</td><td>Passphrase for the keystore</td></tr>
-</tbody>
-</table>
-</div>
-<p>Adjust the parameters inside each <code>[[request]]</code> section as needed. Add multiple <code>[[request]]</code> sections to submit more than one proof request.</p>
-</li>
-<li>
-<p>Run:</p>
-<pre><code>./tools request-proof --config ./config.toml
+<p><strong>Execution</strong>: Run the command to submit your requests:</p>
+<pre><code class="language-bash">./tools request-proof --config ./config.toml
 </code></pre>
 </li>
 </ol>
-<p>Use the checklist below to fill each field in <code>[[request]]</code>  section correctly:</p>
-<ol>
-<li><strong><code>nonce</code></strong> – Unique identifier you choose per request.</li>
-<li><strong><code>vk</code></strong> – The verification key/app ID from Generate the Verification Key.</li>
-<li><strong><code>public_value_digest</code></strong> – Output from Generate Input Data and Public Values Digest.</li>
-<li><strong><code>img_url</code></strong> – URL hosting the ELF artifact built in Build the Application (ELF Artifact).</li>
-<li><strong><code>input_data</code></strong> – Encoded input from the generator step.</li>
-<li><strong><code>input_url</code></strong> – Optional URL pointing to the input payload when it is too large to inline. Provide either <code>inputData</code> or <code>inputURL</code> (or both).</li>
-<li><strong><code>fee</code> tuple (<code>max_fee</code>, <code>min_stake</code>, <code>deadline</code>)</strong>:
+<hr>
+<h4 id="sample-apps-for-testing"><a class="header" href="#sample-apps-for-testing">Sample Apps for Testing</a></h4>
+<p>Use these reference programs to validate your setup:</p>
 <ul>
-<li><code>max_fee</code>: Maximum amount (USDC on Base) you are willing to pay for the proof.</li>
-<li><code>min_stake</code>: Minimum prover stake required to bid on this request.</li>
-<li><code>deadline</code>: Unix timestamp by which the proof must be submitted. The deadline must be within 30 days of the request time.</li>
+<li><a href="https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci">Fibonacci</a>: Computes the <em>n</em>-th Fibonacci number. A lightweight workload for quick smoke tests.</li>
+<li><a href="https://github.com/brevis-network/pico/tree/main/examples/tendermint/app">Tendermint</a>: Verifies consensus transitions. A medium-weight workload that exercises Merkle proofs and signature checks.</li>
+<li><a href="https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico">Reth</a>: Executes Ethereum block verification. A heavy workload representative of production proving jobs.</li>
 </ul>
-</li>
-<li><strong><code>version</code></strong> - Version of the Pico verfifier to use, default to 0.</li>
-</ol>
-<h3 id="sample-apps-for-testing"><a class="header" href="#sample-apps-for-testing">Sample Apps for Testing</a></h3>
-<p>Use these reference programs when validating your setup:</p>
-<ul>
-<li><a href="https://github.com/brevis-network/evm-pico-apps/tree/main/fibonacci"><strong>Fibonacci</strong></a> – Computes the <em>n</em>-th Fibonacci number from a <code>u32</code> input. Lightweight workload for quick smoke tests.</li>
-<li><a href="https://github.com/brevis-network/pico/tree/main/examples/tendermint/app"><strong>Tendermint</strong></a> – Verifies consensus transitions between Tendermint light blocks. Medium-weight workload that exercises Merkle proofs and signature checks.</li>
-<li><a href="https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico"><strong>Reth</strong></a> – Executes Ethereum block verification via the Reth executor. Heavy workload representative of production proving jobs.</li>
-</ul>
-<p>Build ELFs for these samples with <code>cargo pico build</code> inside each app directory, and use the matching input generators (where provided) to obtain the request payloads.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="staking-in-provernet"><a class="header" href="#staking-in-provernet">Staking in ProverNet</a></h1>
 <p>BREV holders may stake BREV to the provers in ProverNet. The process of staking is a form of active participation similar to proof of stake delegation. With these delegated BREV, a prover can therefore receive more proving workload by locking them up and earn additional revenue. In return, the prover will share a portion of the proving fees with the delegators.</p>
