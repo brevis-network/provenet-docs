@@ -6,6 +6,7 @@ on:
   pull_request:
   repository_dispatch:
     types: [deploy-pages]
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   deploy:
@@ -13,11 +14,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Sleep for 30 seconds
-        run: sleep 30
-
       - name: Checkout repository
-        uses: actions/checkout@v4  
+        uses: actions/checkout@v4
+        with:
+          ref: deploy  # 确保检出 deploy 分支的最新代码  
 
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
