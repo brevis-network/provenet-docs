@@ -33,3 +33,7 @@
 ## User Tutorial
 
 * [Staking in ProverNet](user-tutorial/staking-in-provernet.md)
+
+***
+
+* [Whitepaper](whitepaper.md)
