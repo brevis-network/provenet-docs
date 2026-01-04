@@ -100,16 +100,16 @@
 
     Optional tuning fields:
 
-    | Field                | Description                                                                                                                            |
-    | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-    | `prover_gas_price`   | Price per prove cycle (bid fee = `prove_cycles * prover_gas_price / 1e12`). Cycles are auto-computed; set the price per your economics |
-    | `prove_min_duration` | Skip requests whose remaining time (reveal → deadline) is less than this many seconds                                                  |
-    | `max_input_size`     | `0` means no limit; otherwise skip requests with larger inputs                                                                         |
-    | `max_fee`            | Skip requests whose bid fee would exceed this ceiling                                                                                  |
-    | `vk_whitelist`       | If empty, accept all requests. Otherwise process only VKs on this list                                                                 |
-    | `vk_blacklist`       | Skip requests targeting VKs on this list                                                                                               |
+    | Field                | Description                                                                                                                                         |
+    | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `prover_gas_price`   | Price per prove cycle (bid fee = `prove_cycles * prover_gas_price / 1e12`). Cycles are auto-computed; set the price based on your operational costs |
+    | `prove_min_duration` | Skip requests whose remaining time (reveal → deadline) is less than this many seconds                                                               |
+    | `max_input_size`     | `0` means no limit; otherwise skip requests with larger inputs                                                                                      |
+    | `max_fee`            | Skip requests whose bid fee would exceed this ceiling                                                                                               |
+    | `vk_whitelist`       | If empty, accept all requests. Otherwise process only verification keys (VKs) on this list                                                          |
+    | `vk_blacklist`       | Skip requests targeting VKs on this list                                                                                                            |
 
-    > Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF and uniquely identifies a zk program.
+    > Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF binary and uniquely identifies a ZK program.
 
 ### Run the bidder service
 
