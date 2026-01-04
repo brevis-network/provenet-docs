@@ -22,7 +22,7 @@
     ```bash
     docker load -i pico-proving-service-cpu.tar
     ```
-5.  Clone the repository and enter the CPU docker folder:
+5.  Clone the repository and enter the CPU Docker folder:
 
     ```bash
     git clone https://github.com/brevis-network/pico-proving-service
