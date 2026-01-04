@@ -19,7 +19,7 @@ A `ProofRequest` is a set of cryptographic and economic constraints that define 
 
 Not every prover can bid on every request. The marketplace automatically filters participants based on their real-time status:
 
-1. **Active Status**: Only provers in the Active state (those meeting the global Minimum Self-Stake) can participate in auctions.
+1. **Active Status**: Only provers in the `Active` state (those meeting the global Minimum Self-Stake) can participate in auctions.
 2. **Collateral Sufficiency**: A prover must have enough available stake in their ProverVault to meet the request’s `minStake`. The [Overcommit Protection](overcommit-protection.md) mechanism governs the extent to which a prover can take on additional concurrent workload relative to their total stake.
 3. **Reliability & Performance**: To meet the deadline, provers must maintain high hardware performance and service reliability. Significant downtime or hardware lag can prevent a prover from fulfilling an assignment, putting their stake at risk.
 
