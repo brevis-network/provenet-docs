@@ -19,6 +19,17 @@ jobs:
         with:
           mdbook-version: '0.5.0-beta.1'
 
+      - name: Prepare source directory
+        run: |
+          if [ ! -f "src/SUMMARY.md" ]; then
+            mkdir -p src
+            mv SUMMARY.md src/
+            mv README.md src/
+            mv operation-manual src/
+            mv provernet-architecture src/
+            mv user-tutorial src/
+          fi
+
       - name: Build with mdBook
         run: | 
             mdbook clean
