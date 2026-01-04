@@ -34,6 +34,6 @@
 
 * [Staking in ProverNet](user-tutorial/staking-in-provernet.md)
 
-***
+# Resources
 
-* [Whitepaper](whitepaper.md)
+* [Whitepaper](resources/whitepaper.md)

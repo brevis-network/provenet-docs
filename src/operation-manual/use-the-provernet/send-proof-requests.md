@@ -21,7 +21,7 @@ struct ProofRequest {
 }
 
 struct FeeParams {
-    uint96 maxFee;    // Max USDC to pay for the proof
+    uint96 maxFee;    // Max BREV to pay for the proof
     uint96 minStake;  // Minimum prover stake required to bid
     uint64 deadline;  // Unix timestamp; proof must be submitted by this time
 }
