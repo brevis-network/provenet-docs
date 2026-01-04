@@ -36,10 +36,10 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-dec91b9b.js";
+            window.path_to_searchindex_js = "../../searchindex-6ad7901b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../toc-9f85df4a.js"></script>
+        <script src="../../toc-3145f91a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -176,7 +176,7 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="reward-distribution"><a class="header" href="#reward-distribution">Reward Distribution</a></h1>
-<p>The Brevis Prover Network utilizes a decoupled architecture where the <code>StakingController</code> serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines—such as the marketplace and foundation incentive programs—to seamlessly integrate with the staking system.</p>
+<p>Brevis ProverNet utilizes a decoupled architecture where the <code>StakingController</code> serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines like the marketplace and Foundation incentive programs to seamlessly integrate with the staking system.</p>
 <hr>
 <h3 id="the-reward-mechanism"><a class="header" href="#the-reward-mechanism">The Reward Mechanism</a></h3>
 <p>When a reward enters the <code>StakingController</code> from an external source, it is automatically processed through a standardized logic that balances prover compensation with staker yield.</p>
@@ -185,7 +185,7 @@
 <p>The system provides granular flexibility through a tiered commission structure:</p>
 <ul>
 <li><strong>Default Commission Rate</strong>: Provers set a global fallback rate that applies to any reward source that does not have a specific override.</li>
-<li><strong>Per-Source Overrides</strong>: Provers can customize their margin for different Reward Sources. For example, a prover may set a higher commission for <code>BrevisMarket</code> tasks to cover intensive GPU costs, while maintaining a lower rate for foundation rewards to maximize the yield passed to their stakers and remain competitive.</li>
+<li><strong>Per-Source Overrides</strong>: Provers can customize their margin for different reward sources. For example, a prover may set a higher commission for <code>BrevisMarket</code> tasks to cover intensive GPU costs, while maintaining a lower rate for Foundation rewards to maximize the yield passed to their stakers and remain competitive.</li>
 </ul>
 <h4 id="2-automated-staking-yield"><a class="header" href="#2-automated-staking-yield">2. Automated Staking Yield</a></h4>
 <p>The portion of the reward remaining after the prover’s commission is “donated” directly into the prover’s isolated <strong>ERC-4626 Vault</strong>.</p>
@@ -199,11 +199,11 @@
 <h4 id="proving-fees-brevismarket"><a class="header" href="#proving-fees-brevismarket">Proving Fees (<code>BrevisMarket</code>)</a></h4>
 <p>Requesters pay Proving Fees in BREV token to have their specific computational tasks fulfilled. When a request is completed, the <code>BrevisMarket</code> contract processes the payment and forwards it to the <code>StakingController</code> to be distributed according to the winning prover’s specific commission settings.</p>
 <h4 id="foundation-rewards"><a class="header" href="#foundation-rewards">Foundation Rewards</a></h4>
-<p>To bootstrap network liquidity and support long-term growth, the protocol distributes foundation-funded rewards through a <strong>Continuous Protocol Incentivization</strong> model.</p>
+<p>To bootstrap network liquidity and support long-term growth, the protocol distributes Foundation-funded rewards through a <strong>Continuous Protocol Incentivization</strong> model.</p>
 <ul>
-<li><strong>ZK-Verified Activities</strong>: These rewards are distributed based on mathematical proofs of a prover’s participation. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.</li>
+<li><strong>ZK-Verified Activities</strong>: These rewards are distributed based on ZK proofs verifying a prover’s activity. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.</li>
 <li><strong>Stake-Based Allocation</strong>: Rewards also take into account a prover’s total stake (vault assets), ensuring that the distribution fairly considers the economic commitment provided to the network by the prover and their stakers.</li>
-<li><strong>Transparent Distribution</strong>: By verifying activity off-chain and settling rewards on-chain, the foundation ensures a transparent and fair distribution that rewards the most reliable participants.</li>
+<li><strong>Transparent Distribution</strong>: By verifying activity off-chain and settling rewards on-chain, the Foundation ensures a transparent and fair distribution that rewards the most reliable participants.</li>
 </ul>
 
                     </main>

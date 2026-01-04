@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-dec91b9b.js";
+            window.path_to_searchindex_js = "searchindex-6ad7901b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-9f85df4a.js"></script>
+        <script src="toc-3145f91a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -188,7 +188,7 @@
 <li><strong>Stakers</strong>: Token holders provide the economic security that underpins every proof. By delegating BREV to reputable provers, stakers help ensure a high quality of service while participating in the growth of the proving economy.</li>
 </ul>
 <hr>
-<h4 id="the-brev-economy"><a class="header" href="#the-brev-economy">The BREV Economy</a></h4>
+<h4 id="the-brev-utility"><a class="header" href="#the-brev-utility">The BREV Utility</a></h4>
 <p>The <strong>BREV token</strong> serves as the core of the ProverNet economy, aligning incentives and facilitating value exchange across the network:</p>
 <ul>
 <li><strong>Payment Medium</strong>: BREV is the native settlement currency for all proving services.</li>
@@ -237,9 +237,9 @@
 </ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="staking--economic-security"><a class="header" href="#staking--economic-security">Staking &amp; Economic Security</a></h1>
-<p>The Staking &amp; Economic Security layer is the foundation for the network’s operational reliability and incentive alignment. While Zero-Knowledge proofs provide the mathematical guarantee of correctness, this layer provides the economic framework that ensures the prover marketplace remains active, responsive, and highly available.</p>
+<p>The Staking &amp; Economic Security layer is the foundation for the network’s operational reliability and incentive alignment. While zero-knowledge proofs provide the mathematical guarantee of correctness, this layer creates the economic framework that ensures the prover marketplace remains active, responsive, and highly available.</p>
 <h4 id="the-role-of-capital-in-the-protocol"><a class="header" href="#the-role-of-capital-in-the-protocol">The Role of Capital in the Protocol</a></h4>
-<p>Staking in the Brevis Prover Network is designed to align the interests of all participants. By requiring provers to maintain a stake, the protocol ensures that every actor is a committed stakeholder with a long-term interest in the network’s health and reputation.</p>
+<p>Staking in Brevis ProverNet is designed to align the interests of all participants. By requiring provers to maintain a stake, the protocol ensures that every actor is a committed stakeholder with a long-term interest in the network’s health and reputation.</p>
 <ul>
 <li><strong>Operational Reliability</strong>: Staking ensures that provers meet a high standard of performance, fostering a predictable and dependable marketplace for requesters.</li>
 <li><strong>Dynamic Eligibility</strong>: A prover’s capacity to bid on and win work is linked to their available stake, ensuring the network remains balanced and that every assignment is backed by sufficient collateral.</li>
@@ -252,15 +252,15 @@
 <li><strong>Seamless Compounding</strong>: Rewards are added directly into the vaults, increasing the asset-to-share ratio and allowing for automated reward compounding without the need for manual claims by stakers.</li>
 </ul>
 <h4 id="economic-opportunity"><a class="header" href="#economic-opportunity">Economic Opportunity</a></h4>
-<p>The security layer is designed to reward participation through multiple diversified yield streams:</p>
+<p>The security layer is designed to reward participation through diversified yield streams:</p>
 <ul>
 <li><strong>Marketplace Fees</strong>: Successfully fulfilling proof requests generates fees that flow back into the staking system, increasing the value of vault shares.</li>
-<li><strong>Foundation Rewards</strong>: In addition to marketplace fees, the protocol distributes foundation-funded rewards to provers based on their ZK-verified activities and total stake (vault assets).</li>
+<li><strong>Foundation Rewards</strong>: In addition to marketplace fees, the protocol distributes Foundation-funded rewards to provers based on their ZK-verified activities and total stake (vault assets).</li>
 <li><strong>Shared Success</strong>: Both provers and stakers benefit from these combined revenue streams, creating a collaborative environment for scaling decentralized ZK-computation.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="staking"><a class="header" href="#staking">Staking</a></h1>
-<p>The Staking system provides the economic framework for prover participation. By requiring provers to lock collateral, the protocol ensures a highly active and responsive marketplace where every actor has a measurable commitment to the network’s operational success.</p>
+<p>The staking system provides the economic framework for prover participation. By requiring provers to lock collateral, the protocol ensures a highly active and responsive marketplace where every actor has a measurable commitment to the network’s operational success.</p>
 <hr>
 <h3 id="prover-lifecycle"><a class="header" href="#prover-lifecycle">Prover Lifecycle</a></h3>
 <p>The <code>StakingController</code> manages the journey of an operator through a defined set of states and requirements to ensure all active participants remain economically aligned with the protocol.</p>
@@ -273,20 +273,20 @@
 </ul>
 <h4 id="registration--initialization"><a class="header" href="#registration--initialization">Registration &amp; Initialization</a></h4>
 <p>Operators enter the network by calling <code>initializeProver</code>. This function triggers two simultaneous actions:</p>
-<ol>
+<ul>
 <li><strong>Vault Deployment</strong>: The deterministic deployment of a dedicated ProverVault (ERC-4626) specifically for that operator.</li>
 <li><strong>Initial Deposit</strong>: An initial stake that satisfies the minimum self-stake requirement, moving the operator directly from the Null state to the Active state.</li>
-</ol>
+</ul>
 <h4 id="self-stake-requirement"><a class="header" href="#self-stake-requirement">Self-Stake Requirement</a></h4>
 <p>To maintain an Active status, provers must adhere to strict collateral rules:</p>
 <ul>
-<li><strong>Mandatory Collateral</strong>: Provers must maintain a specific amount of their own assets (<code>minSelfStake</code>) within their vault at all times.</li>
+<li><strong>Mandatory Collateral</strong>: Provers must maintain a specific amount of their own assets (defined by <code>minSelfStake</code>) within their vault at all times.</li>
 <li><strong>Non-Transferable Shares</strong>: The portion of vault shares representing the minimum self-stake is locked and cannot be transferred while the prover is active.</li>
 <li><strong>Automatic Enforcement</strong>: If a prover’s self-stake falls below the required threshold, the system transitions them to the Deactivated state to ensure all active work is properly collateralized.</li>
 </ul>
 <hr>
 <h3 id="the-staking-process"><a class="header" href="#the-staking-process">The Staking Process</a></h3>
-<p>Asset management within the network is handled through a streamlined process for both provers and their stakers utilizing isolated vaults.</p>
+<p>Asset management within the network is handled through isolated vaults, with a streamlined process for both provers and their stakers.</p>
 <ul>
 <li><strong>Direct Staking</strong>: Users can stake with any active prover by depositing BREV tokens into the <code>StakingController</code>. The controller manages the deposit into the isolated vault and issues vault shares to the user.</li>
 <li><strong>Compounding Yield</strong>: Rewards from the marketplace or foundation are added directly to the vault assets. This increases the value of all shares automatically, allowing for seamless compounding without manual claims.</li>
@@ -303,7 +303,7 @@
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="reward-distribution"><a class="header" href="#reward-distribution">Reward Distribution</a></h1>
-<p>The Brevis Prover Network utilizes a decoupled architecture where the <code>StakingController</code> serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines—such as the marketplace and foundation incentive programs—to seamlessly integrate with the staking system.</p>
+<p>Brevis ProverNet utilizes a decoupled architecture where the <code>StakingController</code> serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines like the marketplace and Foundation incentive programs to seamlessly integrate with the staking system.</p>
 <hr>
 <h3 id="the-reward-mechanism"><a class="header" href="#the-reward-mechanism">The Reward Mechanism</a></h3>
 <p>When a reward enters the <code>StakingController</code> from an external source, it is automatically processed through a standardized logic that balances prover compensation with staker yield.</p>
@@ -312,7 +312,7 @@
 <p>The system provides granular flexibility through a tiered commission structure:</p>
 <ul>
 <li><strong>Default Commission Rate</strong>: Provers set a global fallback rate that applies to any reward source that does not have a specific override.</li>
-<li><strong>Per-Source Overrides</strong>: Provers can customize their margin for different Reward Sources. For example, a prover may set a higher commission for <code>BrevisMarket</code> tasks to cover intensive GPU costs, while maintaining a lower rate for foundation rewards to maximize the yield passed to their stakers and remain competitive.</li>
+<li><strong>Per-Source Overrides</strong>: Provers can customize their margin for different reward sources. For example, a prover may set a higher commission for <code>BrevisMarket</code> tasks to cover intensive GPU costs, while maintaining a lower rate for Foundation rewards to maximize the yield passed to their stakers and remain competitive.</li>
 </ul>
 <h4 id="2-automated-staking-yield"><a class="header" href="#2-automated-staking-yield">2. Automated Staking Yield</a></h4>
 <p>The portion of the reward remaining after the prover’s commission is “donated” directly into the prover’s isolated <strong>ERC-4626 Vault</strong>.</p>
@@ -326,11 +326,11 @@
 <h4 id="proving-fees-brevismarket"><a class="header" href="#proving-fees-brevismarket">Proving Fees (<code>BrevisMarket</code>)</a></h4>
 <p>Requesters pay Proving Fees in BREV token to have their specific computational tasks fulfilled. When a request is completed, the <code>BrevisMarket</code> contract processes the payment and forwards it to the <code>StakingController</code> to be distributed according to the winning prover’s specific commission settings.</p>
 <h4 id="foundation-rewards"><a class="header" href="#foundation-rewards">Foundation Rewards</a></h4>
-<p>To bootstrap network liquidity and support long-term growth, the protocol distributes foundation-funded rewards through a <strong>Continuous Protocol Incentivization</strong> model.</p>
+<p>To bootstrap network liquidity and support long-term growth, the protocol distributes Foundation-funded rewards through a <strong>Continuous Protocol Incentivization</strong> model.</p>
 <ul>
-<li><strong>ZK-Verified Activities</strong>: These rewards are distributed based on mathematical proofs of a prover’s participation. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.</li>
+<li><strong>ZK-Verified Activities</strong>: These rewards are distributed based on ZK proofs verifying a prover’s activity. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.</li>
 <li><strong>Stake-Based Allocation</strong>: Rewards also take into account a prover’s total stake (vault assets), ensuring that the distribution fairly considers the economic commitment provided to the network by the prover and their stakers.</li>
-<li><strong>Transparent Distribution</strong>: By verifying activity off-chain and settling rewards on-chain, the foundation ensures a transparent and fair distribution that rewards the most reliable participants.</li>
+<li><strong>Transparent Distribution</strong>: By verifying activity off-chain and settling rewards on-chain, the Foundation ensures a transparent and fair distribution that rewards the most reliable participants.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="the-proof-marketplace"><a class="header" href="#the-proof-marketplace">The Proof Marketplace</a></h1>
@@ -966,7 +966,7 @@ cd ..
 }
 
 struct FeeParams {
-    uint96 maxFee;    // Max USDC to pay for the proof
+    uint96 maxFee;    // Max BREV to pay for the proof
     uint96 minStake;  // Minimum prover stake required to bid
     uint64 deadline;  // Unix timestamp; proof must be submitted by this time
 }
