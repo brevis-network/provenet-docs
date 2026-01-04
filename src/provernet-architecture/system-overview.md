@@ -45,4 +45,4 @@ The lifecycle of a single request follows a strict path to ensure reliability:
 2. **Auction**: Off-chain provers compete in a sealed-bid reverse auction to win the task at the most competitive price.
 3. **Work**: The assigned prover generates the ZK proof off-chain using the optimized Brevis zkVM.
 4. **Verification**: The proof is submitted to the blockchain and verified by the `PicoVerifier`.
-5. **Settlement**: Upon successful verification, the fee is automatically distributed to the prover and their stakers.\[\_test]
+5. **Settlement**: Upon successful verification, the fee is automatically distributed to the prover and their stakers.
