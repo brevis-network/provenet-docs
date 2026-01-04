@@ -1,6 +1,6 @@
 # Reward Distribution
 
-Brevis ProverNet utilizes a decoupled architecture where the `StakingController` serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines like the marketplace and Foundation incentive programs to seamlessly integrate with the staking system.
+The Brevis Prover Network utilizes a decoupled architecture where the `StakingController` serves as the central accounting engine for rewards and commissions while remaining agnostic to the specific reward source. This flexibility allows diverse engines—such as the marketplace and foundation incentive programs—to seamlessly integrate with the staking system.
 
 ***
 
@@ -15,7 +15,7 @@ Every prover can define **Commission Rates** (in basis points) that determine th
 The system provides granular flexibility through a tiered commission structure:
 
 * **Default Commission Rate**: Provers set a global fallback rate that applies to any reward source that does not have a specific override.
-* **Per-Source Overrides**: Provers can customize their margin for different reward sources. For example, a prover may set a higher commission for `BrevisMarket` tasks to cover intensive GPU costs, while maintaining a lower rate for Foundation rewards to maximize the yield passed to their stakers and remain competitive.
+* **Per-Source Overrides**: Provers can customize their margin for different Reward Sources. For example, a prover may set a higher commission for `BrevisMarket` tasks to cover intensive GPU costs, while maintaining a lower rate for foundation rewards to maximize the yield passed to their stakers and remain competitive.
 
 #### 2. Automated Staking Yield
 
@@ -36,8 +36,8 @@ Requesters pay Proving Fees in BREV token to have their specific computational t
 
 #### Foundation Rewards
 
-To bootstrap network liquidity and support long-term growth, the protocol distributes Foundation-funded rewards through a **Continuous Protocol Incentivization** model.
+To bootstrap network liquidity and support long-term growth, the protocol distributes foundation-funded rewards through a **Continuous Protocol Incentivization** model.
 
-* **ZK-Verified Activities**: These rewards are distributed based on ZK proofs verifying a prover's activity. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.
+* **ZK-Verified Activities**: These rewards are distributed based on mathematical proofs of a prover's participation. This includes metrics such as active participation in auctions and the successful fulfillment of proof requests.
 * **Stake-Based Allocation**: Rewards also take into account a prover's total stake (vault assets), ensuring that the distribution fairly considers the economic commitment provided to the network by the prover and their stakers.
-* **Transparent Distribution**: By verifying activity off-chain and settling rewards on-chain, the Foundation ensures a transparent and fair distribution that rewards the most reliable participants.
+* **Transparent Distribution**: By verifying activity off-chain and settling rewards on-chain, the foundation ensures a transparent and fair distribution that rewards the most reliable participants.
