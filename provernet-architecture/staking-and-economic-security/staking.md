@@ -1,6 +1,6 @@
 # Staking
 
-The Staking system provides the economic framework for prover participation. By requiring provers to lock collateral, the protocol ensures a highly active and responsive marketplace where every actor has a measurable commitment to the network's operational success.
+The staking system provides the economic framework for prover participation. By requiring provers to lock collateral, the protocol ensures a highly active and responsive marketplace where every actor has a measurable commitment to the network's operational success.
 
 ***
 
@@ -19,14 +19,14 @@ The `StakingController` manages the journey of an operator through a defined set
 
 Operators enter the network by calling `initializeProver`. This function triggers two simultaneous actions:
 
-1. **Vault Deployment**: The deterministic deployment of a dedicated ProverVault (ERC-4626) specifically for that operator.
-2. **Initial Deposit**: An initial stake that satisfies the minimum self-stake requirement, moving the operator directly from the Null state to the Active state.
+* **Vault Deployment**: The deterministic deployment of a dedicated ProverVault (ERC-4626) specifically for that operator.
+* **Initial Deposit**: An initial stake that satisfies the minimum self-stake requirement, moving the operator directly from the Null state to the Active state.
 
 #### Self-Stake Requirement
 
 To maintain an Active status, provers must adhere to strict collateral rules:
 
-* **Mandatory Collateral**: Provers must maintain a specific amount of their own assets (`minSelfStake`) within their vault at all times.
+* **Mandatory Collateral**: Provers must maintain a specific amount of their own assets (defined by `minSelfStake`) within their vault at all times.
 * **Non-Transferable Shares**: The portion of vault shares representing the minimum self-stake is locked and cannot be transferred while the prover is active.
 * **Automatic Enforcement**: If a prover’s self-stake falls below the required threshold, the system transitions them to the Deactivated state to ensure all active work is properly collateralized.
 
@@ -34,7 +34,7 @@ To maintain an Active status, provers must adhere to strict collateral rules:
 
 ### The Staking Process
 
-Asset management within the network is handled through a streamlined process for both provers and their stakers utilizing isolated vaults.
+Asset management within the network is handled through isolated vaults, with a streamlined process for both provers and their stakers.
 
 * **Direct Staking**: Users can stake with any active prover by depositing BREV tokens into the `StakingController`. The controller manages the deposit into the isolated vault and issues vault shares to the user.
 * **Compounding Yield**: Rewards from the marketplace or foundation are added directly to the vault assets. This increases the value of all shares automatically, allowing for seamless compounding without manual claims.
