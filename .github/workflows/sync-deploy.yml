@@ -111,11 +111,30 @@ jobs:
           
           # Trigger repository dispatch event to start GitHub Pages deployment
           # Must use PAT_TOKEN instead of GITHUB_TOKEN to trigger workflows
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"deploy-pages"}'
+          echo "Triggering deploy-pages workflow via repository_dispatch..."
+          
+          # Check if PAT_TOKEN is set
+          if [ -z "${{ secrets.PAT_TOKEN }}" ]; then
+            echo "::warning::PAT_TOKEN is not set. The deploy workflow will not be triggered."
+            echo "Please add a Personal Access Token with 'repo' scope as PAT_TOKEN secret."
+          else
+            RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+              -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d '{"event_type":"deploy-pages"}')
+            
+            HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+            BODY=$(echo "$RESPONSE" | sed '$d')
+            
+            if [ "$HTTP_CODE" = "204" ]; then
+              echo "✅ Successfully triggered deploy-pages workflow"
+            else
+              echo "::error::Failed to trigger deploy-pages workflow. HTTP $HTTP_CODE"
+              echo "Response: $BODY"
+              exit 1
+            fi
+          fi
         else
           echo "No changes to commit"
         fi
