@@ -22,7 +22,7 @@
     ```bash
     docker load -i pico-proving-service-gpu.tar
     ```
-5.  Clone the repository and enter the GPU docker folder:
+5.  Clone the repository and enter the GPU Docker folder:
 
     ```bash
     git clone https://github.com/brevis-network/pico-proving-service
@@ -37,7 +37,7 @@
     * Fix `PROVER_COUNT` to the number of GPUs on your machine.
     * The `SPLIT_THRESHOLD`, `CHUNK_SIZE`, `MEM_POOL_RESERVE_SIZE` and `PICO_GPU_MEM` are set to default for RTX 5090. For RTX 4090, comment the settings for 5090 and enable the settings for 4090.&#x20;
 
-    Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, you could enable `MAX_EMULATION_CYCLES` to give a try, its value is machine specific.
+    Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, try enabling `MAX_EMULATION_CYCLES`. Its value is machine specific.
 7.  Download dependencies and bring up the containers:
 
     ```bash
