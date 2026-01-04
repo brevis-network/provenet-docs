@@ -6,13 +6,11 @@ BREV holders can stake and delegate tokens to provers on ProverNet. Delegation w
 
 ProverNet staking currently operates on Base. Before you start staking, you may need to bridge BREV to Base using [cBridge](https://cbridge.celer.network/1/8453/BREV).
 
-_\[Screenshot]_
-
 #### View Active Provers
 
 If a prover fails to meet its SLA commitments, delegated stake may be slashed. Evaluate provers carefully and adjust your delegation periodically.&#x20;
 
-Visit the Brevis Prover Network _\[Link]_ to view all active provers along with key statistics including BREV staked, proofs generated, and fees earned.
+Visit the [Brevis Prover Network](https://provernet.brevis.network/) to view all active provers along with key statistics including BREV staked, proofs generated, and fees earned.
 
 #### Stake BREV
 
@@ -30,13 +28,13 @@ You may need to _Approve_ the Brevis staking contract to allow the spending of B
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-12-24 at 22.36.00.png" alt=""><figcaption></figcaption></figure>
 
-To increase your stake with provers you’ve already delegated to, visit the _Dashboard_ _\[Link]_ and use the _Stake More_ option.
+To increase your stake with provers you’ve already delegated to, visit the _Dashboard_ tab and use the _Stake More_ option.
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-12-24 at 20.37.21.png" alt=""><figcaption></figcaption></figure>
 
 #### Dashboard
 
-The Dashboard _\[LINK]_ displays your total stake and detailed information for each prover, including staked amount, pending unstake amount, and withdrawable amount.
+The _Dashboard_ tab displays your total stake and detailed information for each prover, including staked amount, pending unstake amount, and withdrawable amount.
 
 * **Total stake**: All BREV staked across provers plus earned rewards. Rewards compound automatically on a daily basis.
 * **Staked amount**: BREV currently staked with a specific prover.
