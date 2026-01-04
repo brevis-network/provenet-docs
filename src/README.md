@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the Brevis ProverNet, the foundational coordination layer for the ZK ecosystem. ProverNet operates as a **decentralized marketplace** that bridges the gap between applications requiring zero-knowledge proofs and the specialized hardware capable of generating them.
+Welcome to the Brevis ProverNet, the foundational coordination layer for the ZK ecosystem. ProverNet operates as a **decentralized marketplace** that bridges the gap between applications requiring zero-knowledge proofs and the specialized hardware capable of generating them
 
 ***
 
