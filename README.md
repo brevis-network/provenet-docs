@@ -15,7 +15,7 @@ As the demand for verifiable computation and trustless applications scales, the 
 
 ***
 
-#### The BREV Economy
+#### The BREV Utility
 
 The **BREV token** serves as the core of the ProverNet economy, aligning incentives and facilitating value exchange across the network:
 
