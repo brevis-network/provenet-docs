@@ -11,6 +11,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Sleep for 10 seconds
+        run: sleep 10
+
       - name: Checkout repository
         uses: actions/checkout@v4  
 
