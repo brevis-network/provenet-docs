@@ -37,3 +37,4 @@
 ## Resources
 
 * [Whitepaper](resources/whitepaper.md)
+* [Contract Addresses](resources/contract-addresses.md)
