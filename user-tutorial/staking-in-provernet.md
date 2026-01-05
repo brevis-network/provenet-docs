@@ -36,10 +36,10 @@ To increase your stake with provers you’ve already delegated to, visit the _Da
 
 The _Dashboard_ tab displays your total stake and detailed information for each prover, including staked amount, pending unstake amount, and withdrawable amount.
 
-* **Total stake**: All BREV staked across provers plus earned rewards. Rewards compound automatically on a daily basis.
-* **Staked amount**: BREV currently staked with a specific prover.
-* **Pending unstake**: Amount currently in the 7-day unstaking period.
-* **Withdrawable amount**: Unstaked amount that has passed the 7-day period and is ready to withdraw.
+* **Your Total Stake**: All BREV staked across provers plus earned rewards. Rewards compound automatically on a daily basis.
+* **Staked Amount**: BREV currently staked with a specific prover.
+* **Pending Unstake Amount**: Amount currently in the 7-day unstaking period.
+* **Withdrawable Amount**: Unstaked amount that has passed the 7-day period and is ready to withdraw.
 
 #### Unstake BREV
 
