@@ -36,7 +36,7 @@ To increase your stake with provers you’ve already delegated to, visit the _Da
 
 #### Dashboard
 
-The [Dashboard](https://prover-network-explorer-test.netlify.app/dashboard) tab displays your total stake and detailed information for each prover, including staked amount, pending unstake amount, and withdrawable amount.
+The [Dashboard](https://provernet.brevis.network/dashboard) tab displays your total stake and detailed information for each prover, including staked amount, pending unstake amount, and withdrawable amount.
 
 * **Your Total Stake**: All BREV staked across provers plus earned rewards. Rewards compound automatically on a daily basis.
 * **Staked Amount**: BREV currently staked with a specific prover.
