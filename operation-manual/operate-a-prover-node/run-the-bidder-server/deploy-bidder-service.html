@@ -36,7 +36,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-2696b328.js";
+            window.path_to_searchindex_js = "../../../searchindex-f7cb4551.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-9a48437a.js"></script>
@@ -265,10 +265,9 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <li>
 <p>Edit <code>~/.bidder/config.toml</code>:</p>
 <p>You may use separate accounts for staking (<code>prover</code>) and for bidding/submitting proofs (<code>submitter</code>), or reuse the same Ethereum account for both.</p>
-<div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Field</th><th>Description</th></tr>
+<tr><th width="206.34375">Field</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><code>prover_url</code></td><td>Pico proving service gRPC endpoint (<code>${pico-ip}:${port}</code>, default port <code>50052</code>)</td></tr>
@@ -277,12 +276,11 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <tr><td><code>submitter_passphrase</code></td><td>Keystore password (or <code>apikey:apisec</code> for AWS KMS)</td></tr>
 </tbody>
 </table>
-</div>
+
 <p>Optional tuning fields:</p>
-<div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Field</th><th>Description</th></tr>
+<tr><th width="205.27734375">Field</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price based on your operational costs</td></tr>
@@ -293,7 +291,7 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <tr><td><code>vk_blacklist</code></td><td>Skip requests targeting VKs on this list</td></tr>
 </tbody>
 </table>
-</div>
+
 <blockquote>
 <p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF binary and uniquely identifies a ZK program.</p>
 </blockquote>

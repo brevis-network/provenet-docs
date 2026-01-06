@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2696b328.js";
+            window.path_to_searchindex_js = "searchindex-f7cb4551.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-9a48437a.js"></script>
@@ -687,45 +687,67 @@ make logs-gnark
 </ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="initialize-prover-account"><a class="header" href="#initialize-prover-account">Initialize Prover Account</a></h1>
-<p>Brevis provides CLI utilities that streamline on-chain operations to initialize a prover.</p>
+<p>Before your bidder server can participate in the marketplace, you must register your prover identity on-chain. ProverNet is currently deployed on Base Mainnet. </p>
+<p>Because the BREV token is originally issued on Ethereum, you must bridge your tokens to Base to meet the self-staking requirements. The BREV token address on Base is <code>0x086F405146Ce90135750Bbec9A063a8B20A8bfFb</code>.</p>
+<h3 id="prover-and-submitter-roles"><a class="header" href="#prover-and-submitter-roles">Prover and Submitter Roles</a></h3>
+<p>To maximize security, ProverNet decouples the prover and submitter roles. This allows you to maintain your prover account (which holds your staked BREV and identity) in a secure hardware or cold wallet, while running the automated bidder service with a separate submitter hot wallet that signs and submits proofs operationally.</p>
+<h3 id="register-your-prover-identity"><a class="header" href="#register-your-prover-identity">Register Your Prover Identity</a></h3>
+<p>We recommend using a hardware wallet for your prover account to ensure the security of your staked assets.</p>
+<p>The current Staking Controller contract requires a minimum self-stake of 1000 BREV. This amount is automatically transferred and staked during the <code>initializeProver</code> transaction.</p>
+<p><strong>Option A: Direct Contract Interaction (Recommended for Hardware Wallets)</strong></p>
+<p>Use a block explorer (e.g., BaseScan) to interact directly with the contracts using your hardware wallet. Perform these steps with your prover account:</p>
+<ol>
+<li>Approve Staking: Visit the <a href="https://basescan.org/token/0x086F405146Ce90135750Bbec9A063a8B20A8bfFb#writeContract">BREV contract</a> and call <code>approve(0x9c0D..., 1000000000000000000000)</code> (for 1000 BREV) for the <a href="https://basescan.org/address/0x9c0D8C5F10f0d3A02D04556a4499964a75DBf4A3#writeProxyContract">StakingController</a>.</li>
+<li>Initialize Prover: On the <a href="https://basescan.org/address/0x9c0D8C5F10f0d3A02D04556a4499964a75DBf4A3#writeProxyContract">StakingController</a>, call <code>initializeProver</code> with your desired commission rate in basis points (500 bps = 5%). This call will automatically transfer the 1000 BREV minimum stake from your wallet.
+<ul>
+<li>Default Rate: Applied to all reward sources without a specific override.</li>
+<li>Per-Source Override: Use <code>setCommissionRate(source, rate)</code> for specific rates (e.g., set a higher 50% or 5000 bps rate for <code>BrevisMarket</code> to cover GPU costs).</li>
+</ul>
+</li>
+<li>Set Profile: Call <code>setProverProfile</code> to publish your metadata (name, icon).</li>
+<li>Authorize the Submitter: If your submitter is a separate account, you must link them on the <a href="https://basescan.org/address/0xcCec2a9FE35b6B5F23bBF303A4e14e5895DeA127#writeProxyContract">BrevisMarket contract</a>:
+<ul>
+<li>As the Submitter: Call <code>setSubmitterConsent</code>.</li>
+<li>As the Prover: Call <code>registerSubmitter</code> to authorize that address.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Option B: Use the CLI Utility (Alternative for Hot Wallets)</strong></p>
+<p>If you are using a standard keystore-based hot wallet, the <code>init-prover</code> tool automates the registration, the 1000 BREV staking, and submitter authorization in a single workflow.</p>
 <ol>
 <li>
-<p>Clone the bidder ops repo from <code>/home/ubuntu</code>:</p>
+<p><strong>Build the Tool</strong>:</p>
 <pre><code class="language-bash">git clone https://github.com/brevis-network/prover-network-bidder-ops
-</code></pre>
-</li>
-<li>
-<p>From the <code>tools</code> directory in this repo, build the binary:</p>
-<pre><code class="language-bash">cd tools
+cd prover-network-bidder-ops/tools
 go build
 </code></pre>
 </li>
 <li>
-<p>Update <code>config.toml</code> with the following fields:</p>
-<table>
+<p><strong>Update <code>config.toml</code></strong>:</p>
+<table data-header-hidden="">
 <thead>
-<tr><th width="140.55078125">Section</th><th width="212.1171875">Field</th><th>Description</th></tr>
+<tr><th width="119.5546875"></th><th width="275.5546875"></th><th></th></tr>
 </thead>
 <tbody>
-<tr><td>chain</td><td>keystore</td><td>Path to your prover's Ethereum account keystore JSON file</td></tr>
-<tr><td>chain</td><td>passphrase</td><td>Passphrase for the prover keystore</td></tr>
-<tr><td>init_prover</td><td>submitter_keystore</td><td>(Optional) Submitter keystore if using a different account</td></tr>
-<tr><td>init_prover</td><td>submitter_passphrase</td><td>(Optional) Passphrase for the submitter account</td></tr>
-<tr><td>init_prover</td><td>prover_name</td><td>Name that identifies you or your organization</td></tr>
-<tr><td>init_prover</td><td>prover_icon</td><td>URL of the icon that represents you or your organization</td></tr>
+<tr><td><strong>Section</strong></td><td><strong>Field</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>chain</td><td><code>keystore</code></td><td>Path to your prover account keystore JSON.</td></tr>
+<tr><td>chain</td><td><code>passphrase</code></td><td>Passphrase for the prover keystore.</td></tr>
+<tr><td>init_prover</td><td><code>submitter_keystore</code></td><td>(Optional) Submitter keystore if using a separate account.</td></tr>
+<tr><td>init_prover</td><td><code>submitter_passphrase</code></td><td>(Optional) Passphrase for the submitter account.</td></tr>
+<tr><td>init_prover</td><td><code>prover_name</code></td><td>Name that identifies you or your organization.</td></tr>
+<tr><td>init_prover</td><td><code>prover_icon</code></td><td>URL of the icon that represents your organization.</td></tr>
+<tr><td>init_prover</td><td><code>default_commission_rate_bps</code></td><td>Default commission (e.g., 500 = 5%).</td></tr>
+<tr><td>init_prover</td><td><code>proof_fee_commission_rate_bps</code></td><td>(Optional) BrevisMarket specific rate (e.g., 5000 = 50%).</td></tr>
 </tbody>
 </table>
 
 </li>
 <li>
-<p>Run:</p>
+<p><strong>Run</strong>:</p>
 <pre><code class="language-bash">./tools init-prover --config ./config.toml
 </code></pre>
 </li>
 </ol>
-<blockquote>
-<p>Note that this step will also automatically stake the configured minimum amount BREV tokens to ensure the prover meets the minimum self-stake requirement.</p>
-</blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="deploy-bidder-service"><a class="header" href="#deploy-bidder-service">Deploy Bidder Service</a></h1>
 <h3 id="prepare-ec2-machine-and-install-dependencies"><a class="header" href="#prepare-ec2-machine-and-install-dependencies">Prepare EC2 machine and install dependencies</a></h3>
@@ -817,10 +839,9 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <li>
 <p>Edit <code>~/.bidder/config.toml</code>:</p>
 <p>You may use separate accounts for staking (<code>prover</code>) and for bidding/submitting proofs (<code>submitter</code>), or reuse the same Ethereum account for both.</p>
-<div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Field</th><th>Description</th></tr>
+<tr><th width="206.34375">Field</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><code>prover_url</code></td><td>Pico proving service gRPC endpoint (<code>${pico-ip}:${port}</code>, default port <code>50052</code>)</td></tr>
@@ -829,12 +850,11 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <tr><td><code>submitter_passphrase</code></td><td>Keystore password (or <code>apikey:apisec</code> for AWS KMS)</td></tr>
 </tbody>
 </table>
-</div>
+
 <p>Optional tuning fields:</p>
-<div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Field</th><th>Description</th></tr>
+<tr><th width="205.27734375">Field</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price based on your operational costs</td></tr>
@@ -845,7 +865,7 @@ cp -a prover-network-ops/node-configs ~/.bidder
 <tr><td><code>vk_blacklist</code></td><td>Skip requests targeting VKs on this list</td></tr>
 </tbody>
 </table>
-</div>
+
 <blockquote>
 <p>Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF binary and uniquely identifies a ZK program.</p>
 </blockquote>
