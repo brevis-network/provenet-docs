@@ -10,7 +10,7 @@ ProverNet staking currently operates on Base. Before you start staking, you may 
 
 #### View Active Provers
 
-If a prover fails to meet its SLA commitments, delegated stake may be slashed. Evaluate provers carefully and adjust your delegation periodically.&#x20;
+Choosing provers with a record of actively participating and consistently meeting deadlines is essential for maximizing your potential rewards. While slashing is currently disabled, a prover's performance may impact overall staking rewards; reliable nodes ensure your delegated stake remains productive.
 
 Visit the [Brevis Prover Network](https://provernet.brevis.network/) to view all active provers along with key statistics including BREV staked, proofs generated, and fees earned.
 
