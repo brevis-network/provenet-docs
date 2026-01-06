@@ -91,23 +91,11 @@
 
     You may use separate accounts for staking (`prover`) and for bidding/submitting proofs (`submitter`), or reuse the same Ethereum account for both.
 
-    | Field                  | Description                                                                     |
-    | ---------------------- | ------------------------------------------------------------------------------- |
-    | `prover_url`           | Pico proving service gRPC endpoint (`${pico-ip}:${port}`, default port `50052`) |
-    | `prover_eth_addr`      | Ethereum address of the prover account                                          |
-    | `submitter_keystore`   | Path to the submitter keystore JSON (or AWS KMS reference)                      |
-    | `submitter_passphrase` | Keystore password (or `apikey:apisec` for AWS KMS)                              |
+    <table><thead><tr><th width="206.34375">Field</th><th>Description</th></tr></thead><tbody><tr><td><code>prover_url</code></td><td>Pico proving service gRPC endpoint (<code>${pico-ip}:${port}</code>, default port <code>50052</code>)</td></tr><tr><td><code>prover_eth_addr</code></td><td>Ethereum address of the prover account</td></tr><tr><td><code>submitter_keystore</code></td><td>Path to the submitter keystore JSON (or AWS KMS reference)</td></tr><tr><td><code>submitter_passphrase</code></td><td>Keystore password (or <code>apikey:apisec</code> for AWS KMS)</td></tr></tbody></table>
 
     Optional tuning fields:
 
-    | Field                | Description                                                                                                                                         |
-    | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `prover_gas_price`   | Price per prove cycle (bid fee = `prove_cycles * prover_gas_price / 1e12`). Cycles are auto-computed; set the price based on your operational costs |
-    | `prove_min_duration` | Skip requests whose remaining time (reveal → deadline) is less than this many seconds                                                               |
-    | `max_input_size`     | `0` means no limit; otherwise skip requests with larger inputs                                                                                      |
-    | `max_fee`            | Skip requests whose bid fee would exceed this ceiling                                                                                               |
-    | `vk_whitelist`       | If empty, accept all requests. Otherwise process only verification keys (VKs) on this list                                                          |
-    | `vk_blacklist`       | Skip requests targeting VKs on this list                                                                                                            |
+    <table><thead><tr><th width="205.27734375">Field</th><th>Description</th></tr></thead><tbody><tr><td><code>prover_gas_price</code></td><td>Price per prove cycle (bid fee = <code>prove_cycles * prover_gas_price / 1e12</code>). Cycles are auto-computed; set the price based on your operational costs</td></tr><tr><td><code>prove_min_duration</code></td><td>Skip requests whose remaining time (reveal → deadline) is less than this many seconds</td></tr><tr><td><code>max_input_size</code></td><td><code>0</code> means no limit; otherwise skip requests with larger inputs</td></tr><tr><td><code>max_fee</code></td><td>Skip requests whose bid fee would exceed this ceiling</td></tr><tr><td><code>vk_whitelist</code></td><td>If empty, accept all requests. Otherwise process only verification keys (VKs) on this list</td></tr><tr><td><code>vk_blacklist</code></td><td>Skip requests targeting VKs on this list</td></tr></tbody></table>
 
     > Note: (1) Fees are denominated in the staking token. (2) A VK digest is generated when building the ELF binary and uniquely identifies a ZK program.
 
