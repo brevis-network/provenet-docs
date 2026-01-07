@@ -15,17 +15,22 @@
 3.  Download the GPU Pico proving service image from `/home/ubuntu`:
 
     ```bash
-    curl -sL -O https://pico-proofs.s3.us-west-2.amazonaws.com/prover-network/mainnet/pico-proving-service-gpu.tar
+    curl -sL -O https://pico-proofs.s3.us-west-2.amazonaws.com/prover-network/mainnet/pico_proving_service_gpu_v1_0_1.tar
     ```
 4.  Load the image into Docker:
 
-    ```bash
-    docker load -i pico-proving-service-gpu.tar
-    ```
+    <pre class="language-bash"><code class="lang-bash"><strong># If old image exists, delete it firstly
+    </strong>docker rmi -f pico-proving-service-gpu:latest
+    <strong>
+    </strong><strong># Load the new downloaded image
+    </strong><strong>docker load -i pico_proving_service_gpu_v1_0_1.tar
+    </strong>docker tag pico-proving-service-gpu:v1.0.1 pico-proving-service-gpu:latest
+    </code></pre>
 5.  Clone the repository and enter the GPU Docker folder:
 
     ```bash
-    git clone https://github.com/brevis-network/pico-proving-service
+    # must switch to tag `v1.0.1` if you have already cloned pico-proving-service
+    git clone --branch v1.0.1 https://github.com/brevis-network/pico-proving-service
     cd pico-proving-service/docker/gpu
     ```
 6.  Copy the environment template:
@@ -40,10 +45,12 @@
     Leave the others unless you are sure they need to change. If you encounter a GPU memory allocation issue, try enabling `MAX_EMULATION_CYCLES`. Its value is machine specific.
 7.  Download dependencies and bring up the containers:
 
-    ```bash
-    make download-gnark
-    make up
-    ```
+    <pre class="language-bash"><code class="lang-bash"># delete the old gnark files for upgrade if exist
+    rm -rf ../gnark_downloads
+       
+    <strong>make download-gnark
+    </strong>make up
+    </code></pre>
 8.  Verify the containers:
 
     ```bash

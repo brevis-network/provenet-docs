@@ -19,9 +19,12 @@
     ```
 4.  Load the image:
 
-    ```bash
-    docker load -i pico-proving-service-cpu.tar
-    ```
+    <pre class="language-bash"><code class="lang-bash"># If old image exists, delete it firstly
+    docker rmi -f pico-proving-service-cpu:latest
+
+    # Load the new downloaded image   
+    <strong>docker load -i pico-proving-service-cpu.tar
+    </strong></code></pre>
 5.  Clone the repository and enter the CPU Docker folder:
 
     ```bash
@@ -38,6 +41,9 @@
 7.  Download dependencies and start the containers:
 
     ```bash
+    # delete the old gnark files for upgrade if exist
+    rm -rf ../gnark_downloads
+       
     make download-gnark
     make up
     ```
