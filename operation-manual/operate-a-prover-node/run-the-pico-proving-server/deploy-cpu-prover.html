@@ -36,7 +36,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-82e599d9.js";
+            window.path_to_searchindex_js = "../../../searchindex-e0e560d8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-9a48437a.js"></script>
@@ -203,8 +203,13 @@
 </li>
 <li>
 <p>Load the image:</p>
-<pre><code class="language-bash">docker load -i pico-proving-service-cpu.tar
-</code></pre>
+<pre class="language-bash"><code class="lang-bash"># If old image exists, delete it firstly
+docker rmi -f pico-proving-service-cpu:latest
+
+# Load the new downloaded image   
+<strong>docker load -i pico-proving-service-cpu.tar
+</strong></code></pre>
+
 </li>
 <li>
 <p>Clone the repository and enter the CPU Docker folder:</p>
@@ -220,7 +225,10 @@ cd pico-proving-service/docker/cpu
 </li>
 <li>
 <p>Download dependencies and start the containers:</p>
-<pre><code class="language-bash">make download-gnark
+<pre><code class="language-bash"># delete the old gnark files for upgrade if exist
+rm -rf ../gnark_downloads
+   
+make download-gnark
 make up
 </code></pre>
 </li>

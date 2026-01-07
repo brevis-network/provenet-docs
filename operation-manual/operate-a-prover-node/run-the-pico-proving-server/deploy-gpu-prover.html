@@ -36,7 +36,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-82e599d9.js";
+            window.path_to_searchindex_js = "../../../searchindex-e0e560d8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-9a48437a.js"></script>
@@ -190,17 +190,24 @@
 </li>
 <li>
 <p>Download the GPU Pico proving service image from <code>/home/ubuntu</code>:</p>
-<pre><code class="language-bash">curl -sL -O https://pico-proofs.s3.us-west-2.amazonaws.com/prover-network/mainnet/pico-proving-service-gpu.tar
+<pre><code class="language-bash">curl -sL -O https://pico-proofs.s3.us-west-2.amazonaws.com/prover-network/mainnet/pico_proving_service_gpu_v1_0_1.tar
 </code></pre>
 </li>
 <li>
 <p>Load the image into Docker:</p>
-<pre><code class="language-bash">docker load -i pico-proving-service-gpu.tar
+<pre class="language-bash"><code class="lang-bash"><strong># If old image exists, delete it firstly
+</strong>docker rmi -f pico-proving-service-gpu:latest
+<strong>
+</strong><strong># Load the new downloaded image
+</strong><strong>docker load -i pico_proving_service_gpu_v1_0_1.tar
+</strong>docker tag pico-proving-service-gpu:v1.0.1 pico-proving-service-gpu:latest
 </code></pre>
+
 </li>
 <li>
 <p>Clone the repository and enter the GPU Docker folder:</p>
-<pre><code class="language-bash">git clone https://github.com/brevis-network/pico-proving-service
+<pre><code class="language-bash"># must switch to tag `v1.0.1` if you have already cloned pico-proving-service
+git clone --branch v1.0.1 https://github.com/brevis-network/pico-proving-service
 cd pico-proving-service/docker/gpu
 </code></pre>
 </li>
@@ -216,9 +223,13 @@ cd pico-proving-service/docker/gpu
 </li>
 <li>
 <p>Download dependencies and bring up the containers:</p>
-<pre><code class="language-bash">make download-gnark
-make up
+<pre class="language-bash"><code class="lang-bash"># delete the old gnark files for upgrade if exist
+rm -rf ../gnark_downloads
+   
+<strong>make download-gnark
+</strong>make up
 </code></pre>
+
 </li>
 <li>
 <p>Verify the containers:</p>
