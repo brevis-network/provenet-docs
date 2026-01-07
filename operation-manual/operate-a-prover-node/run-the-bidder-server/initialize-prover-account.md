@@ -2,7 +2,7 @@
 
 Before your bidder server can participate in the marketplace, you must register your prover identity on-chain. ProverNet is currently deployed on Base Mainnet.&#x20;
 
-Because the BREV token is originally issued on Ethereum, you must bridge your tokens to Base to meet the self-staking requirements. The BREV token address on Base is `0x086F405146Ce90135750Bbec9A063a8B20A8bfFb`.
+Because the BREV token is originally issued on Ethereum, you must [**bridge**](https://cbridge.celer.network/1/8453/BREV) your tokens to Base to meet the self-staking requirements (currently 1000 BREV). The BREV token address on Base is `0x086F405146Ce90135750Bbec9A063a8B20A8bfFb`.
 
 ### Prover and Submitter Roles
 
