@@ -30,6 +30,10 @@
   * [Write Applications](operation-manual/use-the-provernet/write-applications.md)
   * [Send Proof Requests](operation-manual/use-the-provernet/send-proof-requests.md)
 
+# Governance
+
+* [Brevis ProverNet Governance Framework](governance/brevis-provernet-governance-framework.md)
+
 # User Tutorial
 
 * [Staking in ProverNet](user-tutorial/staking-in-provernet.md)
