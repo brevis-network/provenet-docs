@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e0e560d8.js";
+            window.path_to_searchindex_js = "searchindex-9d337afa.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-9a48437a.js"></script>
+        <script src="toc-46035464.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1053,6 +1053,28 @@ go build -o tools
 <li><a href="https://github.com/brevis-network/pico/tree/main/examples/tendermint/app">Tendermint</a>: Verifies consensus transitions. A medium-weight workload that exercises Merkle proofs and signature checks.</li>
 <li><a href="https://github.com/brevis-network/pico/tree/main/perf/bench_apps/reth-pico">Reth</a>: Executes Ethereum block verification. A heavy workload representative of production proving jobs.</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="brevis-provernet-governance-framework"><a class="header" href="#brevis-provernet-governance-framework">Brevis ProverNet Governance Framework</a></h1>
+<p>The governance system of <strong>Brevis ProverNet</strong> is responsible for managing protocol parameters, coordinating upgrades, and overseeing critical decisions related to the operation of the decentralized prover marketplace.</p>
+<p>This includes, but is not limited to:</p>
+<ul>
+<li>Auction mechanism configuration (e.g. TODA parameters)</li>
+<li>Prover staking and slashing rules</li>
+<li>Network-level constraints (e.g. proof size, security thresholds)</li>
+<li>Protocol upgrades and contract ownership</li>
+</ul>
+<h3 id="governance-process"><a class="header" href="#governance-process">Governance Process</a></h3>
+<p>At network inception, governance is coordinated by a <strong>Security Council</strong> to ensure stability, responsiveness, and safe iteration during early-stage deployment.</p>
+<p>During this phase:</p>
+<ul>
+<li>Proposed changes are first discussed publicly in the <a href="https://forum.brevis.network">governance forum</a></li>
+<li>Community sentiment is measured through <strong>off-chain voting (using</strong> <a href="https://snapshot.box/#/s:brevisnetwork.eth"><strong>Snapshot</strong></a><strong>)</strong></li>
+<li>These votes serve as <strong>advisory signals</strong></li>
+<li>The Security Council conduct proposal execution</li>
+</ul>
+<p>This structure enables rapid iteration while maintaining transparency and community participation.</p>
+<p>The Security Council operates via a <strong>multisig contract (</strong>0xb7eB979f52c0b78837AE53Bc985BD5191C6e0ee7<strong>)</strong> with a predefined 3/5 signature threshold. The composition of the council is designed to include core contributors and trusted ecosystem participants.</p>
+<p>Over time, Brevis ProverNet governance will progressively transition toward a <strong>fully onchain governance model</strong>.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="staking-in-provernet"><a class="header" href="#staking-in-provernet">Staking in ProverNet</a></h1>
 <p>BREV holders can stake and delegate tokens to provers on ProverNet. Delegation works similarly to proof-of-stake systems: provers with more delegated stake can take on more proving jobs, and in return they share a portion of the proving fees with their delegators.</p>
